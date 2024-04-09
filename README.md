@@ -1,7 +1,5 @@
 # RestaurApp
 
-![Logo de RestaurApp](![image](https://github.com/CtrlJason/pag_web_inter/assets/142964641/21af9056-9fa9-4771-af0e-00f5a82fae61)
-
 ---
 
 ## ¡Bienvenido a RestaurApp!
