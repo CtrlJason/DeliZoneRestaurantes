@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style_navbar.css">
-    <link rel="stylesheet" href="./styles/style_main.css">
-    <title>Restaurante</title>
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="sub_navbar">
-                <ul class="ul_sub-navbar">
-                    <li><a class="link_sub-navbar" href="#">restaurantes</a></li>
-                    <li><a class="link_sub-navbar" href="#">contactenos</a></li>
-                </ul>
-            </div>
-            <div class="main_navbar">
-                <ul class="ul_main-navbar">
-                    <li><a class="link_main-navbar" href="#">Inicio</a></li>
-                    <li><a class="link_main-navbar" href="#">Platos</a></li>
-                    <li><a class="link_main-navbar" href="#">Carrito</a></li>
-                    <li><a class="link_main-navbar" href="#">Cuenta</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/style_navbar.css">
+        <link rel="stylesheet" href="./styles/style_main.css">
+        <title>Restaurante</title>
+    </head>
 
-    <main>
-        <h1 class="titulo">La Mojarra Roja</h1>
-        <div class="div__seccion">
-            <section class="seccion">
-                <div class="div__contenido">
-                    <img class="seccion__img" src="./img/platos/mojarra-frita.jpg" alt="mojarra-frita">
-                    <h3>Mojarra Frita</h3>
-                    <p>Deliciosa mojarra frita con limon</p>
+    <body>
+        <header class="nav">
+            <nav class="navbar">
+                <div class="sub_navbar">
+                    <ul class="ul_sub-navbar">
+                        <li><a class="link_sub-navbar" href="#">restaurantes</a></li>
+                        <li><a class="link_sub-navbar" href="#">contactenos</a></li>
+                    </ul>
                 </div>
-
-                <div class="div__contenido">
-                    <img class="seccion__img" src="./img/platos/picada.jfif" alt="picada">
-                    <h3>Picada frita al gusto</h3>
-                    <p>Picada a la colombianan</p>
+                <div class="main_navbar">
+                    <ul class="ul_main-navbar">
+                        <li><a class="link_main-navbar" href="#">Inicio</a></li>
+                        <li><a class="link_main-navbar" href="#">Platos</a></li>
+                        <!-- Links con iconos -->
+                        <!-- carrito -->
+                        <li><a class="link_main-navbar_carrito" href="#"><img src="./img/icons/car_shopping.svg" alt="Carrito de compras"></a></li>
+                        <!-- user -->
+                        <li><a class="link_main-navbar_user" href="#"><img src="./img/icons/user.svg" alt="icono de usuario"></a></li>
+                    </ul>
                 </div>
-            </section>
-        </div>
-    </main>
+            </nav>
+        </header>
 
-    <footer class="footer">
+        <main>
+            <div class="main_section-1">
+                <section class="platos-principales_main-section-1">
+                    <div class="content_main-section-1">
+                        <a href="#"><img class="image_main-section-1" src="./img/platos/mojarra-frita.jpg" alt="mojarra-frita"></a>
+                        <h3 class="subtitle_main-section-1">Mojarra Frita</h3>
+                        <p class="paragraph_main-section-1">Deliciosa mojarra frita con limon</p>
+                    </div>
+                    <div>
+                        <a href="#"><img class="image_main-section-1" src="./img/platos/picada.jfif" alt="picada"></a>
+                        <h3 class="subtitle_main-section-1">Picada frita al gusto</h3>
+                        <p class="paragraph_main-section-1">Picada a la colombiana</p>
+                    </div>
+                </section>
+            </div>
+        </main>
 
-    </footer>
-</body>
+        <footer>
+        </footer>
+    </body>
 </html>
