@@ -1,0 +1,119 @@
+.main_section-1{
+    background-color: #F5F3F4;
+}
+
+.platos-principales_main-section-1{
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px;
+    max-width: 100%;
+    border-radius: 25px;
+    background-image: url(../img/contenido/textura_madera.jpg); /* -/- se usa para dividir los atributos del background*/
+    background-size: cover;
+    background-position: center -25px;
+} 
+
+.image_main-section-1{
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    transition: width 120ms ease-out;
+    width: 400px;
+    max-width: 100%;
+}
+
+.image_main-section-1:hover{
+    transition: width 120ms ease-in;
+    width: 450px;
+    max-width: 100%;
+}
+
+.action_content_main-section-1{
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #F5F3F4;
+    box-shadow: 0 0 10px black;
+    text-align: center;
+}
+
+.subtitle_main-section-1{
+    background-color: #E5383B;
+    margin: 5% 0 0 0;
+    font-size: 25px;
+    text-align: center;
+}
+
+.paragraph_main-section-1{
+    margin: 0 0 5% 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+
+/*
+body{
+    background-color: rgb(255, 119, 0);
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+
+.box{
+    width: 100vw;
+    height: 40vh;
+    margin: 20px;
+    margin: 0;
+    background-color: #0006;
+    background-image: url(../img/comensales.jfif);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+.opaco{
+    height: 100%;
+    width: 100%;
+    background-color: #050a;
+}
+
+
+body{
+    font-size: 40px;
+    margin: 0;
+}
+div{
+    background: #ededed;
+    padding: 20px;
+    font-family: sans-serif;
+    border-left: 5px solid #999;
+    font-size: 20px;
+    width: 80vw;
+    height: 80vh;
+    margin: 0;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+h1{
+    margin: 0;
+    font-size: 22px;
+}
+
+p{
+    color: #555;
+}
+
+span{
+    color: #999;
+    font-size: 16px;
+    font-weight: 100;   
+    font-size: 1em;
+}
+*/
