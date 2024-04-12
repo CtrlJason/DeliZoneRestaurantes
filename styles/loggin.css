@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    /* background: url(../pag_register/img/fonds/pixelcut-export.jpeg) center / cover; */
+
+    background: radial-gradient(#E5383B, #BA181B);
+
+}
+
+.content_main{
+    width: 500px;
+    height: 550px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 60px;
+    border-radius: 5px;
+
+    max-width: 100%;
+    background-color: white;
+    box-shadow: 0 0 8px;
+}
+
+.content_main h2{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.atribute_content-main{
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 5px;
+    border: 2px solid #a4161b85;
+    border-radius: 5px;
+    font-size: 14px;
+
+}
+
+.checkbox_content-main{
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
+    display: block;
+    margin: 10px;
+}
+
+.checkbox_content-main:hover{
+    border-radius: 5px;
+    background-color: #e5383b83;
+}
+
+.checkbox_content-main input{
+    
+}
+
+.link_content-main{
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+
+    color: #E5383B;
+    text-decoration: none;
+}
+
+.link_content-main:hover{
+    color: #660708;
+}
+
+.bttn_content-main{
+    margin-top: 20px;
+}
+

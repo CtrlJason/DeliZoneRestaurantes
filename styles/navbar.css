@@ -1,6 +1,5 @@
 *{
     margin: 0;
-    font-family: Helvetica, sans-serif;
 }
 /* ---------- Barra de navegacion ----------*/
 
@@ -73,6 +72,22 @@
 
 .link_main-navbar_carrito{
     margin-left: 200px;
+}
+
+/* Carrito de compras*/
+
+.car-shopping_main-navbar{
+    display: none;
+    margin-top: 3%;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 10px #A4161A;
+    border-color: #161A1D;
+    width: 16%;
+    height: 60%;
+
+    text-align: center;
 }
 
 .link_main-navbar_user{

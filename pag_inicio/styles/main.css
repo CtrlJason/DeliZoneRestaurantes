@@ -1,3 +1,7 @@
+*{
+    font-family:sans-serif;
+}
+
 .main_section-1{
     background-color: #F5F3F4;
 }
@@ -10,7 +14,7 @@
     margin: 20px;
     max-width: 100%;
     border-radius: 25px;
-    background-image: url(../img/contenido/textura_madera.jpg); /* -/- se usa para dividir los atributos del background*/
+    background-image: url(../../resources/img/contenido/textura_madera.jpg); /* -/- se usa para dividir los atributos del background*/
     background-size: cover;
     background-position: center -25px;
 } 
@@ -39,6 +43,7 @@
 }
 
 .subtitle_main-section-1{
+    border-radius: 5px 5px 0 0;
     background-color: #E5383B;
     margin: 5% 0 0 0;
     font-size: 25px;
@@ -49,6 +54,10 @@
     margin: 0 0 5% 0;
     font-weight: bold;
     text-align: center;
+}
+
+.bttn{
+    margin-bottom: 20px;
 }
 
 
