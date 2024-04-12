@@ -4,8 +4,8 @@
 
 ## ¡Bienvenido a RestaurApp!
 
-RestaurApp es una plataforma integral que combina una aplicación móvil y un sitio web diseñados para revolucionar la experiencia gastronómica en Bogotá. Nuestra aplicación ofrece soluciones innovadoras para restaurantes y comensales, permitiendo una gestión eficiente de pedidos, reservas y entrega a domicilio.
-
+RestaurApp es una plataforma integral que combina una aplicación móvil y un sitio web diseñados para revolucionar la experiencia gastronómica en Bogotá. Nuestra aplicación ofrece soluciones innovadoras para restaurantes y comensales, permitiendo una gestión eficiente de pedidos, reservas y entrega a domicilio 🍲.
+[![imagen-2024-04-12-005817245.png](https://i.postimg.cc/25YJjwb7/imagen-2024-04-12-005817245.png)](https://postimg.cc/w1WF0Dk1)
 ---
 
 ## Características Principales
