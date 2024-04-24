@@ -1,0 +1,57 @@
+body{
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlkbmUyeXZmM29hMm5idnN6cGoxMW54OGR3dGZqdmJzejgzZml5byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IPooGNUCe2fEFa/giphy.gif);
+}
+
+
+.formulario fieldset{
+    border-style: none;
+    background-color: #E5383B;
+
+    border-radius: 10px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 40px 20px;
+
+    width: 600px;
+}
+
+.formulario legend{
+    padding: 5px;
+    border: 2px;
+    border-top: 2px solid black;
+    background-color: #E5383B;
+    border-radius: 4px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.formulario h4{
+    font-size: 16px;
+    margin: 8px 0 4px 0;
+}
+
+.formulario input{
+    border-style: none;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 8px;
+    width: 50%;
+}
+
+.area_texto{
+    text-align: center;
+}
+
+.formulario textarea{
+    border-style: none;
+    border: 2px solid black;
+
+    border-radius: 4px;
+    width: 60%;
+    resize: none;
+}

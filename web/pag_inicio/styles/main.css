@@ -1,12 +1,9 @@
-*{
-    font-family:sans-serif;
-}
-
 .content_main-section-1{
     padding: 120px 0;
     background-color: blur(20px);
     background-position: center;
-    background-image: url(https://th.bing.com/th/id/R.3d95e4fe263e3c1817156585e9a805bf?rik=dw3bXhtnOwLe%2bw&riu=http%3a%2f%2flovigo.mx%2fwp-content%2fuploads%2f2016%2f10%2fLas-6-Mejores-Islas-del-Caribe.jpg&ehk=QgYIiHhSQiSlKNg%2ff%2bNCbmGZZ0AR%2ff8zxaWhzsHK6CQ%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+    background-image: url(https://cdn.colombia.com/sdi/2020/06/16/colombia-fortuna-dos-mares-838921.jpg);
 }
 
 .content_main-section-1 h1{
