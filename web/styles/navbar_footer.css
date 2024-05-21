@@ -43,13 +43,14 @@ nav{
 .main_navbar{
     background-color: #FFFFFF;
     padding: 20px 40px 20px 0;
+    width: 100%;
 }
 
 .ul_main-navbar{
     display: flex;
-    justify-content: right;
-    gap: 50px;
-
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
     list-style: none;
 }
 
@@ -57,23 +58,28 @@ nav{
     padding: 5px;
     text-decoration: none;
     font-size: 20px;
-    font-weight: lighter;
-
+    font-weight: 500;
+    border-radius: 8px;
     color: #161A1D;
-    
+    transition: color 250ms ease-out;
+    transition: background-color 250ms ease-out; /*-ease- Agrega una transición suave */
 }
 
 .link_main-navbar:hover{
     padding: 5px;
-
-    transition: color 0.3s ease;
-    transition: background-color 0.3s ease; /*-ease- Agrega una transición suave */
-
     color: #F5F3F4;
     background-color: #660708;
-    font-weight: lighter;
-    border-radius: 8px;
 }
+
+/* .usuario{
+    position: absolute;
+    margin-left: 30%;
+}
+
+.carrito_compras{
+    position: absolute;
+    margin-left: 20%;
+} */
 
 /* --Iconos de navegacion-- */
 
@@ -101,18 +107,22 @@ nav{
 
 .pie_pagina{
     background-color: #161A1D;
-    padding: 120px;
+    height: 180px;
+    padding: 5%;
     display: flex;
-    align-items: center;
-    gap: 300px;
+    gap: 26.5%;
 }
 
+/* .redes_sociales{
+
+} */
+
 .iconos_redes{
+    position: absolute;
     width: 48px;
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 3px;
-    margin: 0 8px;
     transition: width 50ms ease-in;
 }
 
@@ -120,10 +130,34 @@ nav{
     width: 52px;
 }
 
+.iconos_redes.facebook{
+    margin-left: 65px;
+}
+
+.iconos_redes.google{
+    margin-left: 130px;
+}
+
+.secciones_pagina{
+    margin-left: 15%;
+}
+
 .link_pie{
     display: block;
-    margin: 15px 0 0 0;
+    padding: 10px 0;
     text-decoration: none;
     color: #FFFFFF;
     font-size: 18px;
+    transition: color 80ms;
+}
+
+.link_pie:hover{
+    color: #660708;
+}
+
+.derechos_reservados{
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 35%;
+    color: #FFFFFF;
 }
