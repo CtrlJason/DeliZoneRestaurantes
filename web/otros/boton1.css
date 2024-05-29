@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    background-color: #E76F51;
+}
+
+.boton_contenedor{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn{
+    height: 5%;
+    width: 6%;
+    border-radius: 50px;
+    border: 5px solid #264653;
+
+    position: relative;
+}
+
+.capa-1{
+    box-sizing: border-box;
+    border-radius: 50px;
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    background-color: #E9C46A;
+    cursor: pointer;
+    border: 0 0 0 5px solid pink;
+}
+
+.capa-1:active{
+    animation: modo 0.5s forwards;
+}
+
+@keyframes modo{
+    0%{
+        left: 0;
+        background-color: #E9C46A;
+    }
+    100%{
+        left: 18px;
+        background-color: #2A9D8F;
+    }
+}
+
+/* .capa-2{
+    box-sizing: border-box;
+    border-radius: 50px;
+    height: 100%;
+    width: 90%;
+    background-color: #264653;
+
+    top: 0;
+    left: 10px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.capa-2:active{
+    display: none;
+} */
+
+body:active{
+    background-color: #023047;
+    animation: modo_back 0.5s forwards;
+}
+
+@keyframes modo_back{
+    0%{
+        background-color: #E76F51;
+    }
+    100%{
+        background-color: #023047;
+    }
+}
