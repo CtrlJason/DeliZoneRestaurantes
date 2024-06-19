@@ -1,11 +1,12 @@
 body{
     background-size: cover;
     background-position: center;
+    background-color: #E5383B;
 }
 
 .formulario fieldset{
     border-style: none;
-    background-color: #E5383B;
+    background-color:brown;
 
     border-radius: 10px;
     border: 2px solid black;

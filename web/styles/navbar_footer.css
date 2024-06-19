@@ -71,16 +71,6 @@ nav{
     background-color: #660708;
 }
 
-/* .usuario{
-    position: absolute;
-    margin-left: 30%;
-}
-
-.carrito_compras{
-    position: absolute;
-    margin-left: 20%;
-} */
-
 /* --Iconos de navegacion-- */
 
 .link_main-navbar_carrito{
@@ -157,7 +147,7 @@ nav{
 
 .derechos_reservados{
     position: absolute;
-    margin-top: 15%;
+    margin-top: 13%;
     margin-left: 35%;
     color: #FFFFFF;
 }

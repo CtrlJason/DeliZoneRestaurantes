@@ -64,7 +64,7 @@
 }
 
 .paragraph_main-section-2{
-    margin: 0 0 5% 0;
+    margin: 5% 0 5% 0;
     font-weight: bold;
     text-align: center;
     width: 100%;
@@ -84,49 +84,3 @@
     padding: 6px;
     border-radius: 10px;
 }
-
-.barra_carga{
-    box-sizing: border-box;
-    padding: 20px;
-    border: 30px;
-    width: 0%;
-    animation-name: llenar-barra;
-    animation-duration: 2s;
-    animation-fill-mode:both;
-    animation-timing-function: linear;
-    animation-iteration-count: 4;
-    animation-direction:alternate;
-    animation-delay: 3s;
-    animation-play-state:running;
-}
-
-.barra_carga:hover{
-    animation-play-state: paused;
-}
-
-@keyframes llenar-barra{
-    
-    from{
-        width: 0%;
-        background-color: #E5383B;
-    }
-
-    to{
-        width: 100%;
-        background-color: gold;
-    }
-
-}
-
-
-
-/* .barra_carga:active{
-    width: 100%;
-    background-color: rgb(0, 255, 0);
-    transition-duration: 3s;
-} */
-
-/* 
-img [src^="picada"]{
-    width: 600px;
-} */
