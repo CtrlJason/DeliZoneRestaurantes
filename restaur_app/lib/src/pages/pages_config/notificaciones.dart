@@ -15,10 +15,15 @@ class _NotificacionesState extends State<Notificaciones> {
         toolbarHeight: 100,
         title: const Text(
           "Notificaciones",
-          style: TextStyle(fontSize: 20),
+          style: TextStyle(fontSize: 35),
         ),
       ),
-      body: const Text("Contenido de las notificaciones"),
+      body: const Center(
+        child: Text(
+          "Configurar Notificaciones",
+          style: TextStyle(fontSize: 25),
+        ),
+      ),
     );
   }
 }

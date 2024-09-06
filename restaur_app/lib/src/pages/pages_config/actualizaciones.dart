@@ -14,11 +14,16 @@ class _ActualizacionesState extends State<Actualizaciones> {
       appBar: AppBar(
         toolbarHeight: 100,
         title: const Text(
-          "Notificaciones",
-          style: TextStyle(fontSize: 20),
+          "Actualizaciones",
+          style: TextStyle(fontSize: 35),
         ),
       ),
-      body: Text("Contenido de las actualizaciones"),
+      body: const Center(
+        child: Text(
+          "Mostrar Actualizaciones",
+          style: TextStyle(fontSize: 25),
+        ),
+      ),
     );
   }
 }

@@ -26,159 +26,68 @@ class Ajustes extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Boton Notificaciones
-                    TextButton(
-                      onPressed: () {
-                        {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const Notificaciones()));
-                        }
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        iconColor:
-                            Colors.red, // Color del texto e ícono// Padding
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Bordes redondeados
-                        ),
-                      ),
-                      child: const Row(
-                        mainAxisSize:
-                            MainAxisSize.min, // Ajusta el tamaño al contenido
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_left,
-                            size: 40,
-                          ), // Ícono
-                          SizedBox(
-                              width: 24), // Espacio entre el ícono y el texto
-                          Text(
-                            'Notificaciones',
-                            textScaler: TextScaler.linear(1.7),
-                          ), // Texto
-                        ],
-                      ),
-                    ),
+                    _botonesAjustes(
+                        context: context,
+                        route: const Notificaciones(),
+                        buttonText: "Notificaciones"),
                     const SizedBox(height: 60.0),
                     // Boton del Manual
-                    TextButton(
-                      onPressed: () {
-                        {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Manual()));
-                        }
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        iconColor:
-                            Colors.red, // Color del texto e ícono // Padding
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Bordes redondeados
-                        ),
-                      ),
-                      child: const Row(
-                        mainAxisSize:
-                            MainAxisSize.min, // Ajusta el tamaño al contenido
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_left,
-                            size: 40,
-                          ), // Ícono
-
-                          SizedBox(
-                              width: 24), // Espacio entre el ícono y el texto
-                          Text(
-                            'Manual',
-                            textScaler: TextScaler.linear(1.7),
-                          ), // Texto
-                        ],
-                      ),
-                    ),
+                    _botonesAjustes(
+                        context: context,
+                        route: const Manual(),
+                        buttonText: "Manual"),
                     const SizedBox(height: 60.0),
                     // Boton Actualizaciones
-                    TextButton(
-                      onPressed: () {
-                        {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const Actualizaciones()));
-                        }
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        iconColor:
-                            Colors.red, // Color del texto e ícono // Padding
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Bordes redondeados
-                        ),
-                      ),
-                      child: const Row(
-                        mainAxisSize:
-                            MainAxisSize.min, // Ajusta el tamaño al contenido
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_left,
-                            size: 40,
-                          ), // Ícono
-                          SizedBox(
-                              width: 24), // Espacio entre el ícono y el texto
-                          Text(
-                            'Actualizaciones',
-                            textScaler: TextScaler.linear(1.7),
-                          ), // Texto
-                        ],
-                      ),
-                    ),
+                    _botonesAjustes(
+                        context: context,
+                        route: const Actualizaciones(),
+                        buttonText: "Actualizaciones"),
                     const SizedBox(height: 60.0),
-                    // Boton, Salir
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Login()),
-                          (Route<dynamic> route) =>
-                              false, // Elimina todas las rutas anteriores
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        iconColor:
-                            Colors.red, // Color del texto e ícono // Padding
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20), // Bordes redondeados
-                        ),
-                      ),
-                      child: const Row(
-                        mainAxisSize:
-                            MainAxisSize.min, // Ajusta el tamaño al contenido
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_left,
-                            size: 40,
-                          ), // Ícono
-                          SizedBox(
-                              width: 24), // Espacio entre el ícono y el texto
-                          Text(
-                            'Salir',
-                            textScaler: TextScaler.linear(1.7),
-                          ), // Texto
-                        ],
-                      ),
-                    ),
+                    // Boton Salir
+                    _botonesAjustes(
+                        context: context,
+                        route: const Login(),
+                        buttonText: "Salir")
                   ])),
         ),
       ),
     );
   }
+}
+
+Widget _botonesAjustes({
+  required BuildContext context,
+  required Widget route,
+  required String buttonText, // Agregamos el parámetro para el texto
+}) {
+  return TextButton(
+    onPressed: () {
+      Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => route,
+          ));
+    },
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.black,
+      iconColor: Colors.red,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20), // Bordes redondeados
+      ),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Icon(
+          Icons.arrow_circle_left,
+          size: 40,
+        ),
+        const SizedBox(width: 24),
+        Text(
+          buttonText, // Utilizamos el parámetro para el texto del botón
+          style: const TextStyle(fontSize: 25, color: Colors.black),
+        ),
+      ],
+    ),
+  );
 }

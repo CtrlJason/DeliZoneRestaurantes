@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'boton_ajustes.dart';
+import 'botones_footer.dart';
 
 class HistorialPed extends StatefulWidget {
   const HistorialPed({super.key});
@@ -17,6 +19,7 @@ class _HistorialPedState extends State<HistorialPed> {
           "Historial",
           style: TextStyle(fontSize: 35),
         ),
+        actions: const [BotonAjustes()], // Boton de ajustes externo
       ),
       body: const Center(
         child: Text(
@@ -24,6 +27,7 @@ class _HistorialPedState extends State<HistorialPed> {
           style: TextStyle(fontSize: 25),
         ),
       ),
+      persistentFooterButtons: const [BotonesFooter()],
     );
   }
 }

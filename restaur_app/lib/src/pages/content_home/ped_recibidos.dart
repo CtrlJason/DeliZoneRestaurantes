@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'botones_footer.dart';
+import 'boton_ajustes.dart';
 
 class PedRecibidos extends StatefulWidget {
   const PedRecibidos({super.key});
@@ -14,9 +16,10 @@ class _PedRecibidosState extends State<PedRecibidos> {
       appBar: AppBar(
         toolbarHeight: 100,
         title: const Text(
-          "Pedidos Recibidos",
+          "Pedidos",
           style: TextStyle(fontSize: 35),
         ),
+        actions: const [BotonAjustes()], // Boton de ajustes externo
       ),
       body: const Center(
         child: Text(
@@ -24,6 +27,7 @@ class _PedRecibidosState extends State<PedRecibidos> {
           style: TextStyle(fontSize: 25),
         ),
       ),
+      persistentFooterButtons: const [BotonesFooter()],
     );
   }
 }

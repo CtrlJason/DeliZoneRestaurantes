@@ -14,31 +14,35 @@ class BotonesFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           // Boton de pedidos recibidos
-          _buildIconButton(
+          _botonesFooter(
               icon: Icons.notifications,
               context: context,
-              route: PedRecibidos()),
+              route: const PedRecibidos()),
           // Boton de pedidos enviados
           const SizedBox(width: 20),
-          _buildIconButton(
-              icon: Icons.two_wheeler, context: context, route: PedEnviados()),
+          _botonesFooter(
+              icon: Icons.two_wheeler,
+              context: context,
+              route: const PedEnviados()),
           // Boton de pedidos entregados
           const SizedBox(width: 20),
-          _buildIconButton(
-              icon: Icons.how_to_reg, context: context, route: PedEntregados()),
+          _botonesFooter(
+              icon: Icons.how_to_reg,
+              context: context,
+              route: const PedEntregados()),
           // Boton del historial
           const SizedBox(width: 20),
-          _buildIconButton(
+          _botonesFooter(
             icon: Icons.history,
             context: context,
-            route: HistorialPed(),
+            route: const HistorialPed(),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildIconButton({
+  Widget _botonesFooter({
     required IconData icon,
     required BuildContext context,
     required Widget route,
@@ -46,7 +50,14 @@ class BotonesFooter extends StatelessWidget {
     return IconButton(
       icon: Icon(icon),
       onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => route));
+        Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) => route,
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+          ),
+        );
       },
       style: const ButtonStyle(
         iconColor: WidgetStatePropertyAll(Colors.white),

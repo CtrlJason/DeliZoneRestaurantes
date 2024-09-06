@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'botones_footer.dart';
+import 'boton_ajustes.dart';
 
 class PedEnviados extends StatefulWidget {
   const PedEnviados({super.key});
@@ -17,6 +19,7 @@ class _PedEnviadosState extends State<PedEnviados> {
           "Pedidos Enviados",
           style: TextStyle(fontSize: 35),
         ),
+        actions: const [BotonAjustes()], // Boton de ajustes externo
       ),
       body: const Center(
         child: Text(
@@ -24,6 +27,7 @@ class _PedEnviadosState extends State<PedEnviados> {
           style: TextStyle(fontSize: 25),
         ),
       ),
+      persistentFooterButtons: const [BotonesFooter()],
     );
   }
 }
