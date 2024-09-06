@@ -13,6 +13,22 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   TextEditingController cedula = TextEditingController();
   TextEditingController password = TextEditingController();
+  bool isButtonEnabled = false;
+
+  void initState() {
+    super.initState();
+    // Escuchamos los cambios en los controladores
+    cedula.addListener(_checkFields);
+    password.addListener(_checkFields);
+  }
+
+  void _checkFields() {
+    // Habilitar o deshabilitar el botón
+    setState(() {
+      isButtonEnabled = cedula.text.isNotEmpty && password.text.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,13 +95,15 @@ class _LoginState extends State<Login> {
                           ),
                           // Boton de inicio de sesion
                           TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const HomeScreen()));
-                            },
+                            onPressed: isButtonEnabled // Condicional
+                                ? () {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HomeScreen()));
+                                  }
+                                : null,
                             style: TextButton.styleFrom(
                               foregroundColor: Colors.black,
                               iconColor: Colors.white,
