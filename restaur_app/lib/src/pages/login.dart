@@ -33,111 +33,108 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Titulo del login
-                    const Text(
-                      "Iniciar Sesion",
-                      style: TextStyle(fontSize: 35),
-                    ),
-                    Container(
-                      // Inputs de login
-                      margin:
-                          const EdgeInsets.only(top: 40, left: 50, right: 50),
-                      child: Column(
-                        children: [
-                          // Input numero de cedula
-                          TextField(
-                            controller: cedula,
-                            decoration: const InputDecoration(
-                              hintText: "Numero de Cedula",
-                              hintStyle: TextStyle(fontSize: 20),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  borderSide: BorderSide(color: Colors.black)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  borderSide: BorderSide(color: Colors.red)),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Titulo del login
+                  const Text(
+                    "Iniciar Sesion",
+                    style: TextStyle(fontSize: 35),
+                  ),
+                  Container(
+                    // Inputs de login
+                    margin: const EdgeInsets.only(top: 40, left: 50, right: 50),
+                    child: Column(
+                      children: [
+                        // Input numero de cedula
+                        TextField(
+                          controller: cedula,
+                          decoration: const InputDecoration(
+                            hintText: "Numero de Cedula",
+                            hintStyle: TextStyle(fontSize: 20),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                                borderSide: BorderSide(color: Colors.black)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                                borderSide: BorderSide(color: Colors.red)),
+                          ),
+                          maxLength: 15,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                          ],
+                        ),
+                        // Input contraseña
+                        TextField(
+                          controller: password,
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            hintText: "Contraseña",
+                            hintStyle: TextStyle(fontSize: 20),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                                borderSide: BorderSide(color: Colors.black)),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                                borderSide: BorderSide(color: Colors.red)),
+                          ),
+                        ),
+                        // Boton de login
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        // Boton de inicio de sesion
+                        TextButton(
+                          onPressed: isButtonEnabled // Condicional
+                              ? () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const HomeScreen()));
+                                }
+                              : null,
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            iconColor: Colors.white,
+                            padding: const EdgeInsets.only(right: 50),
+                            backgroundColor: Colors.red,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                            maxLength: 15,
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly,
+                          ),
+                          child: const Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.arrow_circle_left,
+                                size: 40,
+                              ),
+                              SizedBox(width: 24),
+                              Text(
+                                'Login',
+                                style: TextStyle(fontSize: 20),
+                              ),
                             ],
                           ),
-                          // Input contraseña
-                          TextField(
-                            controller: password,
-                            obscureText: true,
-                            decoration: const InputDecoration(
-                              hintText: "Contraseña",
-                              hintStyle: TextStyle(fontSize: 20),
-                              enabledBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  borderSide: BorderSide(color: Colors.black)),
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  borderSide: BorderSide(color: Colors.red)),
-                            ),
-                          ),
-                          // Boton de login
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          // Boton de inicio de sesion
-                          TextButton(
-                            onPressed: isButtonEnabled // Condicional
-                                ? () {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const HomeScreen()));
-                                  }
-                                : null,
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.black,
-                              iconColor: Colors.white,
-                              padding: const EdgeInsets.only(right: 50),
-                              backgroundColor: Colors.red,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            child: const Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.arrow_circle_left,
-                                  size: 40,
-                                ),
-                                SizedBox(width: 24),
-                                Text(
-                                  'Login',
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const Derechos(),
-            ],
-          ),
+            ),
+            const Derechos(),
+          ],
         ),
       ),
     );

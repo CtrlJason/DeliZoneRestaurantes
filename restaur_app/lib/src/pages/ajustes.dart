@@ -17,39 +17,37 @@ class Ajustes extends StatelessWidget {
           style: TextStyle(fontSize: 20),
         ),
       ),
-      body: Container(
-        child: Center(
-          child: Container(
-              padding: const EdgeInsets.only(bottom: 100),
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Boton Notificaciones
-                    _botonesAjustes(
-                        context: context,
-                        route: const Notificaciones(),
-                        buttonText: "Notificaciones"),
-                    const SizedBox(height: 60.0),
-                    // Boton del Manual
-                    _botonesAjustes(
-                        context: context,
-                        route: const Manual(),
-                        buttonText: "Manual"),
-                    const SizedBox(height: 60.0),
-                    // Boton Actualizaciones
-                    _botonesAjustes(
-                        context: context,
-                        route: const Actualizaciones(),
-                        buttonText: "Actualizaciones"),
-                    const SizedBox(height: 60.0),
-                    // Boton Salir
-                    _botonesAjustes(
-                        context: context,
-                        route: const Login(),
-                        buttonText: "Salir")
-                  ])),
-        ),
+      body: Center(
+        child: Container(
+            padding: const EdgeInsets.only(bottom: 100),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Boton Notificaciones
+                  _botonesAjustes(
+                      context: context,
+                      route: const Notificaciones(),
+                      buttonText: "Notificaciones"),
+                  const SizedBox(height: 60.0),
+                  // Boton del Manual
+                  _botonesAjustes(
+                      context: context,
+                      route: const Manual(),
+                      buttonText: "Manual"),
+                  const SizedBox(height: 60.0),
+                  // Boton Actualizaciones
+                  _botonesAjustes(
+                      context: context,
+                      route: const Actualizaciones(),
+                      buttonText: "Actualizaciones"),
+                  const SizedBox(height: 60.0),
+                  // Boton Salir
+                  _botonesAjustes(
+                      context: context,
+                      route: const Login(),
+                      buttonText: "Salir")
+                ])),
       ),
     );
   }
