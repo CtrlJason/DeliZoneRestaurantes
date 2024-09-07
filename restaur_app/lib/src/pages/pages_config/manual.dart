@@ -1,9 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:path_provider/path_provider.dart';
-import 'package:open_file/open_file.dart';
-import 'dart:io';
-import 'dart:typed_data';
 
 class Manual extends StatelessWidget {
   const Manual({super.key});
@@ -20,7 +15,7 @@ class Manual extends StatelessWidget {
       ),
       body: const Center(
           child: TextButton(
-        onPressed: _openLocalPDF,
+        onPressed: null,
         style: ButtonStyle(
           iconColor: WidgetStatePropertyAll(Colors.white),
           backgroundColor:
@@ -36,19 +31,3 @@ class Manual extends StatelessWidget {
 }
 
 // funcion para abrir el pdf y hacerla privada
-Future<void> _openLocalPDF() async {
-  // Obtén el directorio de documentos
-  final directory = await getApplicationDocumentsDirectory();
-  final filePath = '${directory.path}/manual.pdf';
-
-  // Copia el archivo desde los assets al directorio de documentos
-  final file = File(filePath);
-  if (!await file.exists()) {
-    final ByteData data = await rootBundle.load('assets/manual.pdf');
-    final List<int> bytes = data.buffer.asUint8List();
-    await file.writeAsBytes(bytes);
-  }
-
-  // Abre el archivo
-  OpenFile.open(filePath);
-}
