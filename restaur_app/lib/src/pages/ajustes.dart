@@ -60,11 +60,18 @@ Widget _botonesAjustes({
 }) {
   return TextButton(
     onPressed: () {
-      Navigator.push(
-          context,
-          PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) => route,
-          ));
+      if (buttonText == "Salir") {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => route),
+            (Route<dynamic> route) => false);
+      } else {
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => route,
+            ));
+      }
     },
     style: TextButton.styleFrom(
       foregroundColor: Colors.black,
