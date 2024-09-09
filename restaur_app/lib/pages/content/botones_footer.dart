@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './ped_recibidos.dart';
-import './ped_enviados.dart';
-import './ped_entregados.dart';
-import './historial_ped.dart';
+import 'ped_recibidos.dart';
+import 'ped_enviados.dart';
+import 'ped_entregados.dart';
+import 'historial_ped.dart';
 
 class BotonesFooter extends StatelessWidget {
   const BotonesFooter({super.key});

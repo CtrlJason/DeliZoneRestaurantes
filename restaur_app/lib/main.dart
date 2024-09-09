@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import './src/pages/login.dart';
+import 'package:restaur_app/pages/extra/alerta_notificaciones.dart';
+import 'pages/login.dart';
 
 // Importaciones de Firebase
 import 'package:firebase_core/firebase_core.dart';
@@ -7,6 +8,7 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initNotifications();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

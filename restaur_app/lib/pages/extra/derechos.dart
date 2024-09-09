@@ -7,7 +7,7 @@ class Derechos extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Text(
       "Todos lo derecho estan reservados ©️",
-      style: TextStyle(color: Colors.grey),
+      style: TextStyle(color: Color.fromARGB(255, 253, 215, 215)),
     );
   }
 }

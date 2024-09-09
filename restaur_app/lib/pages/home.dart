@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import './content_home/ped_recibidos.dart';
-import './extra/derechos.dart';
+import 'content/ped_recibidos.dart';
+import 'extra/derechos.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

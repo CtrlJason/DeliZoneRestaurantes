@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 FirebaseFirestore db = FirebaseFirestore.instance;
 
 // Funcion que trae la informacion de la base de datos
-Future<List> getUser() async {
+Future<List> getEmpleados() async {
   List empleados = [];
 
   CollectionReference referenciaEmpleados = db.collection("empleado");
@@ -12,9 +12,9 @@ Future<List> getUser() async {
   QuerySnapshot queryEmpleados = await referenciaEmpleados
       .get(); // Esto nos trae toda la informacion del documento
 
-  queryEmpleados.docs.forEach((documento) {
+  for (var documento in queryEmpleados.docs) {
     empleados.add(documento.data()); // Agregamos la data del documento
-  });
+  }
 
   return empleados;
 }

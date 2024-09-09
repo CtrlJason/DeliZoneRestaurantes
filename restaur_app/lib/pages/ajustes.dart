@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import "package:restaur_app/src/pages/login.dart";
-import './pages_config/notificaciones.dart';
-import './pages_config/manual.dart';
-import './pages_config/actualizaciones.dart';
+import "package:restaur_app/pages/login.dart";
+import 'config/manual.dart';
+import 'config/actualizaciones.dart';
+import 'config/notificaciones.dart';
 
 class Ajustes extends StatelessWidget {
   const Ajustes({super.key});
@@ -27,7 +27,7 @@ class Ajustes extends StatelessWidget {
                   // Boton Notificaciones
                   _botonesAjustes(
                       context: context,
-                      route: const Notificaciones(),
+                      route: Notificaciones(),
                       buttonText: "Notificaciones"),
                   const SizedBox(height: 60.0),
                   // Boton del Manual

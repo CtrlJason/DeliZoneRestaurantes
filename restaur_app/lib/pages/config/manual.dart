@@ -15,7 +15,7 @@ class Manual extends StatelessWidget {
         ),
       ),
       // Manual de usuario
-      body: SfPdfViewer.asset("assets/manual.pdf"),
+      body: SfPdfViewer.asset("assets/documents/manual.pdf"),
     );
   }
 }
