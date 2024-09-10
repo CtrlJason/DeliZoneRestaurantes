@@ -3,6 +3,7 @@ import 'content/ped_recibidos.dart';
 import 'extra/derechos.dart';
 
 class HomeScreen extends StatefulWidget {
+  // Creacion del constructor (opcional)
   const HomeScreen({super.key});
 
   @override

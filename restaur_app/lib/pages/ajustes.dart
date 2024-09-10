@@ -27,7 +27,7 @@ class Ajustes extends StatelessWidget {
                   // Boton Notificaciones
                   _botonesAjustes(
                       context: context,
-                      route: Notificaciones(),
+                      route: const Notificaciones(),
                       buttonText: "Notificaciones"),
                   const SizedBox(height: 60.0),
                   // Boton del Manual
@@ -57,42 +57,41 @@ Widget _botonesAjustes({
   required BuildContext context,
   required Widget route,
   required String buttonText, // Agregamos el parámetro para el texto
-}) {
-  return TextButton(
-    onPressed: () {
-      if (buttonText == "Salir") {
-        Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => route),
-            (Route<dynamic> route) => false);
-      } else {
-        Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => route,
-            ));
-      }
-    },
-    style: TextButton.styleFrom(
-      foregroundColor: Colors.black,
-      iconColor: Colors.red,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20), // Bordes redondeados
+}) => // El TextButton se coincidera como una sola expresion y el "fat arrow" puede devolver el Widget
+    TextButton(
+      onPressed: () {
+        if (buttonText == "Salir") {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => route),
+              (Route<dynamic> route) => false);
+        } else {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) => route,
+              ));
+        }
+      },
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.black,
+        iconColor: Colors.red,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20), // Bordes redondeados
+        ),
       ),
-    ),
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const Icon(
-          Icons.arrow_circle_left,
-          size: 40,
-        ),
-        const SizedBox(width: 24),
-        Text(
-          buttonText, // Utilizamos el parámetro para el texto del botón
-          style: const TextStyle(fontSize: 25, color: Colors.black),
-        ),
-      ],
-    ),
-  );
-}
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.arrow_circle_left,
+            size: 40,
+          ),
+          const SizedBox(width: 24),
+          Text(
+            buttonText, // Utilizamos el parámetro para el texto del botón
+            style: const TextStyle(fontSize: 25, color: Colors.black),
+          ),
+        ],
+      ),
+    );
