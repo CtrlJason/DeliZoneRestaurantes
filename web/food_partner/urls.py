@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('food_partner_app.urls'))
+    # path('/nombre de como quiero que salga en el navegador') 
 ]
