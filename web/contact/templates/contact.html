@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+{% endblock %}
+
+{% block title %}
+    Contactenos
+{% endblock %}
+
+{% block content %}
+        <section>
+            <div class="formulario">
+                <fieldset>
+                    <legend>Informacion Básica</legend>
+                    <h4>Nombre</h4>
+                    <input type="text" placeholder="juan">
+                    <h4>Apellidos</h4>
+                    <input type="text" placeholder="garcia">
+                    <h4>Correo electronico</h4>
+                    <input type="email" placeholder="email@gmail.com">
+                </fieldset>
+                <fieldset>
+                    <legend>Descripción</legend>
+                    <div class="area_texto">
+                        <textarea rows="6"></textarea>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+{% endblock %}

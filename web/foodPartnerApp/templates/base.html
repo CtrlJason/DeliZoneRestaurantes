@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+
+        <link rel="icon" href="../static/img/icons/logos_navbar/icono.png"
+        style="width: 64px; height: 64px;" type="image/png">
+        <link rel="stylesheet" href="{% static 'css/ajustes.css' %}">
+        <link rel="stylesheet" href="{% static 'css/buttoms.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar_footer.css' %}">
+
+        {% comment %} <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+        <link rel="stylesheet" href="{% static 'css/loggin.css' %}">
+        <link rel="stylesheet" href="{% static 'css/user.css' %}"> {% endcomment %}
+
+        {% block extra_css %}{% endblock %}
+
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="sub_navbar">
+                    <ul class="ul_sub-navbar">
+                        <li><a class="link_sub-navbar" href="#">restaurantes</a></li>
+                        <li><a class="link_sub-navbar" href="#">contactenos</a></li>
+                    </ul>
+                </div>
+                <div class="main_navbar">
+                    <ul class="ul_main-navbar">
+                        <li><a class="link_main-navbar" href="#">Inicio</a></li>
+                        <li><a class="link_main-navbar" href="#">Platos</a></li>
+                        <!-- Links con iconos -->
+                        <!-- carrito -->
+                        <li><a class="link_main-navbar_car-shopping" href="#"><img class="carrito_compras" src="../static/img/icons/logos_navbar/car_shopping.svg" alt="Carrito de compras"></a></li>
+                        <div class="car-shopping_main-navbar">
+                            <h2 class="title_car-shopping_main-navbar">Carrito</h2>
+                        </div>
+                        <!-- user -->
+                        <li><a class="link_main-navbar_user" href="#"><img class="usuario" src="../static/img/icons/logos_navbar/user.svg" alt="icono de usuario"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            
+            <div class="pie_pagina">
+                <div class="redes_sociales">
+                    <a href="#"><img class="iconos_redes facebook" src="../static/img/icons/redes_sociales/facebook.svg" alt=""></a>
+                    <a href="#"><img class="iconos_redes instagram" src="../static/img/icons/redes_sociales/instagram.svg" alt=""></a>
+                    <a href="#"><img class="iconos_redes google" src="../static/img/icons/redes_sociales/google.svg" alt=""></a>
+                </div>
+                <div class="secciones_pagina">
+                    <a class="link_pie" href="#">nuestros restaurantes</a>
+                    <a class="link_pie" href="./pag_contact/index.html">contactenos</a>
+                </div>
+                <div class="politicas">
+                    <a class="link_pie" href="#">terminos y condiciones</a>
+                </div>
+                <div class="derechos_reservados">
+                    <p>©️todos los derechos reservados</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
