@@ -1,4 +1,4 @@
-.bttn{
+.bttn {
     color: #F5F3F4;
 
     font-size: 16px;
@@ -9,9 +9,9 @@
     border-color: #660708;
     background-color: #E5383B;
 
-    border-bottom-style:solid;
+    border-bottom-style: solid;
 }
 
-.bttn:hover{
+.bttn:hover {
     background-color: #BA181B;
 }
