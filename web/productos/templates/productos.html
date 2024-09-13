@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/productos.css' %}">
+{% endblock %}
+
+{% block title %}
+    Platos
+{% endblock %}
+
+{% block content %}
+
+  <section>
+    <div class="section-1">
+        <h2 class="title_section">Platos Fuertes</h2>
+        <div class="productos_section-1">
+            <div class="content_section">
+                <ul>
+                  {% for producto in productos %}
+                    <li>
+                      <h2 class="subtitle_platos_section-1">{{ producto.nombre }}</h2>
+                      <img class="img_section-1" src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                      <p class="paragraph_section-1">Precio: {{ producto.precio }}</p>
+                      <p class="paragraph_section-1">Stock: {{ producto.stock }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
