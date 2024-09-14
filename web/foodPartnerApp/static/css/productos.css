@@ -1,29 +1,40 @@
+/* Seccion 1 */
 .section-1 {
     background-color: #E5383B;
 }
 
 .title_section {
-    padding: 20px 0;
+    padding: 2% 0;
     color: #FFFFFF;
     font-size: 35px;
     text-align: center;
 }
 
+/* Caja de los productos */
 
-.productos_section-1 {
+.caja_products {
     padding: 20px 0;
     background-color: #D3D3D3;
+    width: 100%;
     display: flex;
-    gap: 50px;
-    justify-content: center;
+    align-self: center;
 }
 
-.subtitle_platos_section-1 {
-    border-radius: 5px 5px 0 0;
-    background-color: #E5383B;
-    margin: 5% 0 0 0;
-    font-size: 25px;
-    text-align: center;
+.add-products {
+    margin: auto;
+}
+
+.li_section-1 {
+    list-style: none;
+}
+
+.img_section-1 {
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+
+    background-color: #FFFFFF;
 }
 
 .paragraph_section-1 {
@@ -31,15 +42,58 @@
     padding: 10px;
     border-radius: 0 0 5px 5px;
     background-color: #FFFFFF;
-    width: 400px;
+    width: 300px;
+    height: 130px;
 }
 
-.img_section-1 {
-    border-radius: 5px;
-    width: 400px;
+/* --------- AGREGAR PRODUCTOS ----------- */
+
+.caja {
+    background-color: #D3D3D3;
+    width: 100%;
 }
 
-.section-2 {
-    margin-top: 40px;
-    background-color: #E5383B;
+.create_products_section {
+    padding: 2% 0;
+    margin: 0 0 0 100px;
+}
+
+.product-form {
+    font-size: 22px;
+}
+
+.product-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form input[type="file"],
+.product-form textarea {
+    width: 25%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.product-form input[type="text"]:focus,
+.product-form input[type="number"]:focus,
+.product-form input[type="file"]:focus,
+.product-form textarea:focus {
+    border-color: #E5383B;
+    outline: none;
+}
+
+.bttn {
+    background-color: rgb(185, 141, 27);
+    border-color: rgb(155, 118, 26);
+    padding: 6px;
+    margin: 2% 0 0 8%;
+}
+
+.bttn:hover {
+    background-color: rgb(238, 188, 63);
 }

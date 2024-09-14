@@ -1,36 +1,46 @@
 {% extends "base.html" %}
-{% load static %}
+
+{% load static %} 
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/platos.css' %}">
-{% endblock %}
+<link rel="stylesheet" href="{% static 'css/productos.css' %}" />
+{% endblock %} 
 
-{% block title %}
-    Productos
-{% endblock %}
+{% block title %} Productos {% endblock %} 
 
 {% block content %}
-            <section>
-                <div class="section-1">
-                    <h2 class="title_section">Platos Fuertes</h2>
-                    <div class="platos_section-1">
-                        <div class="content_section-1">
-                            <img class="img_section-1" src="../static/img/platos/mojarra-frita.jpg" alt="">
-                            <h4 class="subtitle_platos_section-1">Mojarra frita al gusto</h4>
-                            <p class="paragraph_section-1">Mojarra doradita y muy crocante, perfectamente cocida, aderezada y acompañada de arroz blanco, patacón y ensalada. !Es sin duda, uno de los platos más tradicionales y con muchísimo sabor en Colombia!</p>
-                        </div>
-                        <div class="content_section-1">
-                            <img class="img_section-1" src="../static/img/platos/picada.jfif" alt="">
-                            <h4 class="subtitle_platos_section-1">Picada a la colombiana</h4>
-                            <p class="paragraph_section-1">Nada más colombiano que ver un partido de fútbol por televisión mientras se degusta una suculenta picada. Este apetecido plato es una combinación de carnes, yuca, plátanos, papas y todo lo que se nos ocurra.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section>
-                <div class="section-2">
-                    <h2 class="title_section">Almuerzos corrientes</h2>
-                </div>
-            </section>
-{% endblock %}
+<section>
+    <div class="section-1">
+        <h2 class="title_section">Productos</h2>
+        <div class="caja_products">
+            {% for producto in productos %}
+            <div class="products">
+                <ul>
+                    <li class="li_section-1">
+                        <img class="img_section-1"
+                            src="{{ producto.imagen_url }}"
+                            alt="{{ producto.nombre }}"
+                        />
+                        <p class="paragraph_section-1">
+                            {{ producto.nombre }}
+                            <br> 
+                            Precio: {{ producto.precio_formateado }}
+                            <br><br> 
+                            Descripcion: {{ producto.descripcion }}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            {% endfor %}
+            <div class="add-products">
+                <a href="{% url 'agregar_productos' %}">
+                        <button 
+                            class="bttn">Agregar nuevos productos
+                        </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <section>{% endblock %}</section>
+</section>

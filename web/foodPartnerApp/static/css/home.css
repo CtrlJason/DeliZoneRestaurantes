@@ -1,11 +1,12 @@
-.content_main-section-1{
+.content_main-section-1 {
     padding: 80px 0;
     background-color: blur(20px);
     background-position: center;
     background-size: cover;
     background-color: #E5383B;
 }
-.content_main-section-1 h1{
+
+.content_main-section-1 h1 {
     color: #F5F3F4;
     border-color: #E5383B;
     border: 25px;
@@ -14,40 +15,35 @@
 
 }
 
-.main-section-2{
+.main-section-2 {
     padding: 0 50px;
     display: flex;
     justify-content: center;
     gap: 50px;
     margin: 20px;
     max-width: 100%;
-    background-image: url(../img/contenido/textura_madera.jpg); /* -/- se usa para dividir los atributos del background*/
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/contenido%2Ftextura_madera.jpg?alt=media&token=277bc3e4-2b3e-490d-bdd9-bb7adeaec307);
+    /* -/- se usa para dividir los atributos del background*/
     background-size: cover;
     background-position: center -25px;
-} 
+}
 
-.content_main-section-2{
+.content_main-section-2 {
     justify-content: center;
     width: 400px;
 
 }
 
-.image_main-section-2{
+.image_main-section-2 {
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px black;
     transition: width 120ms ease-out;
     width: 400px;
-    max-width: 100%;
+    height: 200px;
 }
 
-/* .image_main-section-2:hover{
-    transition: width 120ms ease-in;
-    width: 450px;
-    max-width: 100%;
-} */
-
-.action_content_main-section-2{
+.action_content_main-section-2 {
     border-radius: 5px;
     margin-bottom: 20px;
     background-color: #F5F3F4;
@@ -55,7 +51,7 @@
     text-align: center;
 }
 
-.subtitle_main-section-2{
+.subtitle_main-section-2 {
     border-radius: 5px 5px 0 0;
     background-color: #E5383B;
     margin: 5% 0 0 0;
@@ -63,19 +59,19 @@
     text-align: center;
 }
 
-.paragraph_main-section-2{
-    margin: 5% 0 5% 0;
+.paragraph_main-section-2 {
+    margin: 5%;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     width: 100%;
 }
 
-.bttn{
+.bttn {
     margin-bottom: 20px;
 }
 
 
-.box{
+.box {
     display: inline-block;
     width: 400px;
     margin: 20px;

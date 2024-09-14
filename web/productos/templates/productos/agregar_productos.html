@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/productos.css' %}">
+{% endblock %}
+
+{% block title %}
+    Agregar producto
+{% endblock %}
+
+{% block content %}
+
+<div class="section-1">
+
+<h2 class="title_section">Agregar Producto</h2>
+
+    <div class="caja">
+        <div class="create_products_section">
+        <form class="product-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }} <!-- Renderiza todos los campos del formulario como párrafos -->
+            <button class="bttn" type="submit">Agregar Producto</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
