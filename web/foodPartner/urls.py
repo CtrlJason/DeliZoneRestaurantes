@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('foodPartnerApp.urls')),
     path('productos/', include('productos.urls')),
     path('contacto/', include('contacto.urls')),
+    path('login/', include('login.urls')),
 ]

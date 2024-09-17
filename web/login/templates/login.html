@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Iniciar Sesion
+{% endblock %}
+
+{% block content %}
+    <div class="content main">
+        <h2>Iniciar sesion</h2>
+        <form method="post" action="{% url "autenticar_usuario" %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <label class="checkbox_content-main">
+                <input type="checkbox" name="" id="" value="option1">
+                Recordar cuenta
+            </label>
+            <button class="bttn content-main" type="submit">Entrar</button>
+            <a class="link_content-main" href="#">¿Olvido su contraseña?</a>
+            <a class="link_content-main" href="{% url "register" %}">Registrarse</a>
+        </form>
+    </div>
+{% endblock %}

@@ -12,16 +12,90 @@
 
 /* Caja de los productos */
 
-.caja_products {
+.add-products {
+    background-color: #D3D3D3;
+}
+
+.bttn.add-products {
+    margin-left: 4%;
+    margin-bottom: 10px;
+    background-color: #ff7900;
+    font-weight: 600;
+    border-style: none;
+    border: solid #ff6d00;
+}
+
+.bttn.add-products:hover {
+    background-color: #ff9100;
+}
+
+.bttn.add-products:active {
+    background-color: #ff9e00;
+}
+
+
+.box.products {
+    margin: auto;
     padding: 20px 0;
     background-color: #D3D3D3;
     width: 100%;
     display: flex;
-    align-self: center;
+    /* Permite que los elementos se ajusten en múltiples filas */
+    flex-wrap: wrap-reverse;
 }
 
-.add-products {
-    margin: auto;
+.box.products div {
+    /* Ajusta el ancho del producto (25% del contenedor menos el espacio entre productos) */
+    width: calc(25% - 40px);
+    margin-left: 20px;
+    margin-bottom: 20px;
+
+    /* Asegura que el padding y el border no afecten el ancho total */
+    box-sizing: border-box;
+}
+
+.buttons-section {
+    margin: 10px 0;
+    display: flex;
+}
+
+.form.modify {
+    display: none;
+    background-color: #ba181b;
+}
+
+.bttn.modify {
+    background-color: #8d99ae;
+    font-weight: 600;
+    border-style: none;
+    border: solid #2b2d42;
+}
+
+.bttn.modify:hover {
+    background-color: #ced4da;
+    color: #2b2d42;
+}
+
+.bttn.modify:active {
+    background-color: #edf2f4;
+    color: #2b2d42;
+}
+
+.bttn.delete {
+    background-color: #a4161a;
+    font-weight: 600;
+    border-style: none;
+    border: solid #660708;
+}
+
+.bttn.delete:hover {
+    background-color: #ba181b;
+    color: #2b2d42;
+}
+
+.bttn.delete:active {
+    background-color: #e5383b;
+    color: #2b2d42;
 }
 
 .li_section-1 {

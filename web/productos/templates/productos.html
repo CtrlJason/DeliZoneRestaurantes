@@ -13,9 +13,18 @@
 <section>
     <div class="section-1">
         <h2 class="title_section">Productos</h2>
-        <div class="caja_products">
+
+        <div class="add-products">
+            <a href="{% url 'agregar_productos' %}">
+                    <button 
+                        class="bttn add-products">Agregar nuevos productos
+                    </button>
+            </a>
+        </div>
+
+        <div class="box products">
             {% for producto in productos %}
-            <div class="products">
+            <div>
                 <ul>
                     <li class="li_section-1">
                         <img class="img_section-1"
@@ -29,17 +38,33 @@
                             <br><br> 
                             Descripcion: {{ producto.descripcion }}
                         </p>
+                        <div class="buttons-section">
+                            <button class="bttn modify" onclick="mostrarFormulario('{{ producto.id }}')">Modificar</button>
+                            <form method="POST" action="{% url 'eliminar_producto' producto.id %}">
+                                {% csrf_token %} <!--Esto se usa para darle seguridad al eliminar a los productos-->
+                                {{ form.as_p }}
+                                <button 
+                                    type="submit" 
+                                    class="bttn delete" 
+                                    onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"
+                                    > Eliminar 
+                                </button>
+                            </form>
+                        </div>
                     </li>
                 </ul>
+                <!-- Formulario de edición oculto inicialmente -->
+                <div id="formulario-{{ producto.id }}" class="form modify" style="display: none;">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Guardar cambios</button>
+                        <button type="button" onclick="ocultarFormulario('{{ producto.id }}')">Cancelar</button>
+                    </form>
+                    <script src="{% static 'js/productos.js' %}"></script>
+                </div>
             </div>
             {% endfor %}
-            <div class="add-products">
-                <a href="{% url 'agregar_productos' %}">
-                        <button 
-                            class="bttn">Agregar nuevos productos
-                        </button>
-                </a>
-            </div>
         </div>
     </div>
     <section>{% endblock %}</section>

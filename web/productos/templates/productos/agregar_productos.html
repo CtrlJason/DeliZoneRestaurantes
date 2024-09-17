@@ -18,7 +18,7 @@
     <div class="caja">
         <div class="create_products_section">
         <form class="product-form" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
+            {% csrf_token %} <!--Esto se usa para darle seguridad al crear a los productos-->
             {{ form.as_p }} <!-- Renderiza todos los campos del formulario como párrafos -->
             <button class="bttn" type="submit">Agregar Producto</button>
         </form>

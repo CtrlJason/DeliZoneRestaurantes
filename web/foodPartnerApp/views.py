@@ -1,10 +1,7 @@
 from django.shortcuts import render
-from firebase_admin import firestore
+from firebase import db
 
 # Create your views here.
-
-# Instancia de Firestore
-db = firestore.client()
 
 def home(request):
     productos_ref = db.collection('productos')
@@ -38,5 +35,10 @@ def home(request):
         'producto2': producto2,
         'producto3': producto3,
     }
-    
+
     return render(request, 'home.html', context)
+    
+# def agregar_carrito(request):
+#         if request.method == 'POST':
+#             contador = 0
+#         return 
