@@ -8,9 +8,10 @@
 
         <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo.png?alt=media&token=f996593f-3a33-4a0e-b8ae-ab2267d8b3a9"
         style="width: 64px; height: 64px;" type="image/png">
-        <link rel="stylesheet" href="{% static 'css/ajustes.css' %}">
-        <link rel="stylesheet" href="{% static 'css/buttoms.css' %}">
-        <link rel="stylesheet" href="{% static 'css/navbar_footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
+        <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
+        <link rel="stylesheet" href="{% static 'css/principal/navbar_footer.css' %}">
+        <link rel="stylesheet" href="{% static 'css/principal/carrito.css' %}">
 
         {% comment %} <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
         <link rel="stylesheet" href="{% static 'css/loggin.css' %}">
@@ -27,14 +28,41 @@
     <body>
         <header>
             <nav>
-                {% block navbar %}
-                {% endblock %}
+                <header>
+                    <nav>
+                        <div class="sub_navbar">
+                            <ul class="ul_sub-navbar">
+                                <li><a class="link_sub-navbar" href="#">restaurantes</a></li>
+                                <li><a class="link_sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
+                            </ul>
+                        </div>
+                        <div class="main_navbar">
+                            <ul class="ul_main-navbar">
+                                <li><a class="link_main-navbar" href="{% url 'home' %}">Inicio</a></li>
+                                <li><a class="link_main-navbar" href="{% url 'productos' %}">Platos</a></li>
+                                <!-- Links con iconos -->
+                                <!-- carrito -->
+                                <li>
+                                    <div class="contador-productos">0</div>
+                                    <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
+                                </li>
+                                <div id="modalCarrito" class="modal">
+                                    <span class="close">&times;</span>
+                                    <h2 class="title carrito">Carrito</h2>
+                                </div>
+                                <!-- user -->
+                                <li><a class="link_main-navbar_user" href="#"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
             </nav>
         </header>
 
         <main>
             {% block content %}
             {% endblock %}
+            <script src="{% static "js/carrito.js" %}"></script>
         </main>
 
         <footer>

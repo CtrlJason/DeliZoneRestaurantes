@@ -18,4 +18,4 @@ class RegisterForm(forms.Form):
 
 class AuthUserForm(forms.Form):
     correo = forms.CharField(label="Correo")
-    contraseña = forms.CharField(label="Contraseña")
+    contraseña = forms.CharField(widget=forms.PasswordInput, label="Contraseña")

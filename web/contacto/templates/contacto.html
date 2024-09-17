@@ -2,37 +2,15 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+<link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
 {% endblock %}
 
 {% block title %}
     Contactenos
 {% endblock %}
 
-{% block navbar %}
-    <div class="sub_navbar">
-        <ul class="ul_sub-navbar">
-            <li><a class="link_sub-navbar" href="#">restaurantes</a></li>
-            <li><a class="link_sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
-        </ul>
-    </div>
-    <div class="main_navbar">
-        <ul class="ul_main-navbar">
-            <li><a class="link_main-navbar" href="{% url 'home' %}">Inicio</a></li>
-            <li><a class="link_main-navbar" href="{% url 'productos' %}">Platos</a></li>
-            <!-- Links con iconos -->
-            <!-- carrito -->
-            <li><a class="link_main-navbar_car-shopping" href="#"><img class="carrito_compras" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></a></li>
-            <div class="car-shopping_main-navbar">
-                <h2 class="title_car-shopping_main-navbar">Carrito</h2>
-            </div>
-            <!-- user -->
-            <li><a class="link_main-navbar_user" href="#"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
-        </ul>
-    </div>
-{% endblock %}
-
 {% block content %}
+    <div class="content main">
         <section>
             <div class="formulario">
                 <form method="POST" action="{% url "crear_contacto" %}">
@@ -42,4 +20,5 @@
                 </form>
             </div>
         </section>
+    </div>
 {% endblock %}
