@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from login import views
 
 urlpatterns = [
@@ -7,5 +7,4 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('registrar_usuario/', views.registrar_usuario, name='registrar_usuario'),
     # Otras URLs
-    path('', include("foodPartnerApp.urls")),
 ]
