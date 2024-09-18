@@ -16,13 +16,13 @@
         <form method="post" action="{% url "autenticar_usuario" %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <label class="checkbox_content-main">
-                <input type="checkbox" name="" id="" value="option1">
+            <label class="checkbox">
                 Recordar cuenta
+                <input type="checkbox" name="" id="" value="option1">
             </label>
             <button class="bttn content-main" type="submit">Entrar</button>
-            <a class="link_content-main" href="#">¿Olvido su contraseña?</a>
-            <a class="link_content-main" href="{% url "register" %}">Registrarse</a>
+            <a class="link content-main" href="#">¿Olvido su contraseña?</a>
+            <a class="link content-main" href="{% url "register" %}">Registrarse</a>
         </form>
     </div>
 {% endblock %}
