@@ -14,6 +14,7 @@
         <section>
             <div class="formulario">
                 <form method="POST" action="{% url "crear_contacto" %}">
+                    <h2>Contacta con nosotros</h2>
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button class="bttn" type="submit">Enviar</button>

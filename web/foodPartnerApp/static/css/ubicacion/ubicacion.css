@@ -1,0 +1,34 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-color: #E5383B;
+}
+
+.content.main {
+    width: 1000px;
+    height: 54 0px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+
+    max-width: 100%;
+    background-color: white;
+    box-shadow: 0 0 8px;
+}
+
+.content.main h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.content.main iframe {
+    border-color: #E5383B;
+    border-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW9tZHA4ZzkydWd1cm9vMXZ0bGhhd3Q4YzVhdm1ldnJtdTI3MjJvciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IV7MOCfnm85iRa/giphy.webp);
+    border-radius: 15px;
+    box-shadow: 0 0 5px black;
+
+}

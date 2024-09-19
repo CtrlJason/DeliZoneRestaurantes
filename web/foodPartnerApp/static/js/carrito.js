@@ -35,7 +35,8 @@ botones.forEach((boton) => {
         contadorCarrito.textContent = contador;
 
         if (contador >= 10) {
-            contadorCarrito.style.fontSize = "8px";
+            // Modifica el tamaño del texto cuando el contador es mayor o igual a 10
+            contadorCarrito.style.fontSize = "10px";
         }
     };
 });
