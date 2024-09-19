@@ -26,7 +26,7 @@ span.onclick = function () {
 document.querySelector('.contador-productos').onclick = toggleCarrito;
 
 // Selecciona todos los botones con la clase 'bttn'
-const botones = document.querySelectorAll('.bttn');
+const botones = document.querySelectorAll('.bttn.incrementar');
 
 // Itera sobre cada botón y le agrega un evento 'click'
 botones.forEach((boton) => {
