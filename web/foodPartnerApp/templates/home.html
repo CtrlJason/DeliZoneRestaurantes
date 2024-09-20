@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
 <link rel="stylesheet" href="{% static 'css/principal/home.css' %}">
 {% endblock %}
 
@@ -10,42 +11,83 @@
     Inicio
 {% endblock %}
 
+{% block nav %}
+    <div class="sub-navbar">
+        <ul class="ul sub-navbar">
+            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
+            <li><a class="link sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <ul class="ul navbar">
+            <li><a class="link navbar" href="{% url 'home' %}">Inicio</a></li>
+            <li><a class="link navbar" href="{% url 'productos' %}">Platos</a></li>
+            <!-- Links con iconos -->
+            <!-- carrito -->
+            <li>
+                <div class="contador-productos">0</div>
+                <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
+            </li>
+            <div id="modalCarrito" class="modal">
+                <span class="close">&times;</span>
+                <h2 class="title carrito">Carrito</h2>
+            </div>
+            <!-- user -->
+            <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
+        </ul>
+    </div>
+{% endblock %}
 
 {% block content %}
-    <section class="main-section-1">
-        <div class="content_main-section-1">
-            <h1>Deliciosas comidas del mar</h1>
+    <section class="main section-1">
+        <div class="container-fluid m-5 p-2">
+            <div class="content section-1">
+                <h1 class="display-3 ">Deliciosas comidas</h1>
+            </div>
         </div>
     </section>
-    <section class="main-section-2">
-        <div class="content_main-section-2">
-            <img class="image_main-section-2" src="{{ producto1.imagen_url }}" alt="{{ producto1.nombre }}">
-            <div class="action_content_main-section-2">
-                <h3 class="subtitle_main-section-2">{{ producto1.nombre }}</h3>
-                <p class="paragraph_main-section-2">{{ producto1.descripcion }} <br><br> Precio: {{ producto1.precio_formateado }}</p>
-                <div class="button-main-section-2">
-                    <button class="bttn incrementar" type="button">Agregar al carrito</button>
+    <section class="main section-2">
+        <div class="container">
+            <div class="row">
+                <div class="col mb-4">
+                    <div class="content section-2">
+                        <img src="{{ producto1.imagen_url }}" alt="{{ producto1.nombre }}">
+                        <div class="sub-content section-2">
+                            <h3 class="p-3">{{ producto1.nombre }}</h3>
+                            <p class="text px-3">{{ producto1.descripcion }}</p>
+                            <p class="px-3"> Precio: {{ producto1.precio_formateado }}</p>
+                            <div class="button section-2 m-4">
+                                <button class="bttn incrementar" type="button">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="content_main-section-2">
-            <img class="image_main-section-2" src="{{ producto2.imagen_url }}" alt="{{ producto2.nombre }}">
-            <div class="action_content_main-section-2">
-                <h3 class="subtitle_main-section-2">{{ producto2.nombre }}</h3>
-                <p class="paragraph_main-section-2">{{ producto2.descripcion }} <br><br> Precio: {{ producto2.precio_formateado }}</p>
-                <div class="button-main-section-2">
-                    <button class="bttn incrementar" type="button">Agregar al carrito</button>
+                <div class="col mb-4">
+                    <div class="content section-2">
+                        <img src="{{ producto2.imagen_url }}" alt="{{ producto2.nombre }}">
+                        <div class="sub-content section-2">
+                            <h3 class="p-3">{{ producto2.nombre }}</h3>
+                            <p class="text px-3">{{ producto2.descripcion }}</p>
+                            <p class="px-3"> Precio: {{ producto2.precio_formateado }}</p>
+                            <div class="button section-2 m-4">
+                                <button class="bttn incrementar" type="button">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="content_main-section-2">
-            <img class="image_main-section-2" src="{{ producto3.imagen_url }}" alt="sierra-frita">
-            <div class="action_content_main-section-2">
-                <h3 class="subtitle_main-section-2">{{ producto3.nombre }}</h3>
-                <p class="paragraph_main-section-2">{{ producto3.descripcion }}<br><br> Precio: {{ producto3.precio_formateado }}</p>
-                <p>{{ contador }}</p>
-                <div class="button-main-section-2">
-                    <button class="bttn incrementar">Agregar al carrito</button>
+                <div class="col mb-4">
+                    <div class="content section-2">
+                        <img src="{{ producto3.imagen_url }}" alt="sierra-frita">
+                        <div class="sub-content section-2">
+                            <h3 class="p-3">{{ producto3.nombre }}</h3>
+                            <p class="text px-3">{{ producto3.descripcion }}</p>
+                            <p class="px-3"> Precio: {{ producto3.precio_formateado }}</p>
+                            <p>{{ contador }}</p>
+                            <div class="button section-2 m-4">
+                                <button class="bttn incrementar">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

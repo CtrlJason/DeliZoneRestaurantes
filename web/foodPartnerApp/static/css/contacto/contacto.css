@@ -1,53 +1,91 @@
 body {
     background-size: cover;
     background-position: center;
-    background-color: #E5383B;
+    background-color: #a4161b;
 }
 
-.content.main {
-    width: 400px;
-    height: 450px;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 60px;
-    border-radius: 5px;
+.section-1 {
+    display: flex;
+    justify-content: center;
+}
 
-    max-width: 100%;
+/* ------------ Información Contacto ------------ */
+
+.content-contact {
+    padding: 50px;
+    border-radius: 5px;
+    width: 850px;
     background-color: white;
-    box-shadow: 0 0 8px;
+    border: solid black 2px;
+}
+
+.content-contact h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.detail-item {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+.detail-item h3 {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.detail-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.detail-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.detail-item a:hover {
+    text-decoration: underline;
+}
+
+/* ------------ Formulario Contacto ------------ */
+
+.content-form {
+    padding: 50px;
+    border-radius: 5px;
+    width: 450px;
+    background-color: white;
+    border: solid black 2px;
 }
 
 .formulario h2 {
-    margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .formulario fieldset {
     border-style: none;
     background-color: brown;
-
     border-radius: 10px;
     border: 2px solid black;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 40px 20px;
+    padding: 20px 20px;
     display: flex;
-    width: 600px;
 }
 
 .formulario h4 {
     font-size: 16px;
-    margin: 8px 0 4px 0;
 }
 
 .formulario input {
     padding: 10px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 2px solid #a4161b85;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .formulario textarea {
@@ -56,7 +94,7 @@ body {
     border: 2px solid #a4161b85;
     border-radius: 4px;
     width: 100%;
-    height: 50px;
+    height: 80px;
     resize: none;
 
 }

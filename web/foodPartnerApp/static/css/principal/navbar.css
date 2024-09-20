@@ -1,0 +1,143 @@
+body {
+    padding-top: 92px;
+}
+
+/* ---------- Barra de navegacion ----------*/
+
+/* --Sub Barra de navegacion-- */
+nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0 5px #161A1D;
+}
+
+.sub-navbar {
+    background: #161A1D;
+    padding: 0;
+    padding: 2px;
+    padding-right: 5px;
+}
+
+.ul.sub-navbar {
+    display: flex;
+    /*Flex hace que todos los elementos dentro del contenedor se coloquen uno al lado del otro*/
+    justify-content: right;
+    /*justify-content posiciona todos los elementos dentro del padre*/
+    margin: auto;
+    gap: 20px;
+    /*Gap da un espacio en pixeles de un elemento a otro*/
+    list-style: none;
+}
+
+.link.sub-navbar {
+    color: #D3D3D3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.link.sub-navbar:hover {
+    /* -hover- hace que al pasar el maus cambie el estilo o funcion de un elemento*/
+    transition: color 0.3s ease;
+    color: #A4161A;
+    font-weight: bold;
+}
+
+/* --Barra principal-- */
+
+.navbar {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 0;
+    padding: 5px;
+}
+
+.ul.navbar {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    gap: 5%;
+    list-style: none;
+}
+
+.link.navbar {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 10px;
+    color: #161A1D;
+    transition: color 250ms ease-out;
+    transition: background-color 250ms ease-out;
+    /*-ease- Agrega una transición suave */
+}
+
+.link.navbar:hover {
+    padding: 5px;
+    color: #F5F3F4;
+    background-color: #660709dc;
+}
+
+/* --Carrito de compras-- */
+
+.contador-productos {
+    position: fixed;
+    margin-left: 20px;
+    background-color: #A4161A;
+    border-radius: 20px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#btnCarrito {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    margin-top: 4%;
+    left: auto;
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #FFFFFF;
+    border: solid 5px #A4161A;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+
+}
+
+.title.carrito {
+    margin-top: 15px;
+}
+
+.close {
+    margin-right: 10px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+
+}

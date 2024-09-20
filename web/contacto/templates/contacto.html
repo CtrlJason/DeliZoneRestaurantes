@@ -2,24 +2,73 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
 {% endblock %}
 
 {% block title %}
     Contactenos
 {% endblock %}
 
+{% block nav %}
+    <div class="sub-navbar">
+        <ul class="ul sub-navbar">
+            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
+            <li><a class="link sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <ul class="ul navbar">
+            <li><a class="link navbar" href="{% url 'home' %}">Inicio</a></li>
+            <li><a class="link navbar" href="{% url 'productos' %}">Platos</a></li>
+            <!-- Links con iconos -->
+            <!-- carrito -->
+            <li>
+                <div class="contador-productos">0</div>
+                <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
+            </li>
+            <div id="modalCarrito" class="modal">
+                <span class="close">&times;</span>
+                <h2 class="title carrito">Carrito</h2>
+            </div>
+            <!-- user -->
+            <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
+        </ul>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <div class="content main">
-        <section>
+    <div class="section-1 row m-4">
+        <div class="content-contact col-8 m-2">
+            
+            <h2>Contacta con nosotros</h2>
+
+            <div class="detail-item">
+                <h3>Teléfono</h3>
+                <p><a href="tel:+573001234567">+57 300 123 4567</a></p>
+            </div>
+            <div class="detail-item">
+                <h3>Dirección</h3>
+                <p>Calle 123 #45-67, Bogotá, Colombia</p>
+            </div>
+            <div class="detail-item">
+                <h3>Correo Electrónico</h3>
+                <p><a href="mailto:contacto@empresa.com">contacto@empresa.com</a></p>
+            </div>
+            <div class="detail-item">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                <p>Sábados: 9:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+        <div class="content-form col-4 m-2">
             <div class="formulario">
                 <form method="POST" action="{% url "crear_contacto" %}">
-                    <h2>Contacta con nosotros</h2>
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button class="bttn" type="submit">Enviar</button>
                 </form>
             </div>
-        </section>
+        </div>
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 const btnCarrito = document.getElementById('btnCarrito');
 const modalCarrito = document.getElementById('modalCarrito');
-const span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName('close')[0];
 const contadorCarrito = document.querySelector('.contador-productos');
 let contador = 0;
 

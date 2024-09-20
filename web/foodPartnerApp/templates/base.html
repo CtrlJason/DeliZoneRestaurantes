@@ -1,89 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo.png?alt=media&token=f996593f-3a33-4a0e-b8ae-ab2267d8b3a9"
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+
+    <link rel="icon"
+        href="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo.png?alt=media&token=f996593f-3a33-4a0e-b8ae-ab2267d8b3a9"
         style="width: 64px; height: 64px;" type="image/png">
-        <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
-        <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
-        <link rel="stylesheet" href="{% static 'css/principal/navbar_footer.css' %}">
-        <link rel="stylesheet" href="{% static 'css/principal/carrito.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/footer.css' %}">
 
-        {% comment %} <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
-        <link rel="stylesheet" href="{% static 'css/loggin.css' %}">
-        <link rel="stylesheet" href="{% static 'css/user.css' %}"> {% endcomment %}
+    {% block extra_css %}{% endblock %}
 
-        {% block extra_css %}{% endblock %}
+    <title>
+        {% block title %}{% endblock %}
+    </title>
 
-        <title>
-            {% block title %}
-            {% endblock %}
-        </title>
+</head>
 
-    </head>
-    <body>
-        <header>
-            <nav>
-                <header>
-                    <nav>
-                        <div class="sub_navbar">
-                            <ul class="ul_sub-navbar">
-                                <li><a class="link_sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
-                                <li><a class="link_sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
-                            </ul>
-                        </div>
-                        <div class="main_navbar">
-                            <ul class="ul_main-navbar">
-                                <li><a class="link_main-navbar" href="{% url 'home' %}">Inicio</a></li>
-                                <li><a class="link_main-navbar" href="{% url 'productos' %}">Platos</a></li>
-                                <!-- Links con iconos -->
-                                <!-- carrito -->
-                                <li>
-                                    <div class="contador-productos">0</div>
-                                    <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
-                                </li>
-                                <div id="modalCarrito" class="modal">
-                                    <span class="close">&times;</span>
-                                    <h2 class="title carrito">Carrito</h2>
-                                </div>
-                                <!-- user -->
-                                <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </header>
-            </nav>
-        </header>
+<body>
+    <header>
+        <nav>
+            {% block nav %}{% endblock %}
+        </nav>
+    </header>
 
-        <main>
-            {% block content %}
-            {% endblock %}
-            <script src="{% static "js/carrito.js" %}"></script>
-        </main>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
-        <footer>
-            
-            <div class="pie_pagina">
-                <div class="redes_sociales">
-                    <a href="#"><img class="iconos_redes facebook" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Ffacebook.svg?alt=media&token=96451d83-c793-4a10-a232-980affbce97d" alt=""></a>
-                    <a href="#"><img class="iconos_redes instagram" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Fgoogle.svg?alt=media&token=f0773899-82ab-4082-b37a-7e6a1dfd2414" alt=""></a>
-                    <a href="#"><img class="iconos_redes google" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Finstagram.svg?alt=media&token=77235fa5-dc40-44bd-998b-b811e8bb38c4" alt=""></a>
+    <footer>
+        <div class="pie-pagina container-fluid p-5">
+            <div class="contenido-pie row">
+                <div class="redes-sociales col">
+                    <a href="#"><img class="iconos-redes facebook"
+                            src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Ffacebook.svg?alt=media&token=96451d83-c793-4a10-a232-980affbce97d"
+                            alt=""></a>
+                    <a href="#"><img class="iconos-redes instagram"
+                            src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Fgoogle.svg?alt=media&token=f0773899-82ab-4082-b37a-7e6a1dfd2414"
+                            alt=""></a>
+                    <a href="#"><img class="iconos-redes google"
+                            src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ffooter%2Finstagram.svg?alt=media&token=77235fa5-dc40-44bd-998b-b811e8bb38c4"
+                            alt=""></a>
                 </div>
-                <div class="secciones_pagina">
-                    <a class="link_pie" href="#">nuestros restaurantes</a>
-                    <a class="link_pie" href="{% url 'contacto' %}">contactenos</a>
+                <div class="secciones-pagina col">
+                    <a class="link-pie" href="{% url 'ubicacion' %}">encuentranos</a>
+                    <a class="link-pie" href="{% url 'contacto' %}">contactenos</a>
                 </div>
-                <div class="politicas">
-                    <a class="link_pie" href="#">terminos y condiciones</a>
+                <div class="politicas col">
+                    <a class="link-pie" href="#">terminos y condiciones</a>
                 </div>
-                <div class="derechos_reservados">
+            <div class="row">
+                <div class="derechos-reservados col">
                     <p>©️todos los derechos reservados</p>
                 </div>
             </div>
-        </footer>
-    </body>
+        </div>
+    </footer>
+    <script src="{% static "js/carrito.js" %}"></script>
+</body>
+
 </html>

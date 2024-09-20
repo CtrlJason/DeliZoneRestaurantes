@@ -2,29 +2,52 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/productos/productos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/productos/productos.css' %}">
 {% endblock %}
 
 {% block title %}
     Agregar producto
 {% endblock %}
 
+{% block nav %}
+    <div class="sub-navbar">
+        <ul class="ul sub-navbar">
+            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
+            <li><a class="link sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
+        </ul>
+    </div>
+    <div class="navbar">
+        <ul class="ul navbar">
+            <li><a class="link navbar" href="{% url 'home' %}">Inicio</a></li>
+            <li><a class="link navbar" href="{% url 'productos' %}">Platos</a></li>
+            <!-- Links con iconos -->
+            <!-- carrito -->
+            <li>
+                <div class="contador-productos">0</div>
+                <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
+            </li>
+            <div id="modalCarrito" class="modal">
+                <span class="close">&times;</span>
+                <h2 class="title carrito">Carrito</h2>
+            </div>
+            <!-- user -->
+            <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
+        </ul>
+    </div>
+{% endblock %}
+
 {% block content %}
-
-<div class="section-1">
-
-<h2 class="title_section">Agregar Producto</h2>
-
-    <div class="caja">
-        <div class="create_products_section">
-        <form class="product-form" method="POST" enctype="multipart/form-data">
-            {% csrf_token %} <!--Esto se usa para darle seguridad al crear a los productos-->
-            {{ form.as_p }} <!-- Renderiza todos los campos del formulario como párrafos -->
-            <button class="bttn" type="submit">Agregar Producto</button>
-        </form>
+    <div class="section-1">
+    <h2 class="title_section">Agregar Producto</h2>
+        <div class="caja">
+            <div class="create_products_section">
+            <form class="product-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} <!--Esto se usa para darle seguridad al crear a los productos-->
+                {{ form.as_p }} <!-- Renderiza todos los campos del formulario como párrafos -->
+                <button class="bttn" type="submit">Agregar Producto</button>
+            </form>
+            </div>
         </div>
     </div>
-</div>
-
-
 {% endblock %}
