@@ -12,80 +12,113 @@
 {% endblock %}
 
 {% block nav %}
-    <div class="sub-navbar">
+    <!-- Submenú siempre visible -->
+    <div class="sub-navbar sticky-top">
         <ul class="ul sub-navbar">
-            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
-            <li><a class="link sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
+            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">Encuéntranos</a></li>
+            <li><a class="link sub-navbar" href="{% url 'contacto' %}">Contáctenos</a></li>
         </ul>
     </div>
-    <div class="navbar">
-        <ul class="ul navbar">
-            <li><a class="link navbar" href="{% url 'home' %}">Inicio</a></li>
-            <li><a class="link navbar" href="{% url 'productos' %}">Platos</a></li>
-            <!-- Links con iconos -->
-            <!-- carrito -->
-            <li>
-                <div class="contador-productos">0</div>
-                <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
+
+    <!-- Menú principal -->
+    <nav class="container-fluid navbar navbar-expand-md sticky-top px-5">
+        <!-- Logo del sitio -->
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo.png?alt=media&token=f996593f-3a33-4a0e-b8ae-ab2267d8b3a9" alt="icono Logo">
+        </a>
+
+        <!-- Íconos de usuario y carrito en móviles -->
+        <ul class="navbar-nav d-md-none m-auto">
+            <!-- Ícono de usuario -->
+            <li class="nav-item">
+                <a class="nav-link icon" href="{% url 'perfil_user' %}">
+                    <img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario">
+                </a>
             </li>
-            <div id="modalCarrito" class="modal">
-                <span class="close">&times;</span>
-                <h2 class="title carrito">Carrito</h2>
-            </div>
-            <!-- user -->
-            <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
+            <!-- Carrito con contador -->
+            <li class="nav-item">
+                <a class="nav-link icon" href="#">
+                    <div class="contador-productos">0</div>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras">
+                </a>
+            </li>
         </ul>
-    </div>
+
+        <!-- Botón de hamburguesa para dispositivos móviles -->
+        <button class="navbar-toggler ms-auto navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Contenido colapsable del menú -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+                <li class="nav-item">
+                    <a class="nav-link px-3 py-2 my-1" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 py-2 my-1" href="{% url 'productos' %}">Menú</a>
+                </li>
+            </ul>
+
+            <!-- Íconos de usuario y carrito en dispositivos grandes -->
+            <ul class="navbar-nav d-none d-sm-flex gap-4">
+                <!-- Ícono de usuario -->
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link icon" href="{% url 'perfil_user' %}">
+                        <img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario">
+                    </a>
+                </li>
+                <!-- Carrito con contador -->
+                <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link icon" href="#">
+                        <div class="contador-productos">0</div>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 {% endblock %}
 
+
+
+
 {% block content %}
-    <section class="main section-1">
-        <div class="container-fluid m-5 p-2">
-            <div class="content section-1">
-                <h1 class="display-3 ">Deliciosas comidas</h1>
-            </div>
-        </div>
-    </section>
-    <section class="main section-2">
-        <div class="container">
-            <div class="row">
-                <div class="col mb-4">
+    <!-- Seccion 1 -->
+    <section>
+        <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
                     <div class="content section-2">
                         <img src="{{ producto1.imagen_url }}" alt="{{ producto1.nombre }}">
                         <div class="sub-content section-2">
-                            <h3 class="p-3">{{ producto1.nombre }}</h3>
-                            <p class="text px-3">{{ producto1.descripcion }}</p>
-                            <p class="px-3"> Precio: {{ producto1.precio_formateado }}</p>
-                            <div class="button section-2 m-4">
-                                <button class="bttn incrementar" type="button">Agregar al carrito</button>
-                            </div>
+                            <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto1.nombre }}</h3>
+                            <p class="descripcion">{{ producto1.descripcion }}</p>
+                            <p class="precio"> Precio: {{ producto1.precio_formateado }}</p>
+                            <button class="bttn incrementar" type="button">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-4">
+                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
                     <div class="content section-2">
                         <img src="{{ producto2.imagen_url }}" alt="{{ producto2.nombre }}">
                         <div class="sub-content section-2">
-                            <h3 class="p-3">{{ producto2.nombre }}</h3>
-                            <p class="text px-3">{{ producto2.descripcion }}</p>
-                            <p class="px-3"> Precio: {{ producto2.precio_formateado }}</p>
-                            <div class="button section-2 m-4">
-                                <button class="bttn incrementar" type="button">Agregar al carrito</button>
-                            </div>
+                            <h3 class="fs-5 fs-md-6 fw-bold">{{ producto2.nombre }}</h3>
+                            <p class="descripcion">{{ producto2.descripcion }}</p>
+                            <p class="precio"> Precio: {{ producto2.precio_formateado }}</p>
+                            <button class="bttn incrementar" type="button">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-4">
+                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
                     <div class="content section-2">
                         <img src="{{ producto3.imagen_url }}" alt="sierra-frita">
                         <div class="sub-content section-2">
-                            <h3 class="p-3">{{ producto3.nombre }}</h3>
-                            <p class="text px-3">{{ producto3.descripcion }}</p>
-                            <p class="px-3"> Precio: {{ producto3.precio_formateado }}</p>
+                            <h3 class="fs-5 fs-md-6 fw-bold">{{ producto3.nombre }}</h3>
+                            <p class="descripcion">{{ producto3.descripcion }}</p>
+                            <p class="precio"> Precio: {{ producto3.precio_formateado }}</p>
                             <p>{{ contador }}</p>
-                            <div class="button section-2 m-4">
-                                <button class="bttn incrementar">Agregar al carrito</button>
-                            </div>
+                            <button class="bttn incrementar">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>

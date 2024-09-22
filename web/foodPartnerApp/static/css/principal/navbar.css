@@ -1,33 +1,39 @@
 body {
-    padding-top: 92px;
+    margin-top: 119px;
 }
 
-/* ---------- Barra de navegacion ----------*/
-
-/* --Sub Barra de navegacion-- */
-nav {
-    top: 0;
+.sticky-top {
     position: fixed;
     width: 100%;
-    box-shadow: 0 0 5px #161A1D;
 }
 
+.navbar.sticky-top {
+    top: 24px;
+    /* La barra principal se coloca debajo de la sub-barra de navegación */
+    background-color: #fff;
+    /* Color de fondo de la barra de navegación principal */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra debajo de la barra de navegación principal */
+    padding: 10px;
+    /* Espacio entre la barra de navegación principal y el contenido */
+    z-index: 1030;
+    /* Reducimos el z-index para que la barra principal esté debajo de la sub-barra */
+}
+
+/* Submenú: Siempre visible en todas las pantallas */
 .sub-navbar {
-    background: #161A1D;
-    padding: 0;
-    padding: 2px;
-    padding-right: 5px;
+    top: 0;
+    background-color: #161A1D;
+    padding: 0 10px;
 }
 
 .ul.sub-navbar {
     display: flex;
-    /*Flex hace que todos los elementos dentro del contenedor se coloquen uno al lado del otro*/
-    justify-content: right;
-    /*justify-content posiciona todos los elementos dentro del padre*/
-    margin: auto;
-    gap: 20px;
-    /*Gap da un espacio en pixeles de un elemento a otro*/
+    justify-content: flex-end;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
 }
 
 .link.sub-navbar {
@@ -38,52 +44,52 @@ nav {
 }
 
 .link.sub-navbar:hover {
-    /* -hover- hace que al pasar el maus cambie el estilo o funcion de un elemento*/
-    transition: color 0.3s ease;
     color: #A4161A;
     font-weight: bold;
 }
 
-/* --Barra principal-- */
+/* Estilos del menú principal */
 
-.navbar {
-    background-color: #FFFFFF;
-    width: 100%;
-    padding: 0;
-    padding: 5px;
+.logo {
+    width: 64px;
 }
 
-.ul.navbar {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    gap: 5%;
-    list-style: none;
-}
-
-.link.navbar {
-    padding: 5px;
-    text-decoration: none;
+.navbar-nav .nav-link {
     font-size: 20px;
     font-weight: 500;
-    border-radius: 10px;
     color: #161A1D;
-    transition: color 250ms ease-out;
-    transition: background-color 250ms ease-out;
-    /*-ease- Agrega una transición suave */
+    border-radius: 5px;
 }
 
-.link.navbar:hover {
-    padding: 5px;
-    color: #F5F3F4;
-    background-color: #660709dc;
+.navbar-nav .nav-link:hover {
+    background-color: #660709;
+    color: white;
+    border-radius: 5px;
 }
 
-/* --Carrito de compras-- */
+.navbar-nav .nav-link.icon {
+    background: none;
+}
+
+.navbar-nav .nav-link.icon:hover {
+    background: none;
+}
+
+.navbar-nav.d-md-none {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+
+
+/* Ícono de carrito */
+
+.carrito {
+    position: relative;
+}
 
 .contador-productos {
-    position: fixed;
-    margin-left: 20px;
     background-color: #A4161A;
     border-radius: 20px;
     width: 16px;
@@ -91,11 +97,11 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
+    color: white;
     font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    cursor: pointer;
+    position: absolute;
+    margin-left: 18px;
 }
 
 #btnCarrito {
@@ -103,41 +109,4 @@ nav {
     border: none;
     padding: 0;
     cursor: pointer;
-}
-
-.modal {
-    display: none;
-    margin-top: 4%;
-    left: auto;
-    box-sizing: border-box;
-    position: absolute;
-    background-color: #FFFFFF;
-    border: solid 5px #A4161A;
-    border-radius: 5px;
-    width: 300px;
-    height: 300px;
-    text-align: center;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-
-}
-
-.title.carrito {
-    margin-top: 15px;
-}
-
-.close {
-    margin-right: 10px;
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-
 }
