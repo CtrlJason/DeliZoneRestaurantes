@@ -53,12 +53,12 @@ body {
     margin-bottom: 30px;
 }
 
-.precio {
-    font-weight: bold;
+.sub-content.section-2 .descripcion {
+    height: 65px;
 }
 
-.sub-content.section-2 .descripcion {
-    height: 50px;
+.precio {
+    font-weight: bold;
 }
 
 .bttn {

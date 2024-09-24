@@ -1,10 +1,9 @@
 # importamos la libreria de ModelForms
 from django import forms
-# Importamos los modelos de la app contacto
-from .models import DatosUsuarios
 
 # Creamos el formulario
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = DatosUsuarios
-        fields = "__all__"
+class ContactForm(forms.Form):
+    nombre = forms.CharField(required=True, max_length = 22)
+    celular = forms.IntegerField(required=True, max_value = 10)
+    correo = forms.EmailField(required=True, max_length = 60)
+    asunto = forms.Textarea()

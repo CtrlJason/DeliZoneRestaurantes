@@ -1,96 +1,50 @@
 {% extends "base.html" %}
 
-{% load static %} 
+{% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/productos/productos.css' %}" />
-{% endblock %} 
-
-{% block title %} Productos {% endblock %} 
-
-{% block nav %}
-    <div class="sub-navbar">
-        <ul class="ul sub-navbar">
-            <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">encuentranos</a></li>
-            <li><a class="link sub-navbar" href="{% url 'contacto' %}">contactenos</a></li>
-        </ul>
-    </div>
-    <div class="navbar">
-        <ul class="ul navbar">
-            <li><a class="link navbar" href="{% url 'home' %}">Inicio</a></li>
-            <li><a class="link navbar" href="{% url 'productos' %}">Menú</a></li>
-            <!-- Links con iconos -->
-            <!-- user -->
-            <li><a class="link_main-navbar_user" href="{% url 'perfil_user' %}"><img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario"></a></li>
-            <!-- carrito -->
-            <li>
-                <div class="contador-productos">0</div>
-                <button id="btnCarrito"><img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras"></button>
-            </li>
-            <div id="modalCarrito" class="modal">
-                <span class="close">&times;</span>
-                <h2 class="title carrito">Carrito</h2>
-            </div>
-        </ul>
-    </div>
+<link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/productos/productos.css' %}" />
 {% endblock %}
 
+{% block title %} Productos {% endblock %}
+
 {% block content %}
-<section>
-    <div class="section-1">
-        <h2 class="title_section">Productos</h2>
-        <div class="add-products">
-            <a href="{% url 'agregar_productos' %}">
-                    <button 
-                        class="bttn add-products">Agregar nuevos productos
-                    </button>
-            </a>
-        </div>
-        <div class="box products">
+
+{% include 'dashboard.html' %}
+
+<div class="encabezado">
+    <h2 class="fw-bold display-4">Productos</h2>
+</div>
+<div class="seccion-1">
+    <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
+        <div class="row d-flex justify-content-center">
             {% for producto in productos %}
-            <div>
-                <ul>
-                    <li class="li_section-1">
-                        <img class="img_section-1"
-                            src="{{ producto.imagen_url }}"
-                            alt="{{ producto.nombre }}"
-                        />
-                        <p class="paragraph_section-1">
-                            {{ producto.nombre }}
-                            <br> 
-                            Precio: {{ producto.precio_formateado }}
-                            <br><br> 
-                            Descripcion: {{ producto.descripcion }}
-                        </p>
-                        <div class="buttons-section">
-                            <button class="bttn modify" onclick="mostrarFormulario('{{ producto.id }}')">Modificar</button>
-                            <form method="POST" action="{% url 'eliminar_producto' producto.id %}">
+            <div class="col-sm-6 col-md-6 col-lg-4 my-3">
+                <div class="productos">
+                    <img src="{{ producto.imagen_url }}" alt="{{ producto1.nombre }}">
+                    <div class="contenido">
+                        <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
+                        <p class="descripcion">{{ producto.descripcion }}</p>
+                        <p class="precio"> Precio: {{ producto.precio_formateado }}</p>
+                        <div class="botones">
+                            <button class="bttn modify"
+                                onclick="mostrarFormulario('{{ producto.id }}')">Modificar</button>
+                            <button form="formulario-eliminacion" type="submit" class="bttn delete"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                                Eliminar
+                            </button>
+                            <form id="formulario-eliminacion" method="POST"
+                                action="{% url 'eliminar_producto' producto.id %}">
                                 {% csrf_token %} <!--Esto se usa para darle seguridad al eliminar a los productos-->
                                 {{ form.as_p }}
-                                <button 
-                                    type="submit" 
-                                    class="bttn delete" 
-                                    onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"
-                                    > Eliminar 
-                                </button>
                             </form>
                         </div>
-                    </li>
-                </ul>
-                <!-- Formulario de edición oculto inicialmente -->
-                <div id="formulario-{{ producto.id }}" class="form modify" style="display: none;">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit">Guardar cambios</button>
-                        <button type="button" onclick="ocultarFormulario('{{ producto.id }}')">Cancelar</button>
-                    </form>
-                    <script src="{% static 'js/productos.js' %}"></script>
+                    </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-    <section>{% endblock %}</section>
-</section>
+</div>
+{% endblock %}

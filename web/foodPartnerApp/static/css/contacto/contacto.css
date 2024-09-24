@@ -1,34 +1,43 @@
 body {
-    background-size: cover;
+    background-color: #ecf0f1;
+}
+
+.header {
+    background-image: url(https://w.wallhaven.cc/full/42/wallhaven-42qxzy.jpg);
     background-position: center;
-    background-color: #a4161b;
+    background-size: cover;
+    box-sizing: border-box;
+    /* Tamaño */
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header h2 {
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 4.8rem;
 }
 
 .section-1 {
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* ------------ Información Contacto ------------ */
 
-.content-contact {
-    padding: 50px;
-    border-radius: 5px;
-    width: 850px;
-    background-color: white;
-    border: solid black 2px;
-}
-
 .content-contact h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 2rem;
     color: #333;
 }
 
 .detail-item {
-    width: 45%;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .detail-item h3 {
@@ -53,56 +62,52 @@ body {
 
 /* ------------ Formulario Contacto ------------ */
 
-.content-form {
-    padding: 50px;
+.formulario {
+    color: black;
+    padding: 30px;
     border-radius: 5px;
-    width: 450px;
-    background-color: white;
-    border: solid black 2px;
+    background-color: #e74c3c;
+    border: solid 2px black;
+    width: 360px;
 }
 
-.formulario h2 {
+.formulario h3 {
+    font-size: 26px;
+    color: white;
     text-align: center;
     margin-bottom: 15px;
 }
 
 .formulario fieldset {
+    font-size: large;
     border-style: none;
-    background-color: brown;
+    background-color: white;
     border-radius: 10px;
     border: 2px solid black;
     padding: 20px 20px;
     display: flex;
 }
 
-.formulario h4 {
-    font-size: 16px;
-}
-
 .formulario input {
     padding: 10px;
     width: 100%;
     margin-bottom: 10px;
-    border: 2px solid #a4161b85;
+    border: 2px solid black;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .formulario textarea {
     padding: 10px;
     border-style: none;
-    border: 2px solid #a4161b85;
+    border: 2px solid black;
     border-radius: 4px;
     width: 100%;
-    height: 80px;
+    height: 90px;
     resize: none;
 
 }
 
-.area_texto {
-    text-align: center;
-}
-
 .bttn {
-    margin-top: 30px;
+    margin-top: 10px;
 }

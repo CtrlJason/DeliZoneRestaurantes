@@ -1,0 +1,63 @@
+/* --------- AGREGAR PRODUCTOS ----------- */
+
+.encabezado {
+    text-align: center;
+    background-color: #f5f6fa;
+    padding: 10px;
+}
+
+.seccion-1 {
+    background-color: #82ccdd;
+    display: flex;
+    justify-content: center;
+}
+
+.seccion-1 .contenido {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.seccion-1 .formulario {
+    border: solid 2px black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: white;
+    font-size: 22px;
+}
+
+.seccion-1 .formulario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ------- Campos ------- */
+
+.seccion-1 .formulario input[type="text"],
+.seccion-1 .formulario input[type="number"],
+.seccion-1 .formulario input[type="file"],
+.seccion-1 .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #576574;
+    background-color: #c8d6e5;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.seccion-1 .formulario input[type="text"],
+.seccion-1 .formulario input[type="number"] {
+    height: 35px;
+}
+
+.seccion-1 .formulario textarea {
+    height: 100px;
+}
+
+.seccion-1 .formulario input[type="text"]:focus,
+.seccion-1 .formulario input[type="number"]:focus,
+.seccion-1 .formulario input[type="file"]:focus,
+.seccion-1 .formulario textarea:focus {
+    border-color: #E5383B;
+    outline: none;
+}

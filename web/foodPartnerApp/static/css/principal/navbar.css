@@ -1,28 +1,13 @@
-body {
-    margin-top: 119px;
-}
-
-.sticky-top {
+nav {
+    top: 0px;
     position: fixed;
     width: 100%;
-}
-
-.navbar.sticky-top {
-    top: 24px;
-    /* La barra principal se coloca debajo de la sub-barra de navegación */
-    background-color: #fff;
-    /* Color de fondo de la barra de navegación principal */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra debajo de la barra de navegación principal */
-    padding: 10px;
-    /* Espacio entre la barra de navegación principal y el contenido */
-    z-index: 1030;
-    /* Reducimos el z-index para que la barra principal esté debajo de la sub-barra */
+    background-color: white;
+    z-index: 100;
 }
 
 /* Submenú: Siempre visible en todas las pantallas */
 .sub-navbar {
-    top: 0;
     background-color: #161A1D;
     padding: 0 10px;
 }
@@ -78,7 +63,7 @@ body {
 .navbar-nav.d-md-none {
     flex-direction: row;
     justify-content: space-between;
-    gap: 50px;
+    gap: 20px;
 }
 
 

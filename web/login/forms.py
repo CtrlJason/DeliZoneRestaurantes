@@ -8,6 +8,7 @@ class RegisterForm(forms.Form):
     confirmar_contraseña = forms.CharField(widget=forms.PasswordInput, label="Confirmar contraseña")
     
     def clean(self):
+        # Consultar que hace y que es el cleaned_data y adicionalmente el metodo super() clean()
         cleaned_data = super().clean()
         password = cleaned_data.get("contraseña")
         confirm_password = cleaned_data.get("confirmar_contraseña")

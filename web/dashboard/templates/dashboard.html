@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard/dashboard.css' %}">
+{% endblock %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<nav class="menu-lateral">
+    <div class="division-1">
+        <ul>
+            <li>
+                <button class="cerrar-ventana">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Farrow-left.svg?alt=media&token=2ecef99f-60d0-40dd-b6ab-b5145a4c3cd1"
+                        alt="flecha izquierda">
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="division-2">
+        <ul>
+            <li>
+                <button id="boton-agregar-productos">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fplus-circle.svg?alt=media&token=be0f777b-8ae2-4756-b03a-97c0348b9b95"
+                        alt="icono mas">
+                    <a href="{% url "agregar_productos" %}">Crear productos</a>
+                </button>
+            </li>
+            <li>
+                <button id="boton-productos">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fshopping-bag.svg?alt=media&token=89fdcb01-ea4f-4247-9d9e-0525de4eb0e9"
+                        alt="icono bolsa de compras">
+                    <a href="{% url "productos" %}">Productos</a>
+                </button>
+            </li>
+            <li>
+                <button id="boton-formularios">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Finbox.svg?alt=media&token=76322eab-6b87-443c-be5e-7b0290b68863"
+                        alt="icono inbox">
+                    <a href="#">Formularios</a>
+                </button>
+            </li>
+            <li>
+                <button id="boton-empleados">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fuser.svg?alt=media&token=02ebab00-0026-4df6-89ab-2613fcb5d56d"
+                        alt="icono persona">
+                    <a href="#">Empleados</a>
+                </button>
+            </li>
+            <li>
+                <button id="boton-admin">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fsliders.svg?alt=media&token=e0137b41-34e8-4c8f-926f-079d3f2fb53d"
+                        alt="icono ajustes">
+                    <a href="#">Admin</a>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+<nav class="menu-principal">
+    <div class="division-1">
+        <ul>
+            <li>
+                <!-- Notificaciones -->
+                <button>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fbell.svg?alt=media&token=42c43bd5-4c27-495d-8cbb-561fb0d8053e"
+                        alt="icono campana">
+                </button>
+            </li>
+            <li>
+                <!-- Usuario -->
+                <button>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fuser-circle.svg?alt=media&token=fbef51c2-9368-487a-88ec-aab124f740d8"
+                        alt="icono usuario">
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}

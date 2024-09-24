@@ -1,68 +1,72 @@
-/* Seccion 1 */
-.section-1 {
-    background-color: #E5383B;
-}
+/* --------- Seccion 1 --------- */
 
-.title_section {
-    padding: 2% 0;
-    color: #FFFFFF;
-    font-size: 35px;
+.encabezado h2 {
     text-align: center;
+    background-color: #dcdde1;
+    padding: 10px;
 }
 
-/* Caja de los productos */
+/* --------- contentido seccion --------- 2 */
 
-.add-products {
-    background-color: #D3D3D3;
+.fondo {
+    background-color: #3d0d0d;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.bttn.add-products {
-    margin-left: 4%;
-    margin-bottom: 10px;
-    background-color: #ff7900;
-    font-weight: 600;
-    border-style: none;
-    border: solid #ff6d00;
+.seccion-1.productos {
+    box-shadow: 0 0 10px;
+    border-radius: 15px 15px 10px 10px;
 }
 
-.bttn.add-products:hover {
-    background-color: #ff9100;
-}
-
-.bttn.add-products:active {
-    background-color: #ff9e00;
-}
-
-
-.box.products {
-    margin: auto;
-    padding: 20px 0;
-    background-color: #D3D3D3;
-    width: 100%;
-    display: flex;
-    /* Permite que los elementos se ajusten en múltiples filas */
-    flex-wrap: wrap-reverse;
-}
-
-.box.products div {
-    /* Ajusta el ancho del producto (25% del contenedor menos el espacio entre productos) */
-    width: calc(25% - 40px);
-    margin-left: 20px;
-    margin-bottom: 20px;
-
-    /* Asegura que el padding y el border no afecten el ancho total */
+.seccion-1 .productos img {
+    /* Ajustes */
     box-sizing: border-box;
+    object-fit: cover;
+    /* Estilos */
+    border-radius: 15px 15px 0 0;
+    /* Tamaño */
+    width: 100%;
+    height: 200px;
 }
 
-.buttons-section {
-    margin: 10px 0;
+/* -- contenido de los productos -- */
+
+.seccion-1 .productos .contenido {
+    /* Ajustes */
+    box-sizing: border-box;
+    /* Estilos */
+    border-top: solid 5px #3d0d0d;
+    border-radius: 0 0 10px 10px;
+    background-color: #e9d8a6;
+    /* Tamaño */
+    width: 100%;
+    /* margenes y relleno */
+    padding: 20px;
+}
+
+.seccion-1 .productos .contenido h3 {
+    height: 10px;
+    margin-bottom: 30px;
+}
+
+.seccion-1 .productos .contenido .descripcion {
+    height: 65px;
+}
+
+.seccion-1 .productos .contenido .precio {
+    font-weight: bold;
+}
+
+/* --------- Botones --------- */
+
+.seccion-1 .productos .contenido .botones {
     display: flex;
+    justify-content: center;
+    background-color: white;
 }
 
-.form.modify {
-    display: none;
-    background-color: #ba181b;
-}
+/* ---- Boton modificacion de productos ---- */
 
 .bttn.modify {
     background-color: #8d99ae;
@@ -81,6 +85,8 @@
     color: #2b2d42;
 }
 
+/* ---- Boton eliminacion de productos ---- */
+
 .bttn.delete {
     background-color: #a4161a;
     font-weight: 600;
@@ -98,68 +104,7 @@
     color: #2b2d42;
 }
 
-.li_section-1 {
-    list-style: none;
-}
-
-.img_section-1 {
-    border-radius: 5px;
-    padding: 10px;
-    width: 300px;
-    height: 200px;
-
-    background-color: #FFFFFF;
-}
-
-.paragraph_section-1 {
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 0 0 5px 5px;
-    background-color: #FFFFFF;
-    width: 300px;
-    height: 130px;
-}
-
 /* --------- AGREGAR PRODUCTOS ----------- */
-
-.caja {
-    background-color: #D3D3D3;
-    width: 100%;
-}
-
-.create_products_section {
-    padding: 2% 0;
-    margin: 0 0 0 100px;
-}
-
-.product-form {
-    font-size: 22px;
-}
-
-.product-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.product-form input[type="text"],
-.product-form input[type="number"],
-.product-form input[type="file"],
-.product-form textarea {
-    width: 25%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.product-form input[type="text"]:focus,
-.product-form input[type="number"]:focus,
-.product-form input[type="file"]:focus,
-.product-form textarea:focus {
-    border-color: #E5383B;
-    outline: none;
-}
 
 .bttn {
     background-color: rgb(185, 141, 27);
@@ -171,3 +116,10 @@
 .bttn:hover {
     background-color: rgb(238, 188, 63);
 }
+
+/* --- Formulario de edicion --Pendiente-- --- */
+
+/* .form.modify {
+    display: none;
+    background-color: #ba181b;
+} */

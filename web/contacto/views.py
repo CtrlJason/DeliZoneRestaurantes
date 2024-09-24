@@ -14,10 +14,10 @@ def crear_contacto(request):
         if form.is_valid():
             # Limpiamos los datos y los guardamos en las keys
             datos = {
-                'nombre': form.cleaned_data['nombre'],
-                'apellido': form.cleaned_data['apellido'],
-                'correo': form.cleaned_data['correo'],
-                'descripcion': form.cleaned_data['descripcion'],
+                'nombre': form['nombre'],
+                'celular': form['celular'],
+                'correo': form['correo'],
+                'asunto': form['asunto'],
             }
             
             db.collection('solicitudes').add(datos)

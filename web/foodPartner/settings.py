@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     
     # Apps propias
     'foodPartnerApp',
-    'productos',
     'carrito',
     'contacto',
     'login',
     'usuario',
+    'menu',
     'ubicacion',
+    'productos',
+    'dashboard',
     'bootstrap5',
 ]
 
