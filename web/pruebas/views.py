@@ -77,3 +77,16 @@ def lista_documentos(request):
     return render(request, "pruebas.html")
 
 # En esta funcion mostramos los documentos en el template
+def mostrar_formulario(request):
+    documentos = db.collection("empleados")
+    formulario = PruebaForm(request.POST)
+    if request.method == "POST":
+        datos =({
+            "nombre" : formulario["nombre"],
+            "celular" : formulario["celular"],
+            "correo" : formulario["correo"],
+            "contraseña" : formulario["contraseña"],
+        })
+        
+        documentos.add(datos)
+    return render(request, "pruebas.html", {"formulario" : formulario})

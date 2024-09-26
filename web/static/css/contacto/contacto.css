@@ -111,3 +111,19 @@ body {
 .bttn {
     margin-top: 10px;
 }
+
+/* ------------ Formularios ADMIN ------------ */
+
+.formularios {
+    margin: 20px;
+}
+
+.formularios .contenido {
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: solid 2px #c0392b;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}

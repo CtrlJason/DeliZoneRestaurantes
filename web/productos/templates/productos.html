@@ -22,24 +22,11 @@
             {% for producto in productos %}
             <div class="col-sm-6 col-md-6 col-lg-4 my-3">
                 <div class="productos">
-                    <img src="{{ producto.imagen_url }}" alt="{{ producto1.nombre }}">
+                    <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                     <div class="contenido">
                         <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
                         <p class="descripcion">{{ producto.descripcion }}</p>
-                        <p class="precio"> Precio: {{ producto.precio_formateado }}</p>
-                        <div class="botones">
-                            <button class="bttn modify"
-                                onclick="mostrarFormulario('{{ producto.id }}')">Modificar</button>
-                            <button form="formulario-eliminacion" type="submit" class="bttn delete"
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
-                                Eliminar
-                            </button>
-                            <form id="formulario-eliminacion" method="POST"
-                                action="{% url 'eliminar_producto' producto.id %}">
-                                {% csrf_token %} <!--Esto se usa para darle seguridad al eliminar a los productos-->
-                                {{ form.as_p }}
-                            </form>
-                        </div>
+                        <p class="precio"> Precio: {{ producto.precio }}</p>
                     </div>
                 </div>
             </div>

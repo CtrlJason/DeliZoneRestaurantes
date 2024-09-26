@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
+{% endblock %}
+
+{% block title %}
+Contactenos
+{% endblock %}
+
+{% block content %}
+<div class="formularios">
+    <h2>Formularios</h2>
+    {% for formulario in formularios %}
+    <div class="contenido">
+        <p>id: {{ formulario.id }}</p>
+        <p>nombre: {{ formulario.nombre }}</p>
+        <p>celular: {{ formulario.celular }}</p>
+        <p>correo: {{ formulario.correo }}</p>
+        <p>asunto: {{ formulario.asunto }}</p>
+        <form action="{% url 'eliminar_formulario' formulario.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>
+                Eliminar
+            </button>
+        </form>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
