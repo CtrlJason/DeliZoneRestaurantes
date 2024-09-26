@@ -12,31 +12,25 @@ def contacto(request):
 
 def crear_contacto(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # Limpiamos los datos y los guardamos en las keys
-            # datos = {
-            #     'nombre': form.cleaned_data['nombre'],
-            #     'celular': form.cleaned_data['celular'],
-            #     'correo': form.cleaned_data['correo'],
-            #     'asunto': form.cleaned_data['asunto'],
-            # }
-            
-            name = request.POST['name']
-            email = request.POST['email']
-            correo = request.POST['correo']
-            mesagge = request.POST['mesagge']
-            from_email = settings.EMAIL_HOST_USER
-            destinatario = ["guini753@gmail.com"]
-            
-            # db.collection('solicitudes').add(datos)
-            
-            send_mail(name, email, correo, mesagge, from_email, destinatario)
-            
-            return redirect('contacto')
-    else:
-        form = ContactForm()
-    return render(request, 'contacto.html', {'form': form})
+        # Limpiamos los datos y los guardamos en las keys
+        # datos = {
+        #     'nombre': form.cleaned_data['nombre'],
+        #     'celular': form.cleaned_data['celular'],
+        #     'correo': form.cleaned_data['correo'],
+        #     'asunto': form.cleaned_data['asunto'],
+        # }
+        
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        mesagge = request.POST['mesagge']
+        from_email = settings.EMAIL_HOST_USER
+        destinatario = ["yeisondamosquera@gmail.com"]
+        # db.collection('solicitudes').add(datos)
+        
+        send_mail(subject, mesagge, from_email, destinatario)
+        return redirect('contacto')
+    return render(request, 'contacto.html')
 
 def ver_formularios(request):
     forms = db.collection("solicitudes").get()
