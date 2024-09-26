@@ -142,3 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Override User
 # AUTH_USER_MODEL = 'user.User'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'yeisondamosquera@gmail.com'  # Cambia esto por tu correo de Gmail
+EMAIL_HOST_PASSWORD = 'JasonThePapu'  # Cambia esto por tu contraseña de Gmail o una "contraseña de aplicación" si usas autenticación de dos factores
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

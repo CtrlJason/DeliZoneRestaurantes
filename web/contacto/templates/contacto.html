@@ -37,7 +37,18 @@ Contactenos
             <h3>Contactanos</h3>
             <form method="POST" action="{% url "crear_contacto" %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <!-- {{ form.as_p }} -->
+                <label for="name">Nombre</label>
+                <input type="text" id = "name" name="name" placeholder="Tu nombre" required>
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id = "email" name="email" placeholder="Tu correo" required>
+
+                <label for="subject">Asunto</label>
+                <input type="text" id = "subject" name="subject" placeholder="Asunto del mensaje" required>
+
+                <label for="mesagge">Mensaje</label>
+                <input type="text" id = "mesagge" name="mesagge" rows="5" placeholder="Tu mensaje" required>
                 <button class="bttn" type="submit">Enviar</button>
             </form>
         </div>

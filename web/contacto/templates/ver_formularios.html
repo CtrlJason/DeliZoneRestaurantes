@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/principal/home.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block content %}
+    <h2>Aqui se ven los formularios</h2>
+    <div class="contenido">
+        {% for formulario in formularios %}
+        <p>nombre: {{ formulario.nombre }}</p>
+        <p>celular: {{ formulario.celular }}</p>
+        <p>correo: {{ formulario.correo }}</p>
+        <p>asunto: {{ formulario.asunto }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
