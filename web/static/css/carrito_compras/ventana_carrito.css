@@ -59,7 +59,7 @@
 .ventana-carrito .division-2 .contenido {
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #7f8c8d;
+    background-color: #f39c12;
     width: 85%;
     margin: auto;
     border-radius: 10px;
@@ -67,9 +67,11 @@
 }
 
 .ventana-carrito .division-2 img {
-    height: 32px;
-    width: 64px;
+    height: 64px;
+    width: 128px;
+    border: solid 2px black;
     border-radius: 10px;
+    margin: 0 0 0 45px;
 }
 
 .ventana-carrito .division-2 p {
