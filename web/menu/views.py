@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from firebase import db
-from productos.views import formatear_precio
 
 # Create your views here.
 
 def menu(request):
-    return render(request, "menu.html")
+    docs = db.collection("productos").get()
+    lista_productos = []
+    for doc in docs:
+        lista_productos.append(doc.to_dict)
+    return render(request, "menu.html", {"lista_productos": lista_productos})

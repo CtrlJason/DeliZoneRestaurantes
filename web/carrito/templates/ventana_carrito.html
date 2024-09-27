@@ -1,9 +1,8 @@
-{% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
+<link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
 <link rel="stylesheet" href="{% static 'css/carrito_compras/ventana_carrito.css' %}">
-{% endblock %}
 
 {% block content %}
 <div class="ventana-carrito">
@@ -21,16 +20,18 @@
     </div>
     <div class="division-2">
         <h3>Carrito</h3>
-        <div class="contenido">
-            <ul>
-                <li>
-                    <p>contenido</p>
-                </li>
-            </ul>
+        <div class="row d-flex gap-4">
+            {% for producto in productos_carrito %}
+            <div class="contenido col-12">
+                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                <p> {{ producto.nombre }}</p>
+                <p> <b>precio:</b> {{ producto.precio }}</p>
+            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="division-3">
-        <p>Precio total: --total--</p>
+        <p><b>Precio total:</b> $ {{ precio_total }}</p>
     </div>
 </div>
 {% endblock %}

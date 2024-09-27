@@ -34,7 +34,7 @@ def ver_formularios(request):
     for doc in docs:
         formularios_data = doc.to_dict()
         formularios_data['id'] = doc.id
-    formularios.append(formularios_data)
+        formularios.append(formularios_data)
     return render(request, "ver_formularios.html", {"formularios": formularios})
 
 

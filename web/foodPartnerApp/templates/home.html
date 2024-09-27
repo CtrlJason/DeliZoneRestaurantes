@@ -18,40 +18,22 @@
     <section>
         <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
             <div class="row d-flex justify-content-center">
-                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
-                    <div class="content section-2">
-                        <img src="{{ producto1.imagen_url }}" alt="{{ producto1.nombre }}">
-                        <div class="sub-content section-2">
-                            <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto1.nombre }}</h3>
-                            <p class="descripcion">{{ producto1.descripcion }}</p>
-                            <p class="precio"> Precio: {{ producto1.precio_formateado }}</p>
-                            <button class="bttn incrementar" type="submit">Agregar al carrito</button>
+                {% for producto in lista_productos %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 my-3">
+                        <div class="content section-2">
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                            <div class="sub-content section-2">
+                                <h3 class="fs-5 fs-md-6 fw-bold" >{{ product.nombre }}</h3>
+                                <p class="descripcion">{{ producto.descripcion }}</p>
+                                <p class="precio"> Precio: {{ producto.precio }}</p>
+                                <form method="post" action="{% url 'agregar_producto' producto.id %}">
+                                    {% csrf_token %}
+                                    <button class="bttn incrementar" type="submit">Agregar al carrito</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
-                    <div class="content section-2">
-                        <img src="{{ producto2.imagen_url }}" alt="{{ producto2.nombre }}">
-                        <div class="sub-content section-2">
-                            <h3 class="fs-5 fs-md-6 fw-bold">{{ producto2.nombre }}</h3>
-                            <p class="descripcion">{{ producto2.descripcion }}</p>
-                            <p class="precio"> Precio: {{ producto2.precio_formateado }}</p>
-                            <button class="bttn incrementar" type="submit">Agregar al carrito</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 my-3">
-                    <div class="content section-2">
-                        <img src="{{ producto3.imagen_url }}" alt="sierra-frita">
-                        <div class="sub-content section-2">
-                            <h3 class="fs-5 fs-md-6 fw-bold">{{ producto3.nombre }}</h3>
-                            <p class="descripcion">{{ producto3.descripcion }}</p>
-                            <p class="precio"> Precio: {{ producto3.precio_formateado }}</p>
-                            <p>{{ contador }}</p>
-                            <button class="bttn incrementar" type="submit">Agregar al carrito</button>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

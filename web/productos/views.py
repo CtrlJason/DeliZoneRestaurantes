@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect
 from .forms import ProductoForm
 from firebase import db, bucket
+from urllib.parse import urlparse
 
 # Create your views here.
 
 def productos(request):
-    docs = db.collection("productos").get()
-    productos = []
+    docs = db.collection("productos").stream()
+    lista_productos = []
     for doc in docs:
-        productos.append(doc.to_dict())
-    return render(request, 'productos.html', {'productos': productos})
+        productos_data = (doc.to_dict())
+        productos_data['id'] = doc.id
+        lista_productos.append(productos_data)
+        
+    return render(request, 'productos.html', {'lista_productos': lista_productos})
 
 def subir_imagen(image):
     blob = bucket.blob(f'productos/{image.name}')
@@ -17,7 +21,7 @@ def subir_imagen(image):
     blob.make_public()
     return blob.public_url
 
-def agregar_productos(request):
+def agregar_producto(request):
     if request.method == "POST":
         form = ProductoForm(request.POST, request.FILES)
         if form.is_valid():
@@ -42,10 +46,23 @@ def agregar_productos(request):
             return redirect("productos")
     else: 
         form = ProductoForm()
-    return render(request, "agregar_productos.html", {'form': form})
-
-def formatear_precio(precio):
-        return
+    return render(request, "agregar_producto.html", {'form': form})
 
 def eliminar_producto(request, producto_id):
+    producto_ref = db.collection('productos').document(producto_id)
+    producto = producto_ref.get()
+    if request.method == "POST":
+        # Guardamos el url completo de la imagen
+        imagen_url = producto.get('imagen')
+        # Guardamos la ruta de la imagen con urlparse, este se usa para eliminar la parte del url antes del bucket
+        ruta_archivo = urlparse(imagen_url).path # Extrae la ruta interna y esto devuelve '/[nombre_bucket]/ruta_Archivo.jpg'
+        
+        # Quitar el nombre del bucket del inicio de la ruta
+        ruta_archivo = ruta_archivo.replace('/foodpartner-717d3.appspot.com/', '') # Reemplaza el nombre del bucket por un espacio vacio
+        
+        # Guardamos la ruta de la imagen
+        imagen = bucket.blob(ruta_archivo)
+        # Eliminamos la imagen y el producto
+        imagen.delete()
+        producto_ref.delete()
     return redirect('productos')

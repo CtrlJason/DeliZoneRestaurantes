@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
+<link rel="stylesheet" href="{% static 'css/contacto/ver_formularios.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -10,23 +10,25 @@ Contactenos
 {% endblock %}
 
 {% block content %}
-<div class="formularios">
-    <h2>Formularios</h2>
+
+{% include 'dashboard.html' %}
+
+<div class="formularios row justify-content-center">
+    <h2 class = "display-5 fw-bold">Formularios</h2>
     {% for formulario in formularios %}
-    <div class="contenido">
-        <p>id: {{ formulario.id }}</p>
-        <p>nombre: {{ formulario.nombre }}</p>
-        <p>celular: {{ formulario.celular }}</p>
-        <p>correo: {{ formulario.correo }}</p>
-        <p>asunto: {{ formulario.asunto }}</p>
-        <form action="{% url 'eliminar_formulario' formulario.id %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button>
-                Eliminar
-            </button>
-        </form>
-    </div>
+        <div class="contenido col-sm-8 col-md-6 my-md-5 my-md-2 mx-sm-0 mx-lg-3 mx-lg-4">
+            <p><b>nombre:</b> {{ formulario.nombre }}</p>
+            <p><b>celular:</b> {{ formulario.celular }}</p>
+            <p><b>correo:</b> {{ formulario.correo }}</p>
+            <p class = "asunto"> <b>asunto:</b> {{ formulario.asunto }}</p>
+            <form action="{% url 'eliminar_formulario' formulario.id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="bttn delete" type="submit">
+                    Eliminar
+                </button>
+            </form>
+        </div>
     {% endfor %}
 
 </div>

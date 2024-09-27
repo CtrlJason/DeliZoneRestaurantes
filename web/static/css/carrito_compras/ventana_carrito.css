@@ -46,19 +46,41 @@
 
 /* ------ SECCION 2 ------ */
 
+.ventana-carrito .division-2 {
+    height: 85%;
+}
+
 .ventana-carrito .division-2 h3 {
     margin-top: 50px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .ventana-carrito .division-2 .contenido {
-    display: flex;
-    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #7f8c8d;
+    width: 85%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ventana-carrito .division-2 img {
+    height: 32px;
+    width: 64px;
+    border-radius: 10px;
+}
+
+.ventana-carrito .division-2 p {
+    color: #2c3e50;
+    margin: 10px 0 0 0;
 }
 
 .ventana-carrito .division-3 {
-    height: 75%;
     display: flex;
     align-items: end;
     justify-content: center;
+    display: flex;
+    align-items: end;
 }

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from productos.views import formatear_precio
 from firebase import db
 
 

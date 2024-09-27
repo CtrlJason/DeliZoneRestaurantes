@@ -12,16 +12,18 @@ Menú
 
 {% block content %}
 
+{% include "ventana_carrito.html" %}
+
 <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
     <div class="section-1 row d-flex justify-content-center">
-        {% for producto in productos %}
+        {% for producto in lista_productos %}
         <div class="col-sm-6 col-md-6 col-lg-4 fs-6 my-3">
             <div class="content section-2">
-                <img src="{{ producto.imagen_url }}" alt="{{ producto1.nombre }}">
+                <img src="{{ producto.imagen }}" alt="{{ producto1.nombre }}">
                 <div class="sub-content section-2">
                     <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
                     <p class="descripcion">{{ producto.descripcion }}</p>
-                    <p class="precio"> Precio: {{ producto.precio_formateado }}</p>
+                    <p class="precio"> Precio: {{ producto.precio }}</p>
                     <button class="bttn incrementar" type="button">Agregar al carrito</button>
                 </div>
             </div>

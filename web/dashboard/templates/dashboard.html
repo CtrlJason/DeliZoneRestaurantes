@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block title %}
-Dashboard
+    Dashboard
 {% endblock %}
 
 {% block content %}
@@ -24,10 +24,10 @@ Dashboard
     <div class="division-2">
         <ul>
             <li>
-                <button id="boton-agregar-productos">
+                <button id="boton-agregar-producto">
                     <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fplus-circle.svg?alt=media&token=be0f777b-8ae2-4756-b03a-97c0348b9b95"
                         alt="icono mas">
-                    <a href="{% url "agregar_productos" %}">Agregar productos</a>
+                    <a href="{% url "agregar_producto" %}">Agregar productos</a>
                 </button>
             </li>
             <li>
@@ -41,7 +41,7 @@ Dashboard
                 <button id="boton-formularios">
                     <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Finbox.svg?alt=media&token=76322eab-6b87-443c-be5e-7b0290b68863"
                         alt="icono inbox">
-                    <a href="#">Formularios</a>
+                    <a href="{% url "ver_formularios" %}">Formularios</a>
                 </button>
             </li>
             <li>

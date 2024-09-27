@@ -3,7 +3,6 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
 <link rel="stylesheet" href="{% static 'css/productos/productos.css' %}" />
 {% endblock %}
 
@@ -19,7 +18,7 @@
 <div class="seccion-1">
     <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
         <div class="row d-flex justify-content-center">
-            {% for producto in productos %}
+            {% for producto in lista_productos %}
             <div class="col-sm-6 col-md-6 col-lg-4 my-3">
                 <div class="productos">
                     <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
@@ -27,6 +26,13 @@
                         <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
                         <p class="descripcion">{{ producto.descripcion }}</p>
                         <p class="precio"> Precio: {{ producto.precio }}</p>
+                        <form method="post" action="{% url 'eliminar_producto' producto.id %}">
+                            {% csrf_token %}
+                            <button class="bttn delete" type="submit"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                                Eliminar
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
