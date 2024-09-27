@@ -20,7 +20,9 @@
     </div>
     <div class="division-2">
         <h3>Carrito</h3>
-        <div class="row d-flex gap-4">
+    </div>
+    <div class="division-3">
+        <div class="secciones row d-flex gap-4">
             {% for producto in productos_carrito %}
             <div class="contenido col-12">
                 <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
@@ -30,7 +32,7 @@
             {% endfor %}
         </div>
     </div>
-    <div class="division-3">
+    <div class="division-4">
         <p><b>Precio total:</b> $ {{ precio_total }}</p>
     </div>
 </div>

@@ -49,11 +49,16 @@ def agregar_producto(request):
     return render(request, "agregar_producto.html", {'form': form})
 
 def eliminar_producto(request, producto_id):
+    # Guardamos la ubicacion de la coleccion en una variable
     producto_ref = db.collection('productos').document(producto_id)
+    # Obtenemos los valores de la coleccion
     producto = producto_ref.get()
-    if request.method == "POST":
+    
+    if request.method == 'POST':
+        # Elimina el producto en Firebase
         # Guardamos el url completo de la imagen
         imagen_url = producto.get('imagen')
+        
         # Guardamos la ruta de la imagen con urlparse, este se usa para eliminar la parte del url antes del bucket
         ruta_archivo = urlparse(imagen_url).path # Extrae la ruta interna y esto devuelve '/[nombre_bucket]/ruta_Archivo.jpg'
         

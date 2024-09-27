@@ -7,15 +7,19 @@
     /* Posicion Fija */
     position: fixed;
     /* Cambia a fixed */
-    bottom: 0;
-    right: 0;
+    right: -280px;
 
     /* Tamaño y proporciones */
-    width: 260px;
-    height: 80%;
+    width: 300px;
+    height: 85%;
     align-items: center;
     box-shadow: 0 0 3px black;
-    z-index: 3;
+    transition: right 150ms linear;
+
+}
+
+.ventana-carrito:hover {
+    right: 0;
 }
 
 /* ------ SECCION 1 ------ */
@@ -46,40 +50,51 @@
 
 /* ------ SECCION 2 ------ */
 
+/* --- division 2 --- */
 .ventana-carrito .division-2 {
-    height: 85%;
-}
-
-.ventana-carrito .division-2 h3 {
-    margin-top: 50px;
-    margin-bottom: 20px;
     text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid 2px black;
 }
 
-.ventana-carrito .division-2 .contenido {
+/* --- division 3 --- */
+
+.ventana-carrito .division-3 {
+    height: 80%;
+    overflow-y: auto;
+}
+
+.ventana-carrito .division-3 .secciones {
+    padding: 10px 0;
+}
+
+.ventana-carrito .division-3 .contenido {
     margin-top: 20px;
-    margin-bottom: 20px;
     background-color: #f39c12;
     width: 85%;
     margin: auto;
     border-radius: 10px;
-    padding: 10px;
+    padding-top: 10px;
+    border-bottom: solid 2px black;
 }
 
-.ventana-carrito .division-2 img {
+.ventana-carrito .division-3 img {
     height: 64px;
     width: 128px;
     border: solid 2px black;
     border-radius: 10px;
-    margin: 0 0 0 45px;
+    object-fit: cover;
 }
 
-.ventana-carrito .division-2 p {
+.ventana-carrito .division-3 p {
+    border-bottom: solid 1px rgb(24, 24, 24);
     color: #2c3e50;
-    margin: 10px 0 0 0;
+    margin: 10px 0;
 }
 
-.ventana-carrito .division-3 {
+/* --- division 4 --- */
+
+.ventana-carrito .division-4 {
     display: flex;
     align-items: end;
     justify-content: center;

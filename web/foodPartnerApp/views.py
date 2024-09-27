@@ -8,12 +8,11 @@ def home(request):
     contador = 0
     lista_productos = []
     for doc in docs:
-        producto_date = doc.to_dict()
-        producto_date['id'] = doc.id
-        lista_productos.append(producto_date)
-        contador+=1
-        if contador == 3:
-            continue
+        if contador < 3:
+            producto_date = doc.to_dict()
+            producto_date['id'] = doc.id
+            lista_productos.append(producto_date)
+            contador+=1
     # Carrito de compras
     docs_car = db.collection('carrito').stream()
     productos_carrito = []

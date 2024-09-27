@@ -12,7 +12,7 @@ body {
     position: fixed;
     /* Cambia a fixed */
     top: 0;
-    left: 0;
+    left: -240px;
 
     /* Tamaño y proporciones */
     width: 260px;
@@ -20,6 +20,11 @@ body {
     align-items: center;
     box-shadow: 0 0 3px black;
     z-index: 3;
+    transition: left 150ms linear;
+}
+
+.menu-lateral:hover {
+    left: 0;
 }
 
 /* ------ SECCION 1 ------ */
