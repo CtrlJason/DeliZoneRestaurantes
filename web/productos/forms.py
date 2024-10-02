@@ -1,7 +1,7 @@
 from django import forms
 
 class ProductoForm(forms.Form):
-    nombre = forms.CharField(max_length = 120)
+    nombre = forms.CharField(max_length = 40)
     precio = forms.IntegerField()
     stock = forms.IntegerField()
     imagen = forms.ImageField()

@@ -10,7 +10,7 @@
     {% bootstrap_css %}
 
     <link rel="icon"
-        href="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo_sin_texto.png?alt=media&token=febf968b-5dbe-4b3f-adf1-d9c6a37d01bb"
+        href="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2FLogo.svg?alt=media&token=9f471219-f62a-450a-a1fa-9e066d234290"
         style="width: 64px; height: 64px;" type="image/png">
     <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
     <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
@@ -28,7 +28,7 @@
 <body>
     <header>
 
-        {% if request.path != '/login/' and request.path != '/login/register/' and request.path != '/dashboard/' and request.path != '/productos/' and request.path != '/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/contacto/ver_formularios/' %}
+        {% if request.path != '/login/' and request.path != '/login/register/' and request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/productos/' and request.path != '/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/contacto/ver_formularios/' and request.path != '/compra/' %}
         <nav>
             <!-- Submenú siempre visible -->
             <div class="sub-navbar">
@@ -41,26 +41,39 @@
             <div class="container-fluid navbar navbar-expand-md sticky-top px-sm-3 px-md-5">
                 <!-- Logo del sitio -->
                 <a class="navbar-brand" href="{% url 'home' %}">
-                    <img class="logo" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2Flogo_texto_sin_contorno.png?alt=media&token=e90d856f-53d3-4ed1-bfcf-89335fcd4120" alt="icono Logo">
+                    <img class="logo"
+                        src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Flogo%2FLocoConTexto.svg?alt=media&token=73953619-57d9-4841-90ec-e0580b73e286"
+                        alt="icono Logo">
                 </a>
                 <!-- Íconos de usuario y carrito en móviles -->
-                <ul class="navbar-nav d-md-none m-auto">
+                <ul class="user-content navbar-nav d-md-none m-auto">
                     <!-- Ícono de usuario -->
                     <li class="nav-item">
-                        <a class="nav-link icon" href="{% url 'perfil_user' %}">
-                            <img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario">
-                        </a>
+                            <button id="botonVentanaUsuarioNav-1">
+                                <img class="usuario"
+                                src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4"
+                                alt="icono de usuario">
+                            </button>
+                            <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
+                                <a class="nav-link icon" href="{% url 'perfil_user' %}">Configurar usuario</a>
+                            </div>
+                            
                     </li>
                     <!-- Carrito con contador -->
                     <li class="nav-item">
                         <div class="nav-link icon">
                             <div class="contador-productos">{{ cantidad_productos }}</div>
-                            <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras">
+                            <button id = "mostrarCarrito-1">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef"
+                                    alt="Carrito de compras">
+                            </button>
                         </div>
                     </li>
                 </ul>
                 <!-- Botón de hamburguesa para dispositivos móviles -->
-                <button class="navbar-toggler ms-auto navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler ms-auto navbar-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Contenido colapsable del menú -->
@@ -76,17 +89,25 @@
                     <!-- Íconos de usuario y carrito en dispositivos grandes -->
                     <ul class="navbar-nav d-none d-sm-flex gap-4">
                         <!-- Ícono de usuario -->
-                        <li class="nav-item d-flex align-items-center">
-                            <a class="nav-link icon" href="{% url 'perfil_user' %}">
-                                <img class="usuario" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4" alt="icono de usuario">
-                            </a>
+                        <li class="user-content nav-item d-flex align-items-center">
+                            <button id="botonVentanaUsuarioNav-2">
+                                <img class="usuario"
+                                src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4"
+                                alt="icono de usuario">
+                            </button>
+                            <div id="VentanaUsuarioNav-2" class="ventana-usuario-navbar">
+                                <a href="{% url 'perfil_user' %}">Configurar perfil</a>
+                                <br><br><br>
+                                <a href="{% url 'perfil_user' %}">Cerrar sesion</a>
+                            </div>
                         </li>
                         <!-- Carrito con contador -->
                         <li class="nav-item d-flex align-items-center">
-                            <a class="nav-link icon" href="#">
+                            <button id = "mostrarCarrito-2">
                                 <div class="contador-productos">{{ cantidad_productos }}</div>
-                                <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef" alt="Carrito de compras">
-                            </a>
+                                <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fcar_shopping.svg?alt=media&token=a8470ebb-a15d-4282-b57f-2c113b0a78ef"
+                                    alt="Carrito de compras">
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -100,7 +121,7 @@
         {% endblock %}
     </main>
 
-    {% if request.path != '/dashboard/' and request.path != '/productos/' and request.path != '/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/contacto/ver_formularios/' %}
+    {% if request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/productos/' and request.path != '/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/contacto/ver_formularios/' and request.path != '/compra/' %}
     <footer>
         <div class="pie-pagina container-fluid p-5">
             <div class="contenido-pie row">
@@ -122,15 +143,16 @@
                 <div class="politicas col">
                     <a class="link-pie" href="#">terminos y condiciones</a>
                 </div>
-            <div class="row">
-                <div class="derechos-reservados col">
-                    <p>©️todos los derechos reservados</p>
+                <div class="row">
+                    <div class="derechos-reservados col">
+                        <p>©️todos los derechos reservados</p>
+                    </div>
                 </div>
             </div>
-        </div>
     </footer>
     {% endif %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/firebase.js" %}"></script>
 </body>
 
 </html>

@@ -6,57 +6,61 @@
 {% endblock %}
 
 {% block title %}
-    Dashboard
+Dashboard
 {% endblock %}
 
 {% block content %}
-<nav class="menu-lateral">
+<button id="botonCerrarDashboard" class="a">
+    <img id="iconoBoton" src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Farrow-left.svg?alt=media&token=2ecef99f-60d0-40dd-b6ab-b5145a4c3cd1"
+        alt="flecha izquierda">
+</button>
+<nav id = "menuLateral" class="menu-lateral">
     <div class="division-1">
         <ul>
             <li>
-                <button class="cerrar-ventana">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Farrow-left.svg?alt=media&token=2ecef99f-60d0-40dd-b6ab-b5145a4c3cd1"
-                        alt="flecha izquierda">
-                </button>
-            </li>
-        </ul>
-    </div>
-    <div class="division-2">
-        <ul>
-            <li>
-                <button id="boton-agregar-producto">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fplus-circle.svg?alt=media&token=be0f777b-8ae2-4756-b03a-97c0348b9b95"
-                        alt="icono mas">
-                    <a href="{% url "agregar_producto" %}">Agregar productos</a>
-                </button>
+                <a href= "{% url "agregar_producto" %}">
+                    <button id="boton-agregar-producto">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fplus-circle.svg?alt=media&token=be0f777b-8ae2-4756-b03a-97c0348b9b95"
+                            alt="icono mas">
+                        <p>Agregar productos</p>
+                    </button>
+                </a>
             </li>
             <li>
-                <button id="boton-productos">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fshopping-bag.svg?alt=media&token=89fdcb01-ea4f-4247-9d9e-0525de4eb0e9"
-                        alt="icono bolsa de compras">
-                    <a href="{% url "productos" %}">Productos</a>
-                </button>
+                <a href="{% url "productos" %}">
+                    <button id="boton-productos">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fshopping-bag.svg?alt=media&token=89fdcb01-ea4f-4247-9d9e-0525de4eb0e9"
+                            alt="icono bolsa de compras">
+                        <p>Productos</p>
+                    </button>
+                </a>
             </li>
             <li>
-                <button id="boton-formularios">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Finbox.svg?alt=media&token=76322eab-6b87-443c-be5e-7b0290b68863"
-                        alt="icono inbox">
-                    <a href="{% url "ver_formularios" %}">Formularios</a>
-                </button>
+                <a href="{% url "ver_formularios" %}">
+                    <button id="boton-formularios">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Finbox.svg?alt=media&token=76322eab-6b87-443c-be5e-7b0290b68863"
+                            alt="icono inbox">
+                        <p>Formularios</p>
+                    </button>
+                </a>
             </li>
             <li>
-                <button id="boton-empleados">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fuser.svg?alt=media&token=02ebab00-0026-4df6-89ab-2613fcb5d56d"
-                        alt="icono persona">
-                    <a href="#">Empleados</a>
-                </button>
+                <a href="#">
+                    <button id="boton-aplicacion">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fuser.svg?alt=media&token=02ebab00-0026-4df6-89ab-2613fcb5d56d"
+                            alt="icono persona">
+                        <p>Aplicacion</p>
+                    </button>
+                </a>
             </li>
             <li>
-                <button id="boton-admin">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fsliders.svg?alt=media&token=e0137b41-34e8-4c8f-926f-079d3f2fb53d"
-                        alt="icono ajustes">
-                    <a href="#">Admin</a>
-                </button>
+                <a href="#">
+                    <button id="boton-admin">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fsliders.svg?alt=media&token=e0137b41-34e8-4c8f-926f-079d3f2fb53d"
+                            alt="icono ajustes">
+                        <p>Admin</p>
+                    </button>
+                </a>
             </li>
         </ul>
     </div>
@@ -64,21 +68,39 @@
 <nav class="menu-principal">
     <div class="division-1">
         <ul>
-            <li>
-                <!-- Notificaciones -->
+            <li class="lista-menu">
+                <!-- Home -->
+                <a href="{% url "admin" %}">
                 <button>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fhome.svg?alt=media&token=9f825a32-3802-4d0b-b470-183b633a72c2"
+                        alt="icono home">
+                </button>
+                </a>
+            </li>
+            <li class="lista-menu">
+                <!-- Notificaciones -->
+                <button id="botonNotificacion">
                     <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fbell.svg?alt=media&token=42c43bd5-4c27-495d-8cbb-561fb0d8053e"
                         alt="icono campana">
                 </button>
+                <div id="ventanaNotificacion" class="ventana-notificacion" style="display:none;">
+                    <p>Notificaciones</p>
+                </div>
             </li>
-            <li>
+            <li class="lista-menu">
                 <!-- Usuario -->
-                <button>
+                <button id="botonUsuario">
                     <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fuser-circle.svg?alt=media&token=fbef51c2-9368-487a-88ec-aab124f740d8"
                         alt="icono usuario">
                 </button>
+                <div id="ventanaUsuario" class="ventana-usuario" style="display:none;">
+                    <p>Usuario</p>
+                </div>
             </li>
         </ul>
     </div>
 </nav>
+
+</div>
+<script src="{% static "js/dashboard.js" %}"></script>
 {% endblock %}

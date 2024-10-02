@@ -6,3 +6,6 @@ from firebase import db
 
 def dashboard(request):
     return render(request, "dashboard.html")
+
+def home(request):
+    return render(request, "index.html")

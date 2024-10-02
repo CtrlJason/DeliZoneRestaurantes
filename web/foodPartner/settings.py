@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ubicacion',
     'productos',
     'dashboard',
+    'pasarelaPagos',
     'bootstrap5',
     'pruebas',
 ]

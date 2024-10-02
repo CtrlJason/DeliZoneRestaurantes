@@ -5,12 +5,12 @@
 <link rel="stylesheet" href="{% static 'css/carrito_compras/ventana_carrito.css' %}">
 
 {% block content %}
-<div class="ventana-carrito">
+<div id = "mostrarVentanaCarrito" class="ventana-carrito">
     <div class="division-1">
         <div class="cerrar">
             <ul>
                 <li>
-                    <button>
+                    <button id = "ocultarVentanaCarrito">
                         <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficonos-carrito%2Fchevron-left.svg?alt=media&token=8347cebd-54b2-4398-a359-e917f6bd9cc8"
                             alt="Flecha izquierda">
                     </button>
@@ -22,9 +22,9 @@
         <h3>Carrito</h3>
     </div>
     <div class="division-3">
-        <div class="secciones row d-flex gap-4">
+        <div class="secciones row d-flex">
             {% for producto in productos_carrito %}
-            <div class="contenido col-12">
+            <div class="contenido col-12 my-2">
                 <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                 <p> {{ producto.nombre }}</p>
                 <p> <b>precio:</b> {{ producto.precio }}</p>
@@ -33,7 +33,12 @@
         </div>
     </div>
     <div class="division-4">
-        <p><b>Precio total:</b> $ {{ precio_total }}</p>
+        <p>
+            <b>Precio total:</b> $ {{ precio_total }} <br>
+            <a href="{% url "tienda" %}">
+                <button class="bttn">Proceder al pago</button>
+            </a>
+        </p>
     </div>
 </div>
 {% endblock %}

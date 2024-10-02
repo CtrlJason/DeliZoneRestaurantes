@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pasarela_pagos/pasarela_pagos.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Tienda
+{% endblock %}
+
+{% block content %}
+    <div class="escoger-tienda">
+        <div class="seccion-1">
+            <h4>Como prefieres recibir tú pedido</h4>
+            <div class="contenido">
+                <div class="botones">
+                    <button id="mostrarDireccion" class="boton-domicilio">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficonos-pasarela-pagos%2Freshot-icon-motorcycle-delivery-AGKXECTP9R.svg?alt=media&token=f7d7f916-a87d-4576-8caf-c9a8b5a38969" alt="icono moto con un paquete">
+                        <p>A Domiciolio</p>
+                    </button>
+                    <button id="mostrarMapa" class="boton-domicilio">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficonos-pasarela-pagos%2Freshot-icon-store-ZRPJNH793Y.svg?alt=media&token=09c446c9-268b-4cf6-acdf-09bb72c80e9e" alt="icono tienda">
+                        <p>Recoger en Tienda</p>
+                    </button>
+                </div>
+                <form id="formularioDireccion" class="formulario" action="{% url 'pasarela_pagos' %}" method="POST">
+                    <h2 class="">Dirección</h2>
+                    <!-- Tipo de Dirección -->
+                    <label for="tipo_via">Tipo de Vía:</label>
+                    <select id="tipo_via" name="tipo_via" required>
+                        <option value="">Seleccione</option>
+                        <option value="Calle">Calle</option>
+                        <option value="Carrera">Carrera</option>
+                        <option value="Avenida Calle">Avenida Calle</option>
+                        <option value="Avenida Carrera">Avenida Carrera</option>
+                    </select>
+                    <br><br>
+            
+                    <!-- Número de Vía -->
+                    <label for="numero_via">Número de Vía:</label>
+                    <input type="text" id="numero_via" name="numero_via" required placeholder="Ej. 15">
+                    <br><br>
+            
+                    <!-- Número Secundario (Cruce) -->
+                    <label for="numero_cruce">Número de Cruce:</label>
+                    <input type="text" id="numero_cruce" name="numero_cruce" required placeholder="Ej. 45A">
+                    <br><br>
+            
+                    <!-- Número de Casa/Edificio -->
+                    <label for="numero_casa">Número de Casa o Edificio:</label>
+                    <input type="text" id="numero_casa" name="numero_casa" required placeholder="Ej. 20">
+                    <br><br>
+            
+                    <!-- Localidad -->
+                    <label for="localidad">Localidad:</label>
+                    <select id="localidad" name="localidad" required>
+                        <option value="">Seleccione</option>
+                        <option value="Usaquén">Usaquén</option>
+                        <option value="Chapinero">Chapinero</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="San Cristóbal">San Cristóbal</option>
+                        <option value="Usme">Usme</option>
+                        <option value="Tunjuelito">Tunjuelito</option>
+                        <option value="Bosa">Bosa</option>
+                        <option value="Kennedy">Kennedy</option>
+                        <option value="Fontibón">Fontibón</option>
+                        <option value="Suba">Suba</option>
+                        <option value="Engativá">Engativá</option>
+                        <option value="Ciudad Bolívar">Ciudad Bolívar</option>
+                    </select>
+                    <br><br>
+            
+                    <!-- Barrio -->
+                    <label for="barrio">Barrio:</label>
+                    <input type="text" id="barrio" name="barrio" required placeholder="Ej. El Chicó">
+                    <br><br>
+            
+                    <!-- Código Postal -->
+                    <label for="codigo_postal">Código Postal:</label>
+                    <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Ej. 110111">
+                    <br><br>
+            
+                    <!-- Referencias adicionales -->
+                    <label for="referencia">Datos de Direccion Adicionales (Opcional):</label>
+                    <textarea id="referencia" name="referencia" placeholder="Ej. Casa de color blanco, frente a un parque."></textarea>
+                    <br><br>
+            
+                    <!-- Botón de Envío -->
+                    <button id="boton-pago1" class="bttn" type="submit">Enviar Dirección y Proceder al Pago</button>
+                </form>
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.832339561029!2d-74.07153092524828!3d4.623983895350748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f852d9563e2f7%3A0x506b1cbaa0a719c1!2sInter%20-%20Escuela%20Internacional%20de%20Estudios%20Superiores!5e0!3m2!1ses-419!2sco!4v1727662586769!5m2!1ses-419!2sco" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="{% url 'pasarela_pagos' %}">
+                        <button id="boton-pago2" class="bttn">Proceder al Pago</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static "js/compra.js" %}"></script>
+{% endblock %}

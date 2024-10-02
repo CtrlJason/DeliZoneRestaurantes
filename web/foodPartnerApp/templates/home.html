@@ -23,12 +23,12 @@
                         <div class="content section-2">
                             <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                             <div class="sub-content section-2">
-                                <h3 class="fs-5 fs-md-6 fw-bold" >{{ product.nombre }}</h3>
+                                <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto.nombre }}</h3>
                                 <p class="descripcion">{{ producto.descripcion }}</p>
                                 <p class="precio"> Precio: {{ producto.precio }}</p>
                                 <form method="post" action="{% url 'agregar_producto' producto.id %}">
                                     {% csrf_token %}
-                                    <button class="bttn incrementar" type="submit">Agregar al carrito</button>
+                                    <button class="bttn" type="submit">Agregar al carrito</button>
                                 </form>
                             </div>
                         </div>
@@ -37,4 +37,5 @@
             </div>
         </div>
     </section>
+    <script src="{% static "js/carrito_usuario.js" %}"></script>
 {% endblock %}

@@ -2,13 +2,13 @@ body {
     background-size: cover;
     background-position: center;
     background-color: #E5383B;
+    padding-top: 20px;
 }
 
 .content.main {
     width: 1000px;
     height: 54 0px;
     margin: auto;
-    margin-top: 20px;
     margin-bottom: 20px;
     padding: 60px;
     border-radius: 5px;

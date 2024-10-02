@@ -2,6 +2,29 @@ body {
     margin-top: 50px;
 }
 
+#botonCerrarDashboard {
+    position: fixed;
+    top: 160px;
+    left: -20px;
+    background: none;
+    border: none;
+    width: 36px;
+    background-color: #2c3e50;
+    padding: 5px;
+    padding-left: 60px;
+    border-radius: 20px;
+    transition: left 150ms linear;
+    display: flex;
+    justify-content: end;
+}
+
+
+#iconoBoton {
+    transform: rotate(180deg);
+    transition: transform 150ms linear;
+}
+
+
 /* ------------------ MENU LATERAL ------------------ */
 .menu-lateral {
     /* Estilos */
@@ -12,10 +35,10 @@ body {
     position: fixed;
     /* Cambia a fixed */
     top: 0;
-    left: -240px;
+    left: -280px;
 
     /* Tamaño y proporciones */
-    width: 260px;
+    width: 280px;
     height: 100%;
     align-items: center;
     box-shadow: 0 0 3px black;
@@ -23,37 +46,13 @@ body {
     transition: left 150ms linear;
 }
 
-.menu-lateral:hover {
+.mostrar-ventana-dashboard {
     left: 0;
 }
 
 /* ------ SECCION 1 ------ */
-.menu-lateral .division-1 {
-    position: relative;
-}
 
-.menu-lateral .division-1 .cerrar-ventana {
-    position: absolute;
-    margin-top: 30px;
-    left: 180px;
-    top: -16px;
-    background: none;
-    border: none;
-}
-
-.menu-lateral .division-1 img {
-    width: 36px;
-    background-color: #2c3e50;
-    padding: 5px;
-    border-radius: 20px;
-}
-
-.menu-lateral .division-1 li {
-    list-style: none;
-}
-
-/* ------ SECCION 2 ------ */
-.menu-lateral .division-2 button {
+.menu-lateral .division-1 button {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -72,34 +71,34 @@ body {
     transition: background 150ms ease-in;
 }
 
-.menu-lateral .division-2 button:hover {
+.menu-lateral .division-1 button:hover {
     background: #e74c3c;
     border-radius: 15px;
 }
 
-.menu-lateral .division-2 button p {
+.menu-lateral .division-1 button p {
     color: white;
     margin: auto;
 }
 
-.menu-lateral .division-2 {
+.menu-lateral .division-1 {
     display: flex;
     align-items: center;
     height: 90%;
 }
 
-.menu-lateral .division-2 li {
+.menu-lateral .division-1 li {
     list-style: none;
     color: white;
 }
 
-.menu-lateral .division-2 img {
+.menu-lateral .division-1 img {
     background-color: #2c3e50;
     padding: 5px;
     border-radius: 5px;
 }
 
-.menu-lateral .division-2 a {
+.menu-lateral .division-1 a {
     text-decoration: none;
     color: white;
 }
@@ -117,6 +116,7 @@ body {
     width: 100%;
     height: 50px;
     align-items: center;
+    padding-right: 50px;
     z-index: 2;
 }
 
@@ -134,8 +134,43 @@ body {
     gap: 10px;
 }
 
-.menu-principal .division-1 li {
+.menu-principal .division-1 .lista-menu {
     list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-principal .division-1 #ventanaNotificacion {
+    position: fixed;
+    margin: auto;
+    top: 60px;
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-principal .division-1 #ventanaUsuario {
+    position: fixed;
+    margin: auto;
+    top: 60px;
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu-principal .division-1 .lista-menu .ventana-notificacion li,
+a {
+    list-style: none;
+    text-decoration: none;
+    color: #e74c3c;
 }
 
 .menu-principal .division-1 button {
@@ -145,4 +180,16 @@ body {
 
 .menu-principal .division-1 img {
     width: 26px;
+}
+
+/* ------------------ DASHBOARD ------------------ */
+
+.dashboard .encabezado {
+    text-align: center;
+    background-color: #f5f6fa;
+    padding: 10px;
+}
+
+.dashboard .seccion-1 {
+    background-color: #82ccdd;
 }

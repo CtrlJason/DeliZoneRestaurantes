@@ -86,7 +86,14 @@ nav {
     font-size: 13px;
     font-weight: bold;
     position: absolute;
+    margin-bottom: 20px;
     margin-left: 18px;
+}
+
+.user-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 #btnCarrito {
@@ -94,4 +101,40 @@ nav {
     border: none;
     padding: 0;
     cursor: pointer;
+}
+
+#mostrarCarrito-1,
+#mostrarCarrito-2,
+#botonVentanaUsuarioNav-1,
+#botonVentanaUsuarioNav-2 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.ventana-usuario-navbar {
+    position: fixed;
+    top: 100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    padding: 25px 15px 15px 15px;
+    background-color: #D3D3D3;
+    display: none;
+}
+
+.ventana-usuario-navbar a {
+    text-decoration: none;
+    color: #161A1D;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ventana-usuario-navbar a:hover {
+    color: #660709;
+}
+
+.mostrar-ventana-usuario {
+    display: inline-block;
 }

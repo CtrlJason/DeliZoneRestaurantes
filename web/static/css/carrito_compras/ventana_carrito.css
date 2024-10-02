@@ -7,7 +7,7 @@
     /* Posicion Fija */
     position: fixed;
     /* Cambia a fixed */
-    right: -280px;
+    right: -300px;
 
     /* Tamaño y proporciones */
     width: 300px;
@@ -15,11 +15,14 @@
     align-items: center;
     box-shadow: 0 0 3px black;
     transition: right 150ms linear;
-
 }
 
-.ventana-carrito:hover {
+.mostrar-ventana-carrito {
     right: 0;
+}
+
+.ocultar-ventana-carrito {
+    right: -300px;
 }
 
 /* ------ SECCION 1 ------ */
@@ -35,7 +38,12 @@
     top: -30px;
     background: none;
     border: none;
+    transform: rotate(180deg);
 }
+
+
+
+
 
 .ventana-carrito .division-1 .cerrar li {
     list-style: none;
@@ -60,7 +68,7 @@
 /* --- division 3 --- */
 
 .ventana-carrito .division-3 {
-    height: 80%;
+    height: 75%;
     overflow-y: auto;
 }
 
@@ -94,10 +102,8 @@
 
 /* --- division 4 --- */
 
-.ventana-carrito .division-4 {
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    display: flex;
-    align-items: end;
+.ventana-carrito .division-4 p {
+    display: block;
+    width: 200px;
+    margin: auto;
 }

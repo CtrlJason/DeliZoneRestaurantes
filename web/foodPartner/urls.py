@@ -28,5 +28,6 @@ urlpatterns = [
     path('menu/', include('menu.urls')),
     path('productos/', include('productos.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('compra/', include('pasarelaPagos.urls')),
     path('pruebas/', include('pruebas.urls')),
 ]
