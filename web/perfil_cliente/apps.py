@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class EditarperfiluserConfig(AppConfig):
+class PerfilClienteConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'usuario'
+    name = 'perfil_cliente'

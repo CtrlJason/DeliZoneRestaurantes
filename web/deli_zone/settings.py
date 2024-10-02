@@ -40,13 +40,13 @@ INSTALLED_APPS = [
     
     # Apps propias
     'deli_zone_app',
+    'menu',
     'carrito',
     'contacto',
-    'login',
-    'usuario',
-    'menu',
+    'perfil_cliente',
     'ubicacion',
     'pasarela_pagos',
+    'login',
     # Panel de administrador
     'dashboard',
     'productos',
@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'bootstrap5',
     # Test
     'pruebas',
+    # Administracion de permisos
+    'gestion_acceso',
 ]
 
 MIDDLEWARE = [
@@ -146,4 +148,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Override User
-# AUTH_USER_MODEL = 'user.User'
+# AUTH_USER_MODEL = 'gestion_acceso.Usuario'
