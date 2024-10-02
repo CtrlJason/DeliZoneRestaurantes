@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PasarelapagosConfig(AppConfig):
+class DeliZoneAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'pasarelaPagos'
+    name = 'deli_zone_app'

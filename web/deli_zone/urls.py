@@ -1,5 +1,5 @@
 """
-URL configuration for foodPartner project.
+URL configuration for deli_zone project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -19,15 +19,16 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('foodPartnerApp.urls')),
+    path('', include('deli_zone_app.urls')),
     path('carrito/', include('carrito.urls')),
     path('contacto/', include('contacto.urls')),
     path('login/', include('login.urls')),
     path('usuario/', include('usuario.urls')),
     path('ubicacion/', include('ubicacion.urls')),
     path('menu/', include('menu.urls')),
-    path('dashboard/admin/productos/', include('productos.urls')),
     path('dashboard/', include('dashboard.urls')),
-    path('compra/', include('pasarelaPagos.urls')),
+    path('dashboard/admin/productos/', include('productos.urls')),
+    path('dashboard/admin/contacto/', include('gestion_contacto.urls')),
+    path('seleccionar_tienda/', include('pasarela_pagos.urls')),
     path('pruebas/', include('pruebas.urls')),
 ]

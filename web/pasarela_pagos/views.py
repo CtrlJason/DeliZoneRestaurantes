@@ -23,12 +23,12 @@ def pasarela_pagos(request):
         "productos_carrito" : productos_carrito,
         })
     
-def escoger_tienda(request):
+def seleccionar_tienda(request):
     docs_car = db.collection('carrito').stream()
     cantidad_productos = 0
     
     for doc in docs_car:
         cantidad_productos += 1
-    return render(request, "escoger_tienda.html", {
+    return render(request, "seleccionar_tienda.html", {
         "cantidad_productos" : cantidad_productos,
         })
