@@ -1,4 +1,4 @@
-// ----------------- BOTONES MODULO - MENU NAVEGACION ----------------- //
+//--================ BOTONES MODULO - MENU NAVEGACION ================--//
 
 // Carrito de compras
 const mostrarCarritoBtn1 = document.getElementById('mostrarCarrito-1');
@@ -35,3 +35,4 @@ botonVentanaUsuarioNav1.addEventListener('click', () => {
 botonVentanaUsuarioNav2.addEventListener('click', () => {
     VentanaUsuarioNav2.classList.toggle('mostrar-ventana-usuario');
 })
+//--==================================================================--//

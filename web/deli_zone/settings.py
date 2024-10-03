@@ -47,15 +47,15 @@ INSTALLED_APPS = [
     'ubicacion',
     'pasarela_pagos',
     'login',
-    # Panel de administrador
+    # Panel de administrador,
     'dashboard',
     'productos',
     'gestion_contacto',
     # CSS
     'bootstrap5',
-    # Test
+    # Test,
     'pruebas',
-    # Administracion de permisos
+    # Administracion de permisos,
     'gestion_acceso',
 ]
 
@@ -148,4 +148,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Override User
-# AUTH_USER_MODEL = 'gestion_acceso.Usuario'
+# AUTH_USER_MODEL = 'gestion_acceso.User'
