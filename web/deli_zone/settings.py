@@ -46,16 +46,15 @@ INSTALLED_APPS = [
     'perfil_cliente',
     'ubicacion',
     'pasarela_pagos',
-    'login',
-    # Panel de administrador,
+    # Panel de administrador
     'dashboard',
     'productos',
     'gestion_contacto',
     # CSS
     'bootstrap5',
-    # Test,
+    # Test
     'pruebas',
-    # Administracion de permisos,
+    # Administracion de usuarios y permisos
     'gestion_acceso',
 ]
 
@@ -96,7 +95,7 @@ WSGI_APPLICATION = 'deli_zone.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",  # Usa la ruta del directorio base de tu proyecto
     }
 }
 
@@ -146,6 +145,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Override User
-# AUTH_USER_MODEL = 'gestion_acceso.User'

@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/gestion_acceso/gestion_acceso.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -13,7 +13,7 @@
 {% block content %}
     <div class="content main">
         <h2>Iniciar sesion</h2>
-        <form method="post" action="{% url "autenticar_usuario" %}">
+        <form method="post" action="">
             {% csrf_token %}
             {{ form.as_p }}
             <label class="checkbox">
@@ -22,7 +22,7 @@
             </label>
             <button class="bttn content-main" type="submit">Entrar</button>
             <a class="link content-main" href="#">¿Olvido su contraseña?</a>
-            <a class="link content-main" href="{% url "register" %}">Registrarse</a>
+            <a class="link content-main" href="{% url "registro_cliente" %}">Registrarse</a>
         </form>
     </div>
 {% endblock %}

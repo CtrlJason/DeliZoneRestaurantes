@@ -1,12 +1,12 @@
 body {
     /* background: url(../pag_register/img/fonds/pixelcut-export.jpeg) center / cover; */
     background: radial-gradient(#E5383B, #BA181B);
+    margin: 0;
 
 }
 
 .content.main {
-    width: 400px;
-    height: 450px;
+    width: 600px;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;

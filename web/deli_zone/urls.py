@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include('deli_zone_app.urls')),
     path('carrito/', include('carrito.urls')),
     path('contacto/', include('contacto.urls')),
-    path('login/', include('login.urls')),
+    path('acceso/', include('gestion_acceso.urls')),
     path('perfil_cliente/', include('perfil_cliente.urls')),
     path('ubicacion/', include('ubicacion.urls')),
     path('menu/', include('menu.urls')),
