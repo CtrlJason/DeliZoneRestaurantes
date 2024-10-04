@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 # Create your views here.
 
 def productos(request):
-    docs = db.collection("productos").stream()
+    docs = db.collection('restaurante1').document('web').collection('productos').stream()
     lista_productos = []
     for doc in docs:
         productos_data = (doc.to_dict())
@@ -16,7 +16,7 @@ def productos(request):
     return render(request, 'productos.html', {'lista_productos': lista_productos})
 
 def subir_imagen(image):
-    blob = bucket.blob(f'productos/{image.name}')
+    blob = bucket.blob(f'restaurante1/productos/{image.name}')
     blob.upload_from_file(image, content_type=image.content_type)
     blob.make_public()
     return blob.public_url
@@ -41,7 +41,7 @@ def agregar_producto(request):
                 'descripcion' : descripcion
             }
             
-            db.collection("productos").add(datos)
+            db.collection('restaurante1').document('web').collection('productos').add(datos)
             
             return redirect("productos")
     else: 
@@ -50,7 +50,7 @@ def agregar_producto(request):
 
 def eliminar_producto(request, producto_id):
     # Guardamos la ubicacion de la coleccion en una variable
-    producto_ref = db.collection('productos').document(producto_id)
+    producto_ref = db.collection('restaurante1').document('web').collection('productos').document(producto_id)
     # Obtenemos los valores de la coleccion
     producto = producto_ref.get()
     

@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroCliente, AccederCliente
-from firebase_admin import auth
+from .forms import RegistroClienteForm, AccederClienteForm, RegistroEmpleadoForm
 from firebase import db
 import bcrypt
 
+# --=================== CLIENTES ===================-- #
+
 def registro_cliente(request):
     if request.method == "POST":
-        form = RegistroCliente(request.POST)
+        form = RegistroClienteForm(request.POST)
         # Verificamos si el formulario que relleno el usuario es valido para poder realizar el registro del mismo
         if form.is_valid():
             nombre = form.cleaned_data['nombre']
@@ -22,13 +23,12 @@ def registro_cliente(request):
                 # Encriptamos la contraseña en caso de que el usuario haya puesto las contraseñas correctamente
                 contraseña_encriptada = bcrypt.hashpw(contraseña1.encode(), bcrypt.gensalt()).decode('utf-8')
                 # Verificamos que el correo no haya sido registrado por otro usuario
-                usuario_ref = db.collection('clientes')
-                query = usuario_ref.where("email", "==", correo).get()
+                query = db.collection('restaurante1').document('usuarios').collection('clientes').where("email", "==", correo).get()
                 if query:
                     form.add_error(None, "El correo ya se encuentra registrado.")
                 else:
                     try:
-                        db.collection('clientes').add({
+                        db.collection('restaurante1').document('usuarios').collection('clientes').add({
                             'nombres': nombre,
                             'apellidos': apellido,
                             'email': correo,
@@ -39,13 +39,13 @@ def registro_cliente(request):
                     except Exception as e:
                         form.add_error(None, f"Error al registrar el usuario: {e}")
     else:
-        form = RegistroCliente()
+        form = RegistroClienteForm()
                 
     return render(request, "clientes/registro_cliente.html", {'form': form})
 
 def acceder_cliente(request):
     if request.method == "POST":
-        form = AccederCliente(request.POST)
+        form = AccederClienteForm(request.POST)
         if form.is_valid():
             # Traemos el correo y la contraseña proporcionada por el usuario
             correo = form.cleaned_data['correo']
@@ -71,5 +71,48 @@ def acceder_cliente(request):
             else:
                 form.add_error(None, "No se encontró un usuario con este correo")
     else:
-        form = AccederCliente()
+        form = AccederClienteForm()
     return render(request, "clientes/acceder_cliente.html", {'form': form})
+
+# --=================== EMPLEADOS ===================-- #
+
+def ver_empleados(request):
+    form = RegistroEmpleadoForm()
+    docs = db.collection('restaurante1').document('usuarios').collection('empleados').stream()
+    lista_empleados = []
+    
+    for doc in docs:
+        lista_empleados.append(doc.to_dict())
+    return render(request, 'empleados/empleados.html', {'lista_empleados': lista_empleados, 'form': form})
+
+def registro_empleado(request):
+    if request.method == "POST":
+        form = RegistroEmpleadoForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            apellido = form.cleaned_data['apellido']
+            correo = form.cleaned_data['correo']
+            contraseña = form.cleaned_data['contraseña']
+            cargo = form.cleaned_data['cargo']
+            
+            # Encriptamos la contraseña
+            contraseña_encriptada = bcrypt.hashpw(contraseña.encode(), bcrypt.gensalt()).decode('utf-8')
+            
+            query = db.collection('restaurante1').document('usuarios').collection('empleados').where("email", "==", correo).get()
+            if query:
+                form.add_error(None, "El empleado ya se encuentra registrado.")
+            else:
+                try:
+                    db.collection('restaurante1').document('usuarios').collection('empleados').add({
+                        'nombre':nombre,
+                        'apellido':apellido,
+                        'correo':correo,
+                        'contraseña':contraseña_encriptada,
+                        'cargo':cargo,
+                        'rol': 'empleado'
+                    })
+                except Exception as e:
+                    form.add_error(None, 'Error al registrar al empleado')
+    else:
+        form = RegistroEmpleadoForm()
+    return render(request, 'empleados/empleados.html', {'form': form})

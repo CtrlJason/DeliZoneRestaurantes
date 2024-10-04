@@ -1,12 +1,7 @@
-{% extends "base.html" %}
 {% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/dashboard/dashboard.css' %}">
-{% endblock %}
-
-{% block title %}
-Dashboard
 {% endblock %}
 
 {% block content %}
@@ -45,11 +40,11 @@ Dashboard
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <button id="boton-aplicacion">
+                <a href="{% url "ver_empleados" %}">
+                    <button id="boton-empleados">
                         <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-lateral%2Fuser.svg?alt=media&token=02ebab00-0026-4df6-89ab-2613fcb5d56d"
                             alt="icono persona">
-                        <p>Aplicacion</p>
+                        <p>Empleados</p>
                     </button>
                 </a>
             </li>

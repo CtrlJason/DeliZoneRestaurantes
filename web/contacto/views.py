@@ -27,7 +27,7 @@ def crear_contacto(request):
                 'asunto': form.cleaned_data['asunto'],
             }
             
-            db.collection('solicitudes').add(datos)
+            db.collection('restaurante1').document('web').collection('solicitudes').add(datos)
             return redirect('contacto')
     else:
         form = ContactForm()

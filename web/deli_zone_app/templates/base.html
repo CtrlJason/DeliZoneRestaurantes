@@ -28,7 +28,7 @@
 <body>
     <header>
 
-        {% if request.path != '/acceso/iniciar_sesion/' and request.path != '/acceso/registro/' and request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' %}
+        {% if request.path != '/acceso/iniciar_sesion/' and request.path != '/acceso/registro/' and request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' and request.path != '/acceso/registro_empleados/' and request.path != '/acceso/empleados/' %}
         <nav>
             <!-- Submenú siempre visible -->
             <div class="sub-navbar">
@@ -121,7 +121,7 @@
         {% endblock %}
     </main>
 
-    {% if request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' %}
+    {% if request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' and request.path != '/acceso/registro_empleados/' and request.path != '/acceso/empleados/' %}
     <footer>
         <div class="pie-pagina container-fluid p-5">
             <div class="contenido-pie row">

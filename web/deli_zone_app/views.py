@@ -4,7 +4,7 @@ from firebase import db
 # Create your views here.
 
 def home(request):
-    docs = db.collection("productos").stream()
+    docs = db.collection('restaurante1').document('web').collection('productos').stream()
     contador = 0
     lista_productos = []
     for doc in docs:
