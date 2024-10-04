@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroClienteForm, AccederClienteForm, RegistroEmpleadoForm
+from .forms import RegistroClienteForm, AccederClienteForm, RegistroEmpleadoForm, RegistroAdministradoresForm
 from firebase import db
 import bcrypt
 
@@ -74,16 +74,30 @@ def acceder_cliente(request):
         form = AccederClienteForm()
     return render(request, "clientes/acceder_cliente.html", {'form': form})
 
-# --=================== EMPLEADOS ===================-- #
+# --=================== VISTA EMPLEADOS Y ADMINISTRADORES ===================-- #
 
-def ver_empleados(request):
-    form = RegistroEmpleadoForm()
-    docs = db.collection('restaurante1').document('usuarios').collection('empleados').stream()
-    lista_empleados = []
+def ver_usuarios(request):
+    form_empleados = RegistroEmpleadoForm()
+    form_administradores = RegistroAdministradoresForm()
+    docs_empleados = db.collection('restaurante1').document('usuarios').collection('empleados').stream()
+    docs_administradores = db.collection('restaurante1').document('usuarios').collection('administradores').stream()
     
-    for doc in docs:
+    lista_empleados = []
+    lista_administradores = []
+    
+    for doc in docs_empleados:
         lista_empleados.append(doc.to_dict())
-    return render(request, 'empleados/empleados.html', {'lista_empleados': lista_empleados, 'form': form})
+    for doc in docs_administradores:
+        lista_administradores.append(doc.to_dict())
+        
+    return render(request, 'usuarios/usuarios.html', {
+        'lista_empleados':lista_empleados,
+        'lista_administradores':lista_administradores,
+        'form_empleados': form_empleados,
+        'form_administradores': form_administradores,
+        })
+
+# --=================== REGISTRO EMPLEADOS ===================-- #
 
 def registro_empleado(request):
     if request.method == "POST":
@@ -109,10 +123,46 @@ def registro_empleado(request):
                         'correo':correo,
                         'contraseña':contraseña_encriptada,
                         'cargo':cargo,
-                        'rol': 'empleado'
+                        'rol': 'empleado',
+                        'estado': True
                     })
                 except Exception as e:
                     form.add_error(None, 'Error al registrar al empleado')
     else:
         form = RegistroEmpleadoForm()
-    return render(request, 'empleados/empleados.html', {'form': form})
+    return redirect('usuarios')
+
+# --=================== REGISTRO ADMINISTRADORES ===================-- #
+
+def registro_administrador(request):
+    if request.method == "POST":
+        form = RegistroAdministradoresForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            apellido = form.cleaned_data['apellido']
+            correo = form.cleaned_data['correo']
+            contraseña = form.cleaned_data['contraseña']
+            cargo = form.cleaned_data['cargo']
+            
+            # Encriptamos la contraseña
+            contraseña_encriptada = bcrypt.hashpw(contraseña.encode(), bcrypt.gensalt()).decode('utf-8')
+            
+            query = db.collection('restaurante1').document('usuarios').collection('administradores').where("email", "==", correo).get()
+            if query:
+                form.add_error(None, "El administrador ya se encuentra registrado.")
+            else:
+                try:
+                    db.collection('restaurante1').document('usuarios').collection('administradores').add({
+                        'nombre':nombre,
+                        'apellido':apellido,
+                        'correo':correo,
+                        'contraseña':contraseña_encriptada,
+                        'cargo':cargo,
+                        'rol': 'admin',
+                        'estado': True
+                    })
+                except Exception as e:
+                    form.add_error(None, 'Error al registrar al empleado')
+    else:
+        form = RegistroEmpleadoForm()
+    return redirect('usuarios')

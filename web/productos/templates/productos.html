@@ -13,31 +13,60 @@
 {% include 'dashboard.html' %}
 
 <div class="encabezado">
-    <h2 class="fw-bold display-4">Productos</h2>
+    <h2 class="fw-bold display-6">Productos</h2>
 </div>
 <div class="seccion-1">
     <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
-        <div class="row d-flex justify-content-center">
-            {% for producto in lista_productos %}
-            <div class="col-sm-6 col-md-6 col-lg-4 my-3">
-                <div class="productos">
-                    <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
-                    <div class="contenido">
-                        <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
-                        <p class="descripcion">{{ producto.descripcion }}</p>
-                        <p class="precio"> Precio: {{ producto.precio }}</p>
-                        <form method="post" action="{% url 'eliminar_producto' producto.id %}">
-                            {% csrf_token %}
-                            <button class="bttn delete" type="submit"
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
-                                Eliminar
-                            </button>
-                        </form>
+        <div class="botones-producos">
+            <button id="btn-ver-productos">
+                <div class="contenido-boton">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fcontenido%2Freshot-icon-shopping-basket-9KM8RDP5VF.svg?alt=media&token=7cef832c-d1c3-43d8-aed3-ba746704c246" alt="icono cesta">
+                    <p>Productos</p>
+                </div>
+            </button>
+            <button id="btn-agregar-productos">
+                <div class="contenido-boton">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fcontenido%2Freshot-icon-tag-7L2YHRXGZJ.svg?alt=media&token=f4ebad96-f8fd-4f8b-a428-cbfd4c14d610" alt="icono etiqueta">
+                    <p>Agregar productos</p>
+                </div>
+            </button>
+        </div>
+        <div class="">
+            <div id="ver-productos" class="row justify-content-center">
+                {% for producto in lista_productos %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 my-3">
+                        <div class="productos">
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                            <div class="contenido">
+                                <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
+                                <p class="descripcion">{{ producto.descripcion }}</p>
+                                <p class="precio"> Precio: {{ producto.precio }}</p>
+                                <form method="post" action="{% url 'eliminar_producto' producto.id %}">
+                                    {% csrf_token %}
+                                    <button class="bttn delete" type="submit"
+                                        onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+                {% endfor %}
+            </div>
+            
+            <div id="ver-formulario" class="formulario-productos">
+                <div class="contenido row justify-content-center">
+                    <form class="formulario col-12" 
+                        method="POST" 
+                        action="{% url 'agregar_producto' %}" 
+                        enctype="multipart/form-data">
+                            {% csrf_token %} <!--Esto se usa para darle seguridad al crear a los productos-->
+                            {{ form.as_p }} <!-- Renderiza todos los campos del formulario como párrafos -->
+                        <button class="bttn" type="submit">Agregar Producto</button>
+                    </form>
                 </div>
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
-{% endblock %}
+    <script src="{% static "js\productos_dashboard.js" %}"></script>
+    {% endblock %}

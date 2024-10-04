@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from firebase import db
+from firebase_admin import threading
 
 # Create your views here.
 
@@ -7,6 +8,7 @@ def home(request):
     docs = db.collection('restaurante1').document('web').collection('productos').stream()
     contador = 0
     lista_productos = []
+
     for doc in docs:
         if contador < 3:
             producto_date = doc.to_dict()

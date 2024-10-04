@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/gestion_acceso/gestion_acceso.css' %}">
+{% endblock %}
+
+{% block title %}
+    Usuarios
+{% endblock %}
+
+{% block content %}
+
+{% include "dashboard.html" %}
+
+<div class="content main">
+    <h2>Gestion de usuarios</h2>
+    <div class="row">
+        {% for empleado in lista_empleados %}
+            <div class="col-sm-6 col-md-6 col-lg-6 my-6">
+                <div class="contenido-empleados">
+                    <img src="{{ empleado.imagen }}" alt="{{ empleado.nombre }}">
+                    <div class="contenido">
+                        <h3 class="fs-5 fs-md-6 fw-bold">{{ empleado.nombre }} {{ empleado.apellido }}</h3>
+                        <p class="correo">{{ empleado.correo }}</p>
+                        <p class="cargo"> Cargo: {{ empleado.cargo }}</p>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button class="bttn delete" type="submit"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar al empleado?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% for admin in lista_administradores %}
+            <div class="col-sm-6 col-md-6 col-lg-6 my-6">
+                <div class="contenido-empleados">
+                    <img src="{{ admin.imagen }}" alt="{{ admin.nombre }}">
+                    <div class="contenido">
+                        <h3 class="fs-5 fs-md-6 fw-bold">{{ admin.nombre }} {{ admin.apellido }}</h3>
+                        <p class="correo">{{ empleado.correo }}</p>
+                        <p class="cargo"> Cargo: {{ empleado.rol }}</p>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button class="bttn delete" type="submit"
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar al administrador?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="registro_usuario" style="">
+        <form method="post" action="{% url "registro_empleado" %}">
+            <h2>Registro de empleados</h2>
+            {% csrf_token %}
+            {{ form_empleados.as_p }}
+            <button class="bttn content-main" type="submit">Registrar Nuevo Empleado</button>
+        </form>
+    </div>
+    <div class="registro_usuario" style="">
+        <form method="post" action="{% url "registro_administrador" %}">
+            <h2>Registro de administradores</h2>
+            {% csrf_token %}
+            {{ form_administradores.as_p }}
+            <button class="bttn content-main" type="submit">Registrar Nuevo Empleado</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

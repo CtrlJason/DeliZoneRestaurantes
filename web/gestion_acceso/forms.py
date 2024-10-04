@@ -18,4 +18,9 @@ class RegistroEmpleadoForm(forms.Form):
     correo = forms.EmailField(required=True)
     contraseña = forms.CharField(min_length = 8, required=True, label="Contraseña", widget= forms.PasswordInput())
     cargo = forms.CharField(max_length = 60, required=False)
-    
+
+class RegistroAdministradoresForm(forms.Form):
+    nombre = forms.CharField(max_length = 60, required=True)
+    apellido = forms.CharField(max_length = 60, required=True)
+    correo = forms.EmailField(required=True)
+    contraseña = forms.CharField(min_length = 8, required=True, label="Contraseña", widget= forms.PasswordInput())
