@@ -32,7 +32,7 @@ def registro_cliente(request):
                         db.collection('restaurante1').document('usuarios').collection('clientes').add({
                             'nombres': nombre,
                             'apellidos': apellido,
-                            'email': correo,
+                            'correo': correo,
                             'celular': celular,
                             'contraseña': contraseña_encriptada,
                             'imagen': 'https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4'
@@ -55,7 +55,7 @@ def acceder_cliente(request):
             # Traemos a todos los clientes de la base de datos
             usuario_ref = db.collection('restaurante1').document('usuarios').collection('clientes')
             # Verificamos que el correo que proporciono el usuario exista
-            query = usuario_ref.where("email", "==", correo).get()
+            query = usuario_ref.where("correo", "==", correo).get()
             
             # Si el correo existe se cumple esta condificon
             if query:
