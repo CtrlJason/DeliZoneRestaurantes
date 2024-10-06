@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 /* ----------- ESCOGER TIENDA ----------- */
 
 .escoger-tienda {
@@ -142,15 +146,6 @@
     margin-bottom: 20px;
 }
 
-.bttn {
-    margin-top: 10px;
-}
-
-.bttn.pago {
-    display: block;
-    justify-content: center;
-}
-
 #boton-pago1 {
     background-color: #0A9396;
     border-color: #001219;
@@ -167,6 +162,22 @@
 
 #boton-pago2:hover {
     background-color: #005F73;
+}
+
+#boton-regresar1 {
+    background-color: #c0392b;
+}
+
+#boton-regresar1:hover {
+    background-color: crimson;
+}
+
+#boton-regresar2 {
+    background-color: #c0392b;
+}
+
+#boton-regresar2:hover {
+    background-color: crimson;
 }
 
 a {

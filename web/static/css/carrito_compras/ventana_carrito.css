@@ -68,8 +68,9 @@
 /* --- division 3 --- */
 
 .ventana-carrito .division-3 {
-    height: 75%;
+    height: 70%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .ventana-carrito .division-3 .secciones {
@@ -102,8 +103,31 @@
 
 /* --- division 4 --- */
 
+.ventana-carrito .division-4 {
+    padding-top: 20px;
+    border-top: solid 2px black;
+}
+
 .ventana-carrito .division-4 p {
-    display: block;
-    width: 200px;
     margin: auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 200px;
+}
+
+.ventana-carrito .division-4 a {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.ventana-carrito .division-4 a button {
+    background-color: #f0932b;
+    width: 150px;
+}
+
+.ventana-carrito .division-4 a button:hover {
+    background-color: #fd8b08;
 }

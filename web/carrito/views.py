@@ -1,25 +1,19 @@
 from django.shortcuts import render, redirect
 from firebase import db
+from .carrito import contenido_carrito
 
 # Create your views here.
 
 def carrito(request):
-    docs = db.collection('carrito').stream()
-    productos_carrito = []
-    precio_total = 0
-    for doc in docs:
-        productos_data = (doc.to_dict())
-        productos_data['id'] = doc.id
-        productos_carrito.append(productos_data)
-        precio = doc.to_dict()['precio']
-        precio_total += precio
+    carrito_ref = contenido_carrito()
+    productos_carrito = carrito_ref["productos_carrito"]
     return render(request, 'ventana_carrito.html', { "productos_carrito" : productos_carrito })
 
 def agregar_producto(request, producto_id):
-    producto_ref = db.collection('productos').document(producto_id).get()
+    producto_ref = db.collection('restaurante1').document('web').collection('productos').document(producto_id).get()
     producto = producto_ref.to_dict()
     if request.method == "POST":
-        db.collection('carrito').add({
+        db.collection('restaurante1').document('web').collection('carrito').add({
             'nombre' : producto["nombre"],
             'precio' : producto["precio"],
             'imagen' : producto["imagen"],

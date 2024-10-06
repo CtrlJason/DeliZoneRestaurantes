@@ -1,13 +1,12 @@
 /* ------------ Formularios ADMIN ------------ */
 
 .formularios {
-    margin: 20px;
     background-color: #e9d8a6;
 }
 
 .formularios h2 {
     text-align: center;
-    background-color: #f5f6fa;
+    background-color: #fff;
     padding: 10px;
 }
 

@@ -16,7 +16,7 @@ def home(request):
             lista_productos.append(producto_date)
             contador+=1
     # Carrito de compras
-    docs_car = db.collection('carrito').stream()
+    docs_car = docs = db.collection('restaurante1').document('web').collection('carrito').stream()
     productos_carrito = []
     
     precio_total = 0

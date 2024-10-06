@@ -7,7 +7,7 @@
 
 
 {% block title %}
-Menú
+    Menú
 {% endblock %}
 
 {% block content %}
@@ -24,7 +24,10 @@ Menú
                     <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
                     <p class="descripcion">{{ producto.descripcion }}</p>
                     <p class="precio"> Precio: {{ producto.precio }}</p>
-                    <button class="bttn incrementar" type="button">Agregar al carrito</button>
+                    <form method="post" action="{% url 'agregar_producto' producto.id %}">
+                        {% csrf_token %}
+                        <button class="bttn" type="submit">Agregar al carrito</button>
+                    </form>
                 </div>
             </div>
         </div>

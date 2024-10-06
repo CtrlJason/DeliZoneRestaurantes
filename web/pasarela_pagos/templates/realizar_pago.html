@@ -15,6 +15,7 @@
         <div class="encabezado">
             <h2 class="display-6 fw-bold">Finalizar compra</h2>
             <p>Articulos({{ cantidad_productos }})</p>
+            <button class="bttn" onclick="window.history.back();">Regresar</button>
         </div>
         <div class="seccion-1 row justify-content-center">
             {% for producto in productos_carrito %}

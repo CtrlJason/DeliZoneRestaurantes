@@ -1,0 +1,183 @@
+body {
+    overflow-x: hidden;
+}
+
+/* --========== ENCABEZADO ==========-- */
+
+.contenido-usuarios .encabezado h2 {
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* --========== SECCION 1 ==========-- */
+
+.contenido-usuarios .seccion-1 {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: #e9d8a6;
+}
+
+.contenido-usuarios .seccion-1 button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    background-color: #273c75;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    color: #f5f6fa;
+    size-adjust: 60px;
+    transform: scale(0.7);
+    transition: transform 150ms linear;
+}
+
+.contenido-usuarios .seccion-1 button:hover {
+    transform: scale(0.8);
+}
+
+.contenido-usuarios .seccion-1 button:active {
+    transform: scale(0.7);
+}
+
+.contenido-usuarios .seccion-1 button img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%);
+    width: 64px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+/* --========== SECCION 2 ==========-- */
+
+.contenido-usuarios .seccion-2 {
+    background-color: #e9d8a6;
+    padding: 20px;
+}
+
+/* --====== EMPLEADOS ======-- */
+
+.contenido-usuarios .seccion-2 .lista_empleados {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 900px;
+}
+
+.contenido-usuarios .seccion-2 .lista_empleados h4 {
+    font-weight: 600;
+    background-color: #ffbe76;
+    border-radius: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados {
+    box-sizing: border-box;
+    background-color: #ffbe76;
+    border: solid 2px black;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados img {
+    width: 64px;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados p {
+    border-bottom: solid 1px black;
+    text-align: start;
+    overflow-x: auto;
+}
+
+/* --====== ADMINISTRADORES ======-- */
+
+.contenido-usuarios .seccion-2 .lista_administradores {
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 900px;
+}
+
+.contenido-usuarios .seccion-2 .lista_administradores h4 {
+    font-weight: 600;
+    background-color: #ffbe76;
+    border-radius: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores {
+    background-color: #ff7979;
+    border: solid 2px black;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores img {
+    width: 64px;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores p {
+    border-bottom: solid 1px black;
+    text-align: start;
+    overflow-x: auto;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* --====== REGISTRO EMPLEADOS - ADMINISTRADORES ======-- */
+
+.contenido-usuarios .registro-usuario {
+    background-color: #e9d8a6;
+    justify-content: center;
+    display: none;
+    padding: 20px 0 80px 0;
+}
+
+.contenido-usuarios .registro-usuario form {
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    border: solid 2px black;
+    width: 500px;
+    border-radius: 15px;
+    font-size: 17px;
+    background-color: #ffbe76;
+}
+
+.contenido-usuarios .registro-usuario form h2 {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.contenido-usuarios .registro-usuario form label {
+    width: 100px;
+}
+
+.contenido-usuarios .registro-usuario form input {
+    width: 300px;
+}
+
+.contenido-usuarios .registro-usuario form button {
+    margin: 10px 0 20px 28px;
+}

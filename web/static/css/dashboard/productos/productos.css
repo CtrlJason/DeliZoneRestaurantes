@@ -1,9 +1,10 @@
 /* --------- Seccion 1 --------- */
 
 .encabezado h2 {
+    margin: 0;
     text-align: center;
-    background-color: #dcdde1;
-    padding: 5px;
+    background-color: #fff;
+    padding: 10px;
 }
 
 /* --------- contentido seccion --------- 2 */
@@ -25,23 +26,30 @@
     border: none;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 40px;
-}
-
-.contenido-boton {
-    padding: 0 20px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 15px;
-    width: 208px;
-    padding: 5px 0;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    size-adjust: 60px;
+    transform: scale(0.9);
+    transition: transform 150ms linear;
+    margin-bottom: 20px;
 }
 
-.contenido-boton:hover {
-    background-color: goldenrod;
+.botones-producos button:hover {
+    transform: scale(1);
 }
 
-.botones-producos img {
+.botones-producos button:active {
+    transform: scale(0.9);
+}
+
+.botones-producos button img {
     width: 64px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
 }
 
 

@@ -1,19 +1,17 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from firebase import db
+from carrito.carrito import contenido_carrito
 
 # Create your views here.
 
 def contacto(request):
     # Contador del carrito de compras
-    docs_car = db.collection('carrito').stream()
-    cantidad_productos = 0
-
-    for i in docs_car:
-        cantidad_productos += 1
-        
+    carrito_ref = contenido_carrito()
+    cantidad_productos = carrito_ref["cantidad_productos"]
+    productos_carrito = carrito_ref["productos_carrito"]
     form = ContactForm()
-    return render(request, 'contacto.html', {'form': form, 'cantidad_productos': cantidad_productos})
+    return render(request, 'contacto.html', {'form': form, 'cantidad_productos': cantidad_productos, 'productos_carrito': productos_carrito})
 
 def crear_contacto(request):    
     if request.method == 'POST':

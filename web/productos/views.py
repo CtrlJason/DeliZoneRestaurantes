@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ProductoForm
+from dashboard.usuarios import UsuarioAdministrador
 from firebase import db, bucket
 from urllib.parse import urlparse
 
@@ -13,8 +14,9 @@ def productos(request):
         productos_data = (doc.to_dict())
         productos_data['id'] = doc.id
         lista_productos.append(productos_data)
-        
-    return render(request, 'productos.html', {'lista_productos': lista_productos, 'form': form})
+    # Imagen del administrador
+    imagen_administrador = UsuarioAdministrador.imagen_admin()
+    return render(request, 'productos.html', {'lista_productos': lista_productos, 'form': form, 'imagen_administrador': imagen_administrador})
 
 def subir_imagen(image):
     blob = bucket.blob(f'restaurante1/productos/{image.name}')

@@ -2,8 +2,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # --== Clientes ==--
+    # --== Acceso ==--
     path('iniciar_sesion/', views.acceder_cliente, name = 'acceder_cliente'),
+    path('iniciar_sesion_admin/', views.acceder_administrador, name = 'acceder_administrador'),
     path('registro/', views.registro_cliente, name = 'registro_cliente'),
     # --== Usuarios ==-- #
     path('usuarios/', views.ver_usuarios, name = 'ver_usuarios'),

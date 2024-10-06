@@ -8,7 +8,7 @@ class RegistroClienteForm(forms.Form):
     contraseña1 = forms.CharField(min_length = 8, required=True, label="Contraseña", widget= forms.PasswordInput())
     contraseña2 = forms.CharField(min_length = 8, required=True, label="Repetir Contraseña", widget= forms.PasswordInput())
 
-class AccederClienteForm(forms.Form):
+class AccederUsuarioForm(forms.Form):
     correo = forms.EmailField(required=True)
     contraseña = forms.CharField(min_length = 8, required=True, widget= forms.PasswordInput())
     
