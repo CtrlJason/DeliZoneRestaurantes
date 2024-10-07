@@ -34,11 +34,12 @@
                     <br>
                     <strong>precio:</strong> {{ producto.precio_unidad }}
                 </p>
-                <form method="post" action="{% url 'agregar_producto' producto_id 'home' %}">
+                <form method="post" action="{% url 'agregar_producto' producto_id request.path %}">
                     {% csrf_token %}
                     <button type="submit">agregar 1</button>
                 </form>
-                <form action="">
+                <form method="post" action="{% url 'eliminar_producto' producto_id request.path %}">
+                    {% csrf_token %}
                     <button type="submit">eliminar 1</button>
                 </form>
                 

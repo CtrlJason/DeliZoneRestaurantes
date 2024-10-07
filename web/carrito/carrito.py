@@ -47,19 +47,28 @@ class Carrito:
         self.guardar_carrito() # Guardar el carrito actualizado en la sesión
 
     def eliminar(self, producto_ref):
-        # Verificar si el producto está en el carrito
-        if producto_ref.id in self.carrito['productos']:
-            producto = self.carrito['productos'][producto_ref.id]
-            if producto['cantidad'] > 1:
-                # Reducimos la cantidad de del producto en caso de que haya mas de 1
-                producto['cantidad'] -= 1
-                # Actualizamos el precio total restando el precio del producto
-                self.carrito['precio_total'] -= producto['precio']
-            else:
-                self.carrito['precio_total'] -= producto['precio']
-                del producto
-            self.carrito['cantidad_total'] -= 1
-            self.guardar_carrito() # Guardamos el carrito actualizado en la sesión
+        try:
+            # Verificar si el producto está en el carrito
+            if producto_ref.id in self.carrito['productos']:
+                producto = self.carrito['productos'][producto_ref.id]
+                
+                # Actualizamos la cantidad total y el precio total
+                self.carrito['cantidad_total'] -= 1
+                self.carrito['precio_total'] -= producto['precio_unidad']
+                
+                if producto['cantidad'] > 1:
+                    # Reducimos la cantidad de del producto en caso de que haya mas de 1
+                    producto['cantidad'] -= 1
+                    # Actualizamos el precio total restando el precio del producto
+                    self.carrito['precio_total'] -= producto['precio']
+                    
+                else:
+                    self.carrito['precio_total'] -= producto['precio_unidad']
+                    del self.carrito['productos'][producto_ref.id]
+                    
+                self.guardar_carrito() # Guardamos el carrito actualizado en la sesión
+        except Exception as e:
+            print(f"Error al eliminar producto: {e}")
             
     def guardar_carrito(self):
         self.session['carrito'] = self.carrito
