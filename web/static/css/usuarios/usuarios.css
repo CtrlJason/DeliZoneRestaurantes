@@ -66,7 +66,7 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 900px;
+    width: 90%;
 }
 
 .contenido-usuarios .seccion-2 .lista_empleados h4 {
@@ -77,16 +77,17 @@ body {
 
 .contenido-usuarios .seccion-2 .contenido-empleados {
     box-sizing: border-box;
-    background-color: #ffbe76;
+    background: linear-gradient(to top, #f39c12, 20%, #e67e22);
     border: solid 2px black;
     padding: 20px;
     border-radius: 20px;
 }
 
 .contenido-usuarios .seccion-2 .contenido-empleados img {
-    width: 64px;
+    width: 124px;
+    height: 124px;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 50%;
     padding: 5px;
     margin-bottom: 15px;
 }
@@ -97,9 +98,13 @@ body {
 }
 
 .contenido-usuarios .seccion-2 .contenido-empleados p {
-    border-bottom: solid 1px black;
+    background-color: #ecf0f1;
+    border-radius: 20px;
+    padding: 10px;
     text-align: start;
-    overflow-x: auto;
+    min-height: 60px;
+    /* Ajusta el tamaño del texto para todos */
+    overflow-wrap: break-word;
 }
 
 /* --====== ADMINISTRADORES ======-- */
@@ -110,7 +115,8 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 900px;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .contenido-usuarios .seccion-2 .lista_administradores h4 {
@@ -120,29 +126,62 @@ body {
 }
 
 .contenido-usuarios .seccion-2 .contenido-administradores {
-    background-color: #ff7979;
+    background: linear-gradient(to top, #e74c3c, 20%, #c0392b);
     border: solid 2px black;
     padding: 20px;
     border-radius: 20px;
+    height: 100%;
+    /* Ocupa todo el alto disponible */
 }
 
+.contenido-usuarios .seccion-2 .contenido-administradores .contenido {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Permite que el contenido crezca */
+    justify-content: space-between;
+}
+
+
+
 .contenido-usuarios .seccion-2 .contenido-administradores img {
-    width: 64px;
+    width: 124px;
+    height: 124px;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 50%;
     padding: 5px;
     margin-bottom: 15px;
+    object-fit: cover;
 }
 
 .contenido-usuarios .seccion-2 .contenido-administradores p {
-    border-bottom: solid 1px black;
+    background-color: #ecf0f1;
+    border-radius: 20px;
+    padding: 10px;
     text-align: start;
-    overflow-x: auto;
+    min-height: 60px;
+    /* Ajusta el tamaño del texto para todos */
+    overflow-wrap: break-word;
+    height: 150px;
 }
+
+/* .contenido-usuarios .seccion-2 .contenido-administradores p.correo {
+    height: 100px;
+} */
 
 .contenido-usuarios .seccion-2 .contenido-administradores h3 {
     font-size: 18px;
     font-weight: 600;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores form {
+    margin-top: auto;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores .bttn.delete {
+    margin-top: 10px;
+    width: 80px;
+    margin: auto;
 }
 
 /* --====== REGISTRO EMPLEADOS - ADMINISTRADORES ======-- */

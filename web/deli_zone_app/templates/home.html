@@ -17,16 +17,19 @@
     <!-- Seccion 1 -->
     <section>
         <div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
-            <div class="row d-flex justify-content-center">
+            <div class="productos-principales row d-flex justify-content-center">
                 {% for producto in lista_productos %}
                     <div class="col-sm-6 col-md-6 col-lg-4 my-3">
-                        <div class="content section-2">
+                        <div class="contenido">
                             <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
-                            <div class="sub-content section-2">
+                            <div class="sub-contenido">
                                 <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto.nombre }}</h3>
-                                <p class="descripcion">{{ producto.descripcion }}</p>
-                                <p class="precio"> Precio: {{ producto.precio }}</p>
-                                <form method="post" action="{% url 'agregar_producto' producto.id %}">
+                                <p class="descripcion">
+                                    {{ producto.descripcion }}
+                                    <br>
+                                    <strong>Precio:</strong> {{ producto.precio }}
+                                </p>
+                                <form method="post" action="{% url 'agregar_producto' producto.id 'home' %}">
                                     {% csrf_token %}
                                     <button class="bttn" type="submit">Agregar al carrito</button>
                                 </form>

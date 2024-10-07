@@ -122,6 +122,7 @@ body {
 
 .menu-principal .division-1 {
     position: relative;
+    top: -5px;
 }
 
 .menu-principal .division-1 ul {
@@ -173,14 +174,44 @@ a {
     color: #e74c3c;
 }
 
-.menu-principal .division-1 button {
+#botonMenu,
+#botonNotificacion {
     background: none;
     border: none;
+    padding: 5px;
+    border-radius: 20px;
+    transition: background-color 150ms linear;
+    transition: transform 150ms linear;
 }
 
-.menu-principal .division-1 img {
+#botonMenu:hover,
+#botonNotificacion:hover {
+    transform: scale(1.05);
+}
+
+#botonUsuario {
+    border: none;
+    background: none;
+    border-radius: 20px;
+    transition: background-color 150ms linear;
+    padding: 5px;
+}
+
+#botonUsuario:hover {
+    background: #e74c3c;
+}
+
+.menu-principal .division-1 .icono-menu {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%);
-    width: 26px;
+    width: 30px;
+}
+
+.menu-principal .division-1 .imagen-administrador {
+    width: 30px;
+    height: 30px;
+    border: solid 2px white;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 /* ------------------ DASHBOARD ------------------ */

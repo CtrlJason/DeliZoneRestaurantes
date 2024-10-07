@@ -1,37 +1,15 @@
 from django.shortcuts import render
-from firebase import db
-from firebase_admin import threading
+from productos.productos import Productos
+from gestion_acceso.acceso import estado_login
 
 # Create your views here.
 
 def home(request):
-    docs = db.collection('restaurante1').document('web').collection('productos').stream()
-    contador = 0
-    lista_productos = []
-
-    for doc in docs:
-        if contador < 3:
-            producto_date = doc.to_dict()
-            producto_date['id'] = doc.id
-            lista_productos.append(producto_date)
-            contador+=1
-    # Carrito de compras
-    docs_car = docs = db.collection('restaurante1').document('web').collection('carrito').stream()
-    productos_carrito = []
-    
-    precio_total = 0
-    cantidad_productos = 0
-    
-    for doc in docs_car:
-        productos_data = (doc.to_dict())
-        productos_data['id'] = doc.id
-        productos_carrito.append(productos_data)
-        precio = doc.to_dict()['precio']
-        precio_total += precio
-        cantidad_productos += 1
-    return render(request, 'home.html', {
+    # Productos
+    lista_productos = Productos.tienda_productos_home()
+    login = estado_login(request)
+    context = {
         "lista_productos": lista_productos, 
-        "productos_carrito" : productos_carrito, 
-        "precio_total" : precio_total,
-        "cantidad_productos": cantidad_productos
-        })
+        "login": login
+        }
+    return render(request, 'home.html', context)

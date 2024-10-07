@@ -1,19 +1,72 @@
 from django.shortcuts import render, redirect
-from dashboard.usuarios import UsuarioAdministrador
 from .forms import RegistroClienteForm, AccederUsuarioForm, RegistroEmpleadoForm, RegistroAdministradoresForm
-from firebase import db
+from firebase import db, bucket
+from urllib.parse import urlparse
 import bcrypt
 
-# --=================== CLIENTES ===================-- #
+# --=================== ACCESO USUARIOS ===================-- #
+
+def acceder_usuario(request, coleccion, redirect_data):
+    if request.method == 'POST':
+        form = AccederUsuarioForm(request.POST)
+        if form.is_valid():
+            # Informacion del formulario
+            correo = form.cleaned_data['correo'].lower().strip()
+            contraseña = form.cleaned_data['contraseña']
+            #  Buscar en la base de datos
+            usuario_ref = db.collection('restaurante1').document('usuarios').collection(coleccion)
+            query = usuario_ref.where("correo", "==", correo).get()
+            if query:
+                usuario = query[0].to_dict()
+                contraseña_encriptada = usuario['contraseña']
+                if bcrypt.checkpw(contraseña.encode(), contraseña_encriptada.encode()):
+                    usuario_id = query[0].id
+                    request.session[f'{coleccion}_id'] = usuario_id
+                    if 'carrito' in request.session:
+                        del request.session['carrito']
+                    return redirect(redirect_data)
+                else:
+                    form.add_error(None, "La contraseña es incorrecta")
+            else:
+                form.add_error(None, "No se encontró un usuario con este correo")
+    else:
+        form = AccederUsuarioForm()
+    return render(request, f"{coleccion}/acceder_{coleccion}.html", {'form': form})
+
+def acceder_cliente(request):
+    return acceder_usuario(request, 'clientes','home')
+
+def acceder_administrador(request):
+    return acceder_usuario(request, 'administradores', 'admin')
+
+# --=================== CERRAR SESIONES USUARIOS ===================-- #
+
+def cerrar_session_cliente(request):
+    del request.session['clientes_id']
+    return redirect('acceder_cliente')
+
+def cerrar_session_administrador(request):
+    del request.session['administradores_id']
+    return redirect('acceder_administrador')
+
+# --=================== SUBIR IMAGENES ===================-- #
+
+def subir_imagen(image):
+    blob = bucket.blob(f'restaurante1/usuarios/{image.name}')
+    blob.upload_from_file(image, content_type=image.content_type)
+    blob.make_public()
+    return blob.public_url
+
+# --=================== REGISTRO CLIENTES ===================-- #
 
 def registro_cliente(request):
     if request.method == "POST":
         form = RegistroClienteForm(request.POST)
         # Verificamos si el formulario que relleno el usuario es valido para poder realizar el registro del mismo
         if form.is_valid():
-            nombre = form.cleaned_data['nombre']
-            apellido = form.cleaned_data['apellido']
-            correo = form.cleaned_data['correo']
+            nombres = form.cleaned_data['nombres']
+            apellidos = form.cleaned_data['apellidos']
+            correo = form.cleaned_data['correo'].lower().strip()
             celular = form.cleaned_data['celular']
             contraseña1 = form.cleaned_data['contraseña1']
             contraseña2 = form.cleaned_data['contraseña2']
@@ -24,18 +77,18 @@ def registro_cliente(request):
                 # Encriptamos la contraseña en caso de que el usuario haya puesto las contraseñas correctamente
                 contraseña_encriptada = bcrypt.hashpw(contraseña1.encode(), bcrypt.gensalt()).decode('utf-8')
                 # Verificamos que el correo no haya sido registrado por otro usuario
-                query = db.collection('restaurante1').document('usuarios').collection('clientes').where("email", "==", correo).get()
-                if query:
-                    form.add_error(None, "El correo ya se encuentra registrado.")
+                query = db.collection('restaurante1').document('usuarios').collection('clientes').where("correo", "==", correo).get()
+                if len(query) > 0:
+                    form.add_error(None, "El administrador ya se encuentra registrado.")
                 else:
                     try:
                         db.collection('restaurante1').document('usuarios').collection('clientes').add({
-                            'nombres': nombre,
-                            'apellidos': apellido,
+                            'nombres': nombres,
+                            'apellidos': apellidos,
                             'correo': correo,
                             'celular': celular,
                             'contraseña': contraseña_encriptada,
-                            'imagen': 'https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Fnavbar%2Fuser.svg?alt=media&token=46662fea-4c7e-45e8-8827-0223d51507c4'
+                            'imagen': 'https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883'
                         })
                         return redirect('acceder_cliente')
                     except Exception as e:
@@ -44,69 +97,43 @@ def registro_cliente(request):
         form = RegistroClienteForm()
     return render(request, "clientes/registro_cliente.html", {'form': form})
 
-def acceder_cliente(request):
-    if request.method == "POST":
-        form = AccederUsuarioForm(request.POST)
-        if form.is_valid():
-            # Traemos el correo y la contraseña proporcionada por el usuario
-            correo = form.cleaned_data['correo']
-            contraseña = form.cleaned_data['contraseña']
-            
-            # Traemos a todos los clientes de la base de datos
-            usuario_ref = db.collection('restaurante1').document('usuarios').collection('clientes')
-            # Verificamos que el correo que proporciono el usuario exista
-            query = usuario_ref.where("correo", "==", correo).get()
-            
-            # Si el correo existe se cumple esta condificon
-            if query:
-                # Traemos los datos del usuario con base al correo
-                cliente = query[0].to_dict()
-                # Guardamos la contraseña del usuario en una variable para compararla
-                contraseña_encriptada = cliente['contraseña']
-                # Verificamos ambas contraseñas, tanto la encriptada como la proporicionada por el usuario, esta ultima se encripta para que coincida con la guardada en la base de datos
-                if bcrypt.checkpw(contraseña.encode(), contraseña_encriptada.encode()): #contraseña_encriptada.encode(): esto convierte la contraseña encriptada (que fue almacenada en la base de datos) en bytes para que bcrypt pueda realizar la comparación.
-                    return redirect('home')
-                else:
-                    form.add_error(None, "La contraseña es incorrecta")
-            # Si no existe se cumple el else
-            else:
-                form.add_error(None, "No se encontró un usuario con este correo")
-    else:
-        form = AccederUsuarioForm()
-    return render(request, "clientes/acceder_cliente.html", {'form': form})
-
 # --=================== REGISTRO EMPLEADOS ===================-- #
 
 def registro_empleado(request):
     if request.method == "POST":
-        form = RegistroEmpleadoForm(request.POST)
+        form = RegistroEmpleadoForm(request.POST,  request.FILES)
+
         if form.is_valid():
-            nombre = form.cleaned_data['nombre']
-            apellido = form.cleaned_data['apellido']
-            correo = form.cleaned_data['correo']
+            nombres = form.cleaned_data['nombres']
+            apellidos = form.cleaned_data['apellidos']
+            correo = form.cleaned_data['correo'].lower().strip()
             contraseña = form.cleaned_data['contraseña']
             cargo = form.cleaned_data['cargo']
             
             # Encriptamos la contraseña
             contraseña_encriptada = bcrypt.hashpw(contraseña.encode(), bcrypt.gensalt()).decode('utf-8')
             
-            query = db.collection('restaurante1').document('usuarios').collection('empleados').where("email", "==", correo).get()
-            if query:
-                form.add_error(None, "El empleado ya se encuentra registrado.")
-            else:
-                try:
-                    db.collection('restaurante1').document('usuarios').collection('empleados').add({
-                        'nombre':nombre,
-                        'apellido':apellido,
-                        'correo':correo,
-                        'contraseña':contraseña_encriptada,
-                        'cargo':cargo,
-                        'rol': 'empleado',
-                        'estado': True,
-                        'imagen': 'https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fuser-circle-black.svg?alt=media&token=0959a85e-d15a-43d9-b458-09009b2b96c7'
+            usuarios_ref = db.collection('restaurante1').document('usuarios').collection('empleados')
+            query = usuarios_ref.where("correo", "==", correo).get()
+            if len(query) > 0:
+                form.add_error(None, "El administrador ya se encuentra registrado.")
+            try:
+                imagen_url = "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883"
+                if 'imagen' in request.FILES:
+                    imagen = request.FILES['imagen']
+                    imagen_url = subir_imagen(imagen)
+                usuarios_ref.add({
+                    'nombres':nombres,
+                    'apellidos':apellidos,
+                    'correo':correo,
+                    'contraseña':contraseña_encriptada,
+                    'cargo':cargo,
+                    'rol': 'empleado',
+                    'estado': True,
+                    'imagen': imagen_url
                     })
-                except Exception as e:
-                    form.add_error(None, 'Error al registrar al empleado')
+            except Exception as e:
+                form.add_error(None, 'Error al registrar al empleado')
     else:
         form = RegistroEmpleadoForm()
     return redirect('ver_usuarios')
@@ -115,29 +142,34 @@ def registro_empleado(request):
 
 def registro_administrador(request):
     if request.method == "POST":
-        form = RegistroAdministradoresForm(request.POST)
+        form = RegistroAdministradoresForm(request.POST, request.FILES)
         if form.is_valid():
-            nombre = form.cleaned_data['nombre']
-            apellido = form.cleaned_data['apellido']
-            correo = form.cleaned_data['correo']
+            nombres = form.cleaned_data['nombres']
+            apellidos = form.cleaned_data['apellidos']
+            correo = form.cleaned_data['correo'].lower().strip()
             contraseña = form.cleaned_data['contraseña']
             
             # Encriptamos la contraseña
             contraseña_encriptada = bcrypt.hashpw(contraseña.encode(), bcrypt.gensalt()).decode('utf-8')
             
-            query = db.collection('restaurante1').document('usuarios').collection('administradores').where("email", "==", correo).get()
-            if query:
+            usuarios_ref = db.collection('restaurante1').document('usuarios').collection('administradores')
+            query = usuarios_ref.where("correo", "==", correo).get()
+            if len(query) > 0:
                 form.add_error(None, "El administrador ya se encuentra registrado.")
             else:
                 try:
-                    db.collection('restaurante1').document('usuarios').collection('administradores').add({
-                        'nombre':nombre,
-                        'apellido':apellido,
-                        'correo':correo,
-                        'contraseña':contraseña_encriptada,
-                        'rol': 'admin',
-                        'estado': True,
-                        'imagen': "https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fmenu-arriba%2Fuser-circle-black.svg?alt=media&token=0959a85e-d15a-43d9-b458-09009b2b96c7"
+                    imagen_url = "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883"
+                    if 'imagen' in request.FILES:
+                        imagen = request.FILES['imagen']
+                        imagen_url = subir_imagen(imagen)
+                    usuarios_ref.add({
+                    'nombres':nombres,
+                    'apellidos':apellidos,
+                    'correo':correo,
+                    'contraseña':contraseña_encriptada,
+                    'rol': 'admin',
+                    'estado': True,
+                    'imagen': imagen_url
                     })
                 except Exception as e:
                     form.add_error(None, 'Error al registrar al empleado')
@@ -155,48 +187,58 @@ def ver_usuarios(request):
     
     lista_empleados = []
     lista_administradores = []
+    contador = 0
     
+    # Guardamos a los empleados para mostrarlos en el template
     for doc in docs_empleados:
-        lista_empleados.append(doc.to_dict())
+        datos_empleado = doc.to_dict()
+        datos_empleado['id'] = doc.id
+        lista_empleados.append(datos_empleado)
+        contador+=1
+        
+    # Guardamos a los empleados para mostrarlos en el template
     for doc in docs_administradores:
-        lista_administradores.append(doc.to_dict())
-    # Imagen del administrador
-    imagen_administrador = UsuarioAdministrador.imagen_admin()
-    return render(request, 'usuarios/usuarios.html', {
-        'lista_empleados':lista_empleados,
-        'lista_administradores':lista_administradores,
-        'form_empleados': form_empleados,
-        'form_administradores': form_administradores,
-        'imagen_administrador': imagen_administrador,
-        })
-
-def acceder_administrador(request):
-    if request.method == "POST":
-        form = AccederUsuarioForm(request.POST)
-        if form.is_valid():
-            # Traemos el correo y la contraseña proporcionada por el usuario
-            correo = form.cleaned_data['correo']
-            contraseña = form.cleaned_data['contraseña']
-            
-            # Traemos a todos los clientes de la base de datos
-            usuario_ref = db.collection('restaurante1').document('usuarios').collection('administradores')
-            # Verificamos que el correo que proporciono el usuario exista
-            query = usuario_ref.where("correo", "==", correo).get()
-            
-            # Si el correo existe se cumple esta condificon
-            if query:
-                # Traemos los datos del usuario con base al correo
-                cliente = query[0].to_dict()
-                # Guardamos la contraseña del usuario en una variable para compararla
-                contraseña_encriptada = cliente['contraseña']
-                # Verificamos ambas contraseñas, tanto la encriptada como la proporicionada por el usuario, esta ultima se encripta para que coincida con la guardada en la base de datos
-                if bcrypt.checkpw(contraseña.encode(), contraseña_encriptada.encode()): #contraseña_encriptada.encode(): esto convierte la contraseña encriptada (que fue almacenada en la base de datos) en bytes para que bcrypt pueda realizar la comparación.
-                    return redirect('admin')
-                else:
-                    form.add_error(None, "La contraseña es incorrecta")
-            # Si no existe se cumple el else
-            else:
-                form.add_error(None, "No se encontró un usuario con este correo")
+        datos_administrador = doc.to_dict()
+        datos_administrador['id'] = doc.id
+        lista_administradores.append(datos_administrador)
+        contador+=1
+        
+    if 'administradores_id' not in request.session:
+        return redirect('acceder_administrador')
     else:
-        form = AccederUsuarioForm()
-    return render(request, "administradores/acceder_administradores.html", {'form': form})
+        context = {
+            'lista_empleados':lista_empleados,
+            'lista_administradores':lista_administradores,
+            'form_empleados': form_empleados,
+            'form_administradores': form_administradores,
+        }
+        return render(request, 'usuarios/usuarios.html', context)
+        
+# --=================== ELIMINAR CLIENTES-EMPLEADOS-ADMINISTRADORES ===================-- #
+
+def eliminar_usuarios(request, id_usuario, coleccion):
+    usuario_ref = db.collection('restaurante1').document('usuarios').collection(coleccion).document(id_usuario)
+    usuario = usuario_ref.get()
+    if request.method == 'POST':
+        # Guardamos el url completo de la imagen
+        imagen_url = usuario.get('imagen')
+        # Guardamos la ruta de la imagen con urlparse, este se usa para eliminar la parte del url antes del bucket
+        ruta_archivo = urlparse(imagen_url).path
+        # Reemplaza el nombre del bucket por un espacio vacio
+        ruta_archivo = ruta_archivo.replace('/delizone-1a227.appspot.com/', '')
+        imagen = bucket.blob(ruta_archivo)
+        try: 
+            imagen.delete()
+        except Exception as e:
+            print(f"Hubo un error al eliminar la imagen, puede que esta no exista")
+        usuario_ref.delete()
+    return redirect('ver_usuarios')
+
+def eliminar_cliente(request, id_cliente):
+    return eliminar_usuarios(request, id_cliente, 'clientes')
+
+def eliminar_empleado(request, id_empleado):
+    return eliminar_usuarios(request, id_empleado, 'empleados')
+
+def eliminar_administrador(request, id_administrador):
+    return eliminar_usuarios(request, id_administrador, 'administradores')

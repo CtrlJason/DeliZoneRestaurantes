@@ -20,15 +20,18 @@ Usuarios
     </div>
     <div class="seccion-1">
         <button id="boton-ver-usuarios">
-            <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fcontenido%2Fusuarios.svg?alt=media&token=bbbaf051-b96e-43d2-9c4f-ea00c9e85925"
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fusers-svgrepo-com.svg?alt=media&token=fb18e9a7-69e2-4092-ad7f-55ed2d07f676"
                 alt="icono usuarios">
             Empleados y Administradores</button>
         <button id="boton-registro-empleado">
-            <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fcontenido%2Fusuarios_mas.svg?alt=media&token=86b3414c-5716-4e79-b5a8-b40cf48d12c5"
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fuser-add-svgrepo-com.svg?alt=media&token=1c5bb55b-2267-438f-a03d-76351f2ea9fc"
                 alt="Icono usuario con el simbolo mas">
             Registrar Empleados</button>
         <button id="boton-registro-administrador">
-            <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficons-dashboard%2Fcontenido%2Fusuarios_mas.svg?alt=media&token=86b3414c-5716-4e79-b5a8-b40cf48d12c5"
+            <img
+                src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fuser-add-svgrepo-com.svg?alt=media&token=1c5bb55b-2267-438f-a03d-76351f2ea9fc"
                 alt="Icono usuario con el simbolo mas">
             Registrar Administradores</button>
     </div>
@@ -36,18 +39,26 @@ Usuarios
         <div class="lista_empleados row">
             <h4>Empleados</h4>
             {% for empleado in lista_empleados %}
-            <div class="col-4 my-4">
+            <div class="col-3 my-3">
                 <div class="contenido-empleados">
                     <img src="{{ empleado.imagen }}" alt="{{ empleado.nombre }}">
                     <div class="contenido">
-                        <h3>{{ empleado.nombre }}</h3>
-                        <h3>{{ empleado.apellido }}</h3>
-                        <p><strong>correo:</strong> <br> {{ empleado.correo }}</p>
-                        <p> <strong>Cargo:</strong> <br> {{ empleado.cargo }}</p>
-                        <form method="post" action="">
+                        <div class="info-principal">
+                            <p>
+                                <strong>Nombre:</strong>
+                                {{ empleado.nombres }} {{empleado.apellidos}}
+                                <br>
+                                <strong>Correo:</strong>
+                                {{ empleado.correo }}
+                                <br>
+                                <strong>Cargo:</strong>
+                                {{ empleado.cargo }}
+                            </p>
+                        </div>
+                        <form method="post" action="{% url 'eliminar_empleado' empleado.id %}">
                             {% csrf_token %}
                             <button class="bttn delete" type="submit"
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar al empleado?');">
+                                onclick="return confirm('¿Estás seguro de que deseas eliminar al empleado? Tenga en cuenta que esta accion es irreversible');">
                                 Eliminar
                             </button>
                         </form>
@@ -59,30 +70,38 @@ Usuarios
         <div class="lista_administradores row">
             <h4>Administradores</h4>
             {% for admin in lista_administradores %}
-            <div class="col-4 my-4">
-                <div class="contenido-administradores">
-                    <img src="{{ admin.imagen }}" alt="{{ admin.nombre }}">
-                    <div class="contenido">
-                        <h3>{{ admin.nombre }}</h3>
-                        <h3>{{ admin.apellido }}</h3>
-                        <p> <strong>correo:</strong> <br> {{ admin.correo }}</p>
-                        <p> <strong>Cargo:</strong> <br> {{ admin.rol }}</p>
-                        <form method="post" action=""></form>
-                            {% csrf_token %}
-                            <button class="bttn delete" type="submit"
-                                onclick="return confirm('¿Estás seguro de que deseas eliminar al empleado?');">
-                                Eliminar
-                            </button>
-                        </form>
+                <div class="col-3 my-3">
+                    <div class="contenido-administradores">
+                        <img src="{{ admin.imagen }}" alt="{{ admin.nombre }}">
+                        <div class="contenido">
+                            <div class="info-principal">
+                                <p>
+                                    <strong>Nombre:</strong>
+                                    {{ admin.nombres }} {{admin.apellidos}}
+                                    <br>
+                                    <strong>Correo:</strong>
+                                    {{ admin.correo }}
+                                    <br>
+                                    <strong>Cargo:</strong>
+                                    {{ admin.rol }}
+                                </p>
+                            </div>
+                            <form method="post" action="">
+                                {% csrf_token %}
+                                <button class="bttn delete" type="submit"
+                                    onclick="return confirm('¿Estás seguro de que deseas eliminar al administrador?');">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
 
     <div id="registro-empleado" class="registro-usuario">
-        <form method="post" action="{% url "registro_empleado" %}">
+        <form method="post" action="{% url "registro_empleado" %}" enctype="multipart/form-data">
             <h2>Registro de empleados</h2>
             {% csrf_token %}
             {{ form_empleados.as_p }}
@@ -90,7 +109,7 @@ Usuarios
         </form>
     </div>
     <div id="registro-administrador" class="registro-usuario">
-        <form method="post" action="{% url "registro_administrador" %}">
+        <form method="post" action="{% url "registro_administrador" %}" enctype="multipart/form-data">
             <h2>Registro de administradores</h2>
             {% csrf_token %}
             {{ form_administradores.as_p }}

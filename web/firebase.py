@@ -8,7 +8,7 @@ cred = credentials.Certificate('config/firebase-config.json')
 
 # Inicializamos la conexion de Django con Firebase con las con las configuraciones (cred), 
 # y realizamos la configuracion del storage con stroageBucket y el storage que queremos usar de Firebase
-firebase_admin.initialize_app(cred, {'storageBucket': 'foodpartner-717d3.appspot.com'})
+firebase_admin.initialize_app(cred, {'storageBucket': 'delizone-1a227.appspot.com'})
 
 # Inicializar Firestore
 db = firestore.client()

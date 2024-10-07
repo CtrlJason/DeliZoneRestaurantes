@@ -1,23 +1,20 @@
-from django.shortcuts import render
-from firebase import db
-from carrito.carrito import contenido_carrito
+from django.shortcuts import render, redirect
+from gestion_acceso.acceso import estado_login
 
 # Create your views here.
 
 def pasarela_pagos(request):
-    carrito_ref = contenido_carrito()
-    precio_total =carrito_ref["precio_total"]
-    cantidad_productos =carrito_ref["cantidad_productos"]
-    productos_carrito = carrito_ref["productos_carrito"]
-    return render(request, "realizar_pago.html", {
-        "precio_total" : precio_total,
-        "cantidad_productos" : cantidad_productos,
-        "productos_carrito" : productos_carrito,
-        })
+    login = estado_login()
+    if 'clientes_id' not in request.session:
+        return redirect('acceder_cliente')
+    else:
+        return render(request, "realizar_pago.html", {
+            "login": login
+            })
     
 def seleccionar_tienda(request):
-    carrito_ref = contenido_carrito()
-    cantidad_productos =carrito_ref["cantidad_productos"]
-    return render(request, "seleccionar_tienda.html", {
-        "cantidad_productos" : cantidad_productos,
-        })
+    login = estado_login()
+    if 'clientes_id' not in request.session:
+        return redirect('acceder_cliente')
+    else:
+        return render(request, "seleccionar_tienda.html", { "login": login })

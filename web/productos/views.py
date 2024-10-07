@@ -1,22 +1,20 @@
 from django.shortcuts import render, redirect
 from .forms import ProductoForm
-from dashboard.usuarios import UsuarioAdministrador
+from productos.productos import Productos
 from firebase import db, bucket
 from urllib.parse import urlparse
 
 # Create your views here.
 
 def productos(request):
+    # Formulario productos
     form = ProductoForm()
-    docs = db.collection('restaurante1').document('web').collection('productos').stream()
-    lista_productos = []
-    for doc in docs:
-        productos_data = (doc.to_dict())
-        productos_data['id'] = doc.id
-        lista_productos.append(productos_data)
-    # Imagen del administrador
-    imagen_administrador = UsuarioAdministrador.imagen_admin()
-    return render(request, 'productos.html', {'lista_productos': lista_productos, 'form': form, 'imagen_administrador': imagen_administrador})
+    # Productos
+    lista_productos = Productos.tienda_productos()
+    if 'administradores_id' not in request.session:
+        return redirect('acceder_administrador')
+    else:
+        return render(request, 'productos.html', {'form': form, 'lista_productos': lista_productos})
 
 def subir_imagen(image):
     blob = bucket.blob(f'restaurante1/productos/{image.name}')
@@ -45,7 +43,6 @@ def agregar_producto(request):
             }
             
             db.collection('restaurante1').document('web').collection('productos').add(datos)
-            
             return redirect("productos")
     else: 
         form = ProductoForm()
@@ -56,18 +53,14 @@ def eliminar_producto(request, producto_id):
     producto_ref = db.collection('restaurante1').document('web').collection('productos').document(producto_id)
     # Obtenemos los valores de la coleccion
     producto = producto_ref.get()
-    
     if request.method == 'POST':
         # Elimina el producto en Firebase
         # Guardamos el url completo de la imagen
         imagen_url = producto.get('imagen')
-        
         # Guardamos la ruta de la imagen con urlparse, este se usa para eliminar la parte del url antes del bucket
         ruta_archivo = urlparse(imagen_url).path # Extrae la ruta interna y esto devuelve '/[nombre_bucket]/ruta_Archivo.jpg'
-        
         # Quitar el nombre del bucket del inicio de la ruta
-        ruta_archivo = ruta_archivo.replace('/foodpartner-717d3.appspot.com/', '') # Reemplaza el nombre del bucket por un espacio vacio
-        
+        ruta_archivo = ruta_archivo.replace('/delizone-1a227.appspot.com/', '') # Reemplaza el nombre del bucket por un espacio vacio
         # Guardamos la ruta de la imagen
         imagen = bucket.blob(ruta_archivo)
         # Eliminamos la imagen y el producto

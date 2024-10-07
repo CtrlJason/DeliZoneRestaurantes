@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from firebase import db
-from .usuarios import UsuarioAdministrador
 
 
 # Create your views here.
 
 def dashboard(request):
-    return render(request, "dashboard.html")
+    if 'administradores_id' not in request.session:
+        return redirect('acceder_administrador')
+    else:
+        return render(request, "dashboard.html")
 
 def home(request):
-    imagen_administrador = UsuarioAdministrador.imagen_admin()
-    return render(request, "index.html", {"imagen_administrador": imagen_administrador})
+    if 'administradores_id' not in request.session:
+        return redirect('acceder_administrador')
+    else:
+        return render(request, "index.html")

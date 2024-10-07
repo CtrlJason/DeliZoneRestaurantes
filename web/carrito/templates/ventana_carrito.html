@@ -11,7 +11,7 @@
             <ul>
                 <li>
                     <button id = "ocultarVentanaCarrito">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/foodpartner-717d3.appspot.com/o/iconos%2Ficonos-carrito%2Fchevron-left.svg?alt=media&token=8347cebd-54b2-4398-a359-e917f6bd9cc8"
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2Fcarrito%2Farrow-left.svg?alt=media&token=e28fb92d-6088-460b-9999-7e80734edeec"
                             alt="Flecha izquierda">
                     </button>
                 </li>
@@ -23,22 +23,40 @@
     </div>
     <div class="division-3">
         <div class="secciones row d-flex">
-            {% for producto in productos_carrito %}
+        {% if productos_carrito %}
+            {% for producto_id, producto in productos_carrito.items %} {% comment %} Ponemos items para obtener la informacion del diccionario {% endcomment %}
             <div class="contenido col-12 my-2">
                 <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
-                <p> {{ producto.nombre }}</p>
-                <p> <b>precio:</b> {{ producto.precio }}</p>
+                <p> 
+                    {{ producto.nombre }}
+                    <br>
+                    <strong>cantidad:</strong> {{ producto.cantidad }}
+                    <br>
+                    <strong>precio:</strong> {{ producto.precio_unidad }}
+                </p>
+                <form method="post" action="{% url 'agregar_producto' producto_id 'home' %}">
+                    {% csrf_token %}
+                    <button type="submit">agregar 1</button>
+                </form>
+                <form action="">
+                    <button type="submit">eliminar 1</button>
+                </form>
+                
             </div>
             {% endfor %}
+            {% else %}
+                <p>El carrito está vacío.</p>
+            {% endif %}
         </div>
     </div>
     <div class="division-4">
         <p>
-            <b>Precio total:</b> $ {{ precio_total }} <br>
+            <strong>Cantidad Total:</strong> {{ cantidad_total }}<br>
+            <strong>Precio total:</strong> $ {{ precio_total }} <br>
         </p>
         <a href="{% url "seleccionar_tienda" %}">
             <button class="bttn">Proceder al pago</button>
         </a>
     </div>
-</div>
+    </div>
 {% endblock %}
