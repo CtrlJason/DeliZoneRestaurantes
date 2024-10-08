@@ -14,21 +14,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('deli_zone_app.urls')),
-    path('carrito/', include('carrito.urls')),
-    path('contacto/', include('contacto.urls')),
-    path('acceso/', include('gestion_acceso.urls')),
-    path('perfil_cliente/', include('perfil_cliente.urls')),
-    path('ubicacion/', include('ubicacion.urls')),
-    path('menu/', include('menu.urls')),
-    path('dashboard/', include('dashboard.urls')),
-    path('dashboard/admin/productos/', include('productos.urls')),
-    path('dashboard/admin/contacto/', include('gestion_contacto.urls')),
-    path('seleccionar_tienda/', include('pasarela_pagos.urls')),
-    path('pruebas/', include('pruebas.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("deli_zone_app.urls")),
+    path("carrito/", include("carrito.urls")),
+    path("contacto/", include("contacto.urls")),
+    path("perfil_cliente/", include("perfil_cliente.urls")),
+    path("ubicacion/", include("ubicacion.urls")),
+    path("menu/", include("menu.urls")),
+    path("seleccionar_tienda/", include("pasarela_pagos.urls")),
+    path("acceso/", include("gestion_acceso.urls")),
+    path("dashboard/", include("dashboard.urls")),
+    path("dashboard/admin/productos/", include("productos.urls")),
+    path("dashboard/admin/contacto/", include("gestion_contacto.urls")),
+    path("dashboard/admin/configuracion/", include("configuracion.urls")),
+    path("pruebas/", include("pruebas.urls")),
 ]

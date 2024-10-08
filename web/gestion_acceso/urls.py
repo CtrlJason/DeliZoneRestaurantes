@@ -8,8 +8,6 @@ urlpatterns = [
     # --== Cierre Sesion ==-- #
     path('cierre_sesion_cliente/', views.cerrar_session_cliente, name = 'cerrar_session_cliente'),
     path('cierre_sesion_admin/', views.cerrar_session_administrador, name = 'cerrar_session_administrador'),
-    # --== Usuarios ==-- #
-    path('usuarios/', views.ver_usuarios, name = 'ver_usuarios'),
     # --== Registro Clientes ==-- #
     path('registro/', views.registro_cliente, name = 'registro_cliente'),
     # --== Registro Empleados ==-- #

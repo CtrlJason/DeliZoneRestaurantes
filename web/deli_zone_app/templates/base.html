@@ -27,7 +27,7 @@
 
 <body>
     <header>
-        {% if request.path != '/acceso/iniciar_sesion/' and request.path != '/acceso/registro/' and request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' and request.path != '/acceso/registro_empleados/' and request.path != '/acceso/empleados/' and request.path != '/seleccionar_tienda/' and request.path != '/seleccionar_tienda/realizar_pago/' and request.path != '/acceso/usuarios/' and request.path != '/acceso/iniciar_sesion_admin/' %}
+        {% if request.path not in excluir_paths %}
         <nav>
             <!-- Submenú siempre visible -->
             <div class="sub-navbar">
@@ -58,6 +58,7 @@
                             </button>
                         {% else %}
                             <a id="iniciar_sesion-link" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                            <a id="iniciar_sesion-link" href="{% url 'registro_cliente' %}">Registrarse</a>
                         {% endif %}
                             <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
                                 <a class="nav-link icon" href="{% url 'perfil_user' %}">Configurar usuario</a>
@@ -137,8 +138,7 @@
         {% block content %}
         {% endblock %}
     </main>
-
-    {% if request.path != '/dashboard/' and request.path != '/dashboard/admin/' and request.path != '/dashboard/admin/productos/' and request.path != '/dashboard/admin/productos/agregar_producto/' and request.path != '/carrito/' and request.path != '/dashboard/admin/contacto/' and request.path != '/compra/' and request.path != '/acceso/registro_empleados/' and request.path != '/acceso/empleados/' and request.path != '/seleccionar_tienda/' and request.path != '/seleccionar_tienda/realizar_pago/' and request.path != '/acceso/usuarios/' and request.path != '/acceso/iniciar_sesion_admin/' %}
+    {% if request.path not in excluir_paths %}
     <footer>
         <div class="pie-pagina">
             <div class="contenido-pie row">
