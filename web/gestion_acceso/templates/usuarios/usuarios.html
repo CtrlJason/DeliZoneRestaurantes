@@ -86,7 +86,7 @@ Usuarios
                                     {{ admin.rol }}
                                 </p>
                             </div>
-                            <form method="post" action="">
+                            <form method="post" action="{% url "eliminar_administrador" admin.id %}">
                                 {% csrf_token %}
                                 <button class="bttn delete" type="submit"
                                     onclick="return confirm('¿Estás seguro de que deseas eliminar al administrador?');">

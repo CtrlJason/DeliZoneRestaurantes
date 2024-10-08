@@ -1,5 +1,5 @@
 def estado_login(request):
-    if 'clientes_id' in request.session:
+    if "clientes_id" in request.session:
         print("Sesión iniciada")
         login = True
     else:
