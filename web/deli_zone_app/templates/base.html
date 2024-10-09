@@ -48,7 +48,7 @@
                 <ul class="user-content navbar-nav d-md-none m-auto">
                     <!-- Ícono de usuario -->
                     <li class="nav-item">
-                        {% if login %}
+                        {% if verificar_login_usuario %}
                             <button id="botonVentanaUsuarioNav-1">
                                 <img 
                                 style="width: 32px;"
@@ -61,7 +61,7 @@
                             <a id="iniciar_sesion-link" href="{% url 'registro_cliente' %}">Registrarse</a>
                         {% endif %}
                             <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
-                                <a class="nav-link icon" href="{% url 'perfil_user' %}">Configurar usuario</a>
+                                <a class="nav-link icon" href="{% url 'perfil_usuario' %}">Configurar usuario</a>
                                 <br><br>
                                 <a class="nav-link icon" href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
                             </div>
@@ -100,7 +100,7 @@
                     <ul class="navbar-nav d-none d-sm-flex gap-4">
                         <!-- Ícono de usuario -->
                         <li class="user-content nav-item d-flex align-items-center">
-                            {% if login %}
+                            {% if verificar_login_usuario %}
                                 <button id="botonVentanaUsuarioNav-2">
                                     <img 
                                     style="width: 32px;"
@@ -112,7 +112,7 @@
                                 <a id="iniciar_sesion-link" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
                             {% endif %}
                             <div id="VentanaUsuarioNav-2" class="ventana-usuario-navbar">
-                                <a href="{% url 'perfil_user' %}">Configurar perfil</a>
+                                <a href="{% url 'perfil_usuario' %}">Configurar perfil</a>
                                 <br><br><br>
                                 <a href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
                             </div>

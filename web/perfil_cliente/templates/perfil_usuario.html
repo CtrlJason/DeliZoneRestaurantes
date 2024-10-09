@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/clientes_restaurante/perfil_cliente.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Perfil
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="contenedor_datos">
+            <img class="img_user" src="https://pics.filmaffinity.com/249115701217027-nm_200.jpg" alt="">
+        </div>
+        <div class="panel-configuracion-usuario d-flex justify-content-center">
+            <form method="post" action="{% url 'actualizar_perfil_usuario' %}">
+                {% csrf_token %}
+                {{ datos_personales.as_p }}
+                <button class="bttn" type="submit">Guardar</button>
+            </form>
+            <form method="post" action="{% url 'actualizar_password_usuario' %}">
+                {% csrf_token %}
+                {{ contrasenia_usuario.as_p }}
+                <button class="bttn" type="submit">Guardar</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

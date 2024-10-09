@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from firebase import db
-from gestion_acceso.acceso import estado_login
 
 # Create your views here.
 
 
 def contacto(request):
     form = ContactForm()
-    login = estado_login(request)
-    return render(request, "contacto.html", {"form": form, "login": login})
+    return render(request, "contacto.html", {"form": form})
 
 
 def crear_contacto(request):

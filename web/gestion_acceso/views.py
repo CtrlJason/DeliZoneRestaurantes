@@ -12,13 +12,13 @@ import bcrypt
 # --=================== ACCESO USUARIOS ===================-- #
 
 
-def acceder_usuario(request, coleccion, redirect_data):
+def acceder_usuario(request, coleccion, datos_redireccion):
     if request.method == "POST":
         form = AccederUsuarioForm(request.POST)
         if form.is_valid():
             # Informacion del formulario
             correo = form.cleaned_data["correo"].lower().strip()
-            contraseña = form.cleaned_data["contraseña"]
+            password = form.cleaned_data["password"]
             #  Buscar en la base de datos
             usuario_ref = (
                 db.collection("restaurante1").document("usuarios").collection(coleccion)
@@ -26,13 +26,13 @@ def acceder_usuario(request, coleccion, redirect_data):
             query = usuario_ref.where("correo", "==", correo).get()
             if query:
                 usuario = query[0].to_dict()
-                contraseña_encriptada = usuario["contraseña"]
-                if bcrypt.checkpw(contraseña.encode(), contraseña_encriptada.encode()):
+                password_encriptada = usuario["password"]
+                if bcrypt.checkpw(password.encode(), password_encriptada.encode()):
                     usuario_id = query[0].id
                     request.session[f"{coleccion}_id"] = usuario_id
                     if "carrito" in request.session:
                         del request.session["carrito"]
-                    return redirect(redirect_data)
+                    return redirect(datos_redireccion)
                 else:
                     form.add_error(None, "La contraseña es incorrecta")
             else:
@@ -85,16 +85,14 @@ def registro_cliente(request):
             apellidos = form.cleaned_data["apellidos"]
             correo = form.cleaned_data["correo"].lower().strip()
             celular = form.cleaned_data["celular"]
-            contraseña1 = form.cleaned_data["contraseña1"]
-            contraseña2 = form.cleaned_data["contraseña2"]
+            password1 = form.cleaned_data["password1"]
+            password2 = form.cleaned_data["password2"]
 
-            if contraseña1 != contraseña2:
-                form.add_error("contraseña2", "las contraseñas no coinciden")
+            if password1 != password2:
+                form.add_error("password2", "las contraseñas no coinciden")
             else:
                 # Encriptamos la contraseña en caso de que el usuario haya puesto las contraseñas correctamente
-                contraseña_encriptada = bcrypt.hashpw(
-                    contraseña1.encode(), bcrypt.gensalt()
-                ).decode("utf-8")
+                password_encriptada = bcrypt.hashpw(password1.encode(), bcrypt.gensalt()).decode("utf-8")
                 # Verificamos que el correo no haya sido registrado por otro usuario
                 query = (
                     db.collection("restaurante1")
@@ -115,7 +113,7 @@ def registro_cliente(request):
                                 "apellidos": apellidos,
                                 "correo": correo,
                                 "celular": celular,
-                                "contraseña": contraseña_encriptada,
+                                "password": password_encriptada,
                                 "imagen": "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883",
                             }
                         )
@@ -138,12 +136,12 @@ def registro_empleado(request):
             nombres = form.cleaned_data["nombres"]
             apellidos = form.cleaned_data["apellidos"]
             correo = form.cleaned_data["correo"].lower().strip()
-            contraseña = form.cleaned_data["contraseña"]
+            password = form.cleaned_data["password"]
             cargo = form.cleaned_data["cargo"]
 
             # Encriptamos la contraseña
-            contraseña_encriptada = bcrypt.hashpw(
-                contraseña.encode(), bcrypt.gensalt()
+            password_encriptada = bcrypt.hashpw(
+                password.encode(), bcrypt.gensalt()
             ).decode("utf-8")
 
             usuarios_ref = (
@@ -164,7 +162,7 @@ def registro_empleado(request):
                         "nombres": nombres,
                         "apellidos": apellidos,
                         "correo": correo,
-                        "contraseña": contraseña_encriptada,
+                        "password": password_encriptada,
                         "cargo": cargo,
                         "rol": "empleado",
                         "estado": True,
@@ -188,11 +186,11 @@ def registro_administrador(request):
             nombres = form.cleaned_data["nombres"]
             apellidos = form.cleaned_data["apellidos"]
             correo = form.cleaned_data["correo"].lower().strip()
-            contraseña = form.cleaned_data["contraseña"]
+            password = form.cleaned_data["password"]
 
             # Encriptamos la contraseña
-            contraseña_encriptada = bcrypt.hashpw(
-                contraseña.encode(), bcrypt.gensalt()
+            password_encriptada = bcrypt.hashpw(
+                password.encode(), bcrypt.gensalt()
             ).decode("utf-8")
 
             usuarios_ref = (
@@ -214,7 +212,7 @@ def registro_administrador(request):
                             "nombres": nombres,
                             "apellidos": apellidos,
                             "correo": correo,
-                            "contraseña": contraseña_encriptada,
+                            "password": password_encriptada,
                             "rol": "admin",
                             "estado": True,
                             "imagen": imagen_url,

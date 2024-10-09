@@ -14,18 +14,17 @@
     <div class="pasarela">
         <div class="encabezado">
             <h2 class="display-6 fw-bold">Finalizar compra</h2>
-            <p>Articulos({{ cantidad_productos }})</p>
+            <p>Articulos ({{ cantidad_total }})</p>
             <button class="bttn" onclick="window.history.back();">Regresar</button>
         </div>
         <div class="seccion-1 row justify-content-center">
-            {% for producto in productos_carrito %}
+            {% for producto_id, producto in productos_carrito.items %}
                     <div class="contenido-m col-sm-6 col-md-6 col-lg-4 my-3">
                         <div class="contenido">
                             <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
                             <div class="sub-contenido">
                                 <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto.nombre }}</h3>
-                                <p class="descripcion">{{ producto.descripcion }}</p>
-                                <p class="precio"> Precio: {{ producto.precio }}</p>
+                                <p class="precio"> Precio: {{ producto.precio_unidad }}</p>
                             </div>
                         </div>
                     </div>

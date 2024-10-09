@@ -83,10 +83,11 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 # Funciones propias
                 # Imagen del administrador y del cliente
-                "gestion_acceso.usuarios.imagen_cliente",
-                "gestion_acceso.usuarios.imagen_admin",
                 "carrito.carrito.datos_carrito",
                 "deli_zone_app.contexto_global.excluir_paths_sitio",
+                "gestion_acceso.usuarios.imagen_cliente",
+                "gestion_acceso.usuarios.imagen_admin",
+                "gestion_acceso.acceso.estado_login_usuario",
             ],
         },
     },

@@ -85,7 +85,7 @@ def mostrar_formulario(request):
             "nombre" : formulario["nombre"],
             "celular" : formulario["celular"],
             "correo" : formulario["correo"],
-            "contraseña" : formulario["contraseña"],
+            "password" : formulario["password"],
         })
         
         documentos.add(datos)
