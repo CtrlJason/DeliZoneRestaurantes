@@ -29,13 +29,6 @@
     <header>
         {% if request.path not in excluir_paths %}
         <nav>
-            <!-- Submenú siempre visible -->
-            <div class="sub-navbar">
-                <ul class="ul sub-navbar">
-                    <li><a class="link sub-navbar" href="{% url 'ubicacion' %}">Encuéntranos</a></li>
-                    <li><a class="link sub-navbar" href="{% url 'contacto' %}">Contáctenos</a></li>
-                </ul>
-            </div>
             <!-- Menú principal -->
             <div class="container-fluid navbar navbar-expand-md sticky-top px-sm-3 px-md-5">
                 <!-- Logo del sitio -->
@@ -57,8 +50,9 @@
                                 alt="icono de usuario">
                             </button>
                         {% else %}
-                            <a id="iniciar_sesion-link" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
-                            <a id="iniciar_sesion-link" href="{% url 'registro_cliente' %}">Registrarse</a>
+                            <a class="login-link m-2" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                            <br>
+                            <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
                         {% endif %}
                             <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
                                 <a class="nav-link icon" href="{% url 'perfil_usuario' %}">Configurar usuario</a>
@@ -88,12 +82,18 @@
                 </button>
                 <!-- Contenido colapsable del menú -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
                         <li class="nav-item">
                             <a class="nav-link px-3 py-2 my-1" href="{% url 'home' %}">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-3 py-2 my-1" href="{% url 'menu' %}">Menú</a>
+                        </li>
+                        <li>
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'ubicacion' %}">Encuéntranos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'contacto' %}">Contáctenos</a>
                         </li>
                     </ul>
                     <!-- Íconos de usuario y carrito en dispositivos grandes -->
@@ -109,7 +109,8 @@
                                     alt="icono de usuario">
                                 </button>
                             {% else %}
-                                <a id="iniciar_sesion-link" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                                <a class="login-link m-2" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                                <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
                             {% endif %}
                             <div id="VentanaUsuarioNav-2" class="ventana-usuario-navbar">
                                 <a href="{% url 'perfil_usuario' %}">Configurar perfil</a>
@@ -142,7 +143,7 @@
     <footer>
         <div class="pie-pagina">
             <div class="contenido-pie row">
-                <div class="redes-sociales col my-2">
+                <div class="redes-sociales col">
                     <a href="#"><img class="iconos-redes facebook"
                             src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Ffacebook.svg?alt=media&token=0b166695-d8fd-4908-b082-5f599f16f582"
                             alt=""></a>
@@ -153,14 +154,14 @@
                             src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fgoogle-chrome-svgrepo-com.svg?alt=media&token=c81803c4-efd7-4c22-946d-3e73d6f77981"
                             alt=""></a>
                 </div>
-                <div class="secciones-pagina col my-2">
+                <div class="secciones-pagina col">
                     <a class="link-pie" href="{% url 'ubicacion' %}">encuentranos</a>
                     <a class="link-pie" href="{% url 'contacto' %}">contactenos</a>
                 </div>
                 <div class="politicas col">
                     <a class="link-pie" href="#">terminos y condiciones</a>
                 </div>
-                <div class="derechos-reservados col-12 my-2">
+                <div class="derechos-reservados col-12">
                     <p>©️todos los derechos reservados</p>
                 </div>
             </div>

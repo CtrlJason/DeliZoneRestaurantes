@@ -27,21 +27,25 @@
             {% for producto_id, producto in productos_carrito.items %} {% comment %} Ponemos items para obtener la informacion del diccionario {% endcomment %}
             <div class="contenido col-12 my-2">
                 <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
-                <p> 
-                    {{ producto.nombre }}
-                    <br>
-                    <strong>cantidad:</strong> {{ producto.cantidad }}
+                <p class="contenido-carrito1"> 
+                    <strong>{{ producto.nombre }}</strong>
                     <br>
                     <strong>precio:</strong> {{ producto.precio_unidad }}
                 </p>
-                <form method="post" action="{% url 'agregar_producto' producto_id request.path %}">
-                    {% csrf_token %}
-                    <button type="submit">agregar 1</button>
-                </form>
-                <form method="post" action="{% url 'eliminar_producto' producto_id request.path %}">
-                    {% csrf_token %}
-                    <button type="submit">eliminar 1</button>
-                </form>
+                <div class="contenido-carrito2">
+                    <p class="m-auto">
+                        <strong>cantidad:</strong> {{ producto.cantidad }}
+                    </p>
+                    <form class="m-auto" method="post" action="{% url 'agregar_producto' producto_id request.path %}">
+                        {% csrf_token %}
+                        <button class"botones-cantidad" type="submit">+</button>
+                    </form>
+                    <p class="m-auto">1</p>
+                    <form class="m-auto" method="post" action="{% url 'eliminar_producto' producto_id request.path %}">
+                        {% csrf_token %}
+                        <button class"botones-cantidad" type="submit">-</button>
+                    </form>
+                </div>
                 
             </div>
             {% endfor %}

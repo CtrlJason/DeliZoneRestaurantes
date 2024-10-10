@@ -1,5 +1,6 @@
 body {
     background-color: #ecf0f1;
+    overflow-x: hidden;
 }
 
 .header {
@@ -23,7 +24,7 @@ body {
 
 .section-1 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 /* ------------ Información Contacto ------------ */

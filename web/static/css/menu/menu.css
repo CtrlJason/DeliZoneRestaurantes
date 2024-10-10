@@ -12,7 +12,7 @@ body {
 /* contentido seccion 2 */
 
 .fondo {
-    background-color: #f19066;
+    background-color: #012E40;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,12 +20,6 @@ body {
 .productos-menu .contenido {
     border: solid 2px #3d0d0d;
     border-radius: 20px 20px 10px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan */
-    justify-content: center;
-    width: 400px;
-    transform: scale(0.8);
 }
 
 .productos-menu .contenido img {
@@ -46,14 +40,11 @@ body {
     /* Estilos */
     border-top: solid 5px #3d0d0d;
     border-radius: 0 0 10px 10px;
-    background: linear-gradient(to top, #d6c287, 20%, #e9d8a6);
-    padding: 10px 20px;
-    height: 100%;
+    background-color: #e9d8a6;
+    /* Tamaño */
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    /* Permite que el contenido crezca */
+    /* margenes y relleno */
+    padding: 20px;
 }
 
 .productos-menu .sub-contenido h3 {

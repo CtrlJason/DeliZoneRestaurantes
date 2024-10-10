@@ -2,6 +2,7 @@ body {
     background-size: cover;
     background-position: center;
     background-color: #E5383B;
+    overflow-x: hidden;
 }
 
 .content.main {

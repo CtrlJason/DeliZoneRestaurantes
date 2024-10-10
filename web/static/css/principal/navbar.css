@@ -4,33 +4,7 @@ nav {
     width: 100%;
     background-color: white;
     z-index: 4;
-}
-
-/* Submenú: Siempre visible en todas las pantallas */
-.sub-navbar {
-    background-color: #161A1D;
-    padding: 0 10px;
-}
-
-.ul.sub-navbar {
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px;
-}
-
-.link.sub-navbar {
-    color: #D3D3D3;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.link.sub-navbar:hover {
-    color: #A4161A;
-    font-weight: bold;
+    border-bottom: solid 2px #161A1D;
 }
 
 /* Estilos del menú principal */
@@ -47,8 +21,14 @@ nav {
 }
 
 .navbar-nav .nav-link:hover {
-    background-color: #660709;
+    background-color: #042434;
     color: white;
+    border-radius: 5px;
+}
+
+.navbar-nav .nav-link.active {
+    color: white;
+    background-color: #660709;
     border-radius: 5px;
 }
 
@@ -66,6 +46,15 @@ nav {
     gap: 20px;
 }
 
+
+.login-link {
+    text-decoration: none;
+    color: #161A1D;
+}
+
+.login-link:hover {
+    color: #660709;
+}
 
 
 /* Ícono de carrito */
@@ -93,7 +82,8 @@ nav {
 .user-content {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
 #btnCarrito {
@@ -111,6 +101,11 @@ nav {
     border: none;
     padding: 0;
     cursor: pointer;
+    transform: scale(1.05);
+}
+
+#botonVentanaUsuarioNav-2:hover, #mostrarCarrito-2:hover {
+    transform: scale(1.10);
 }
 
 .ventana-usuario-navbar {
