@@ -1,0 +1,222 @@
+body {
+    overflow-x: hidden;
+}
+
+/* --========== ENCABEZADO ==========-- */
+
+.contenido-usuarios .encabezado h2 {
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* --========== SECCION 1 ==========-- */
+
+.contenido-usuarios .seccion-1 {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background-color: #e9d8a6;
+}
+
+.contenido-usuarios .seccion-1 button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    background-color: #273c75;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    color: #f5f6fa;
+    size-adjust: 60px;
+    transform: scale(0.7);
+    transition: transform 150ms linear;
+}
+
+.contenido-usuarios .seccion-1 button:hover {
+    transform: scale(0.8);
+}
+
+.contenido-usuarios .seccion-1 button:active {
+    transform: scale(0.7);
+}
+
+.contenido-usuarios .seccion-1 button img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%);
+    width: 64px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+/* --========== SECCION 2 ==========-- */
+
+.contenido-usuarios .seccion-2 {
+    background-color: #e9d8a6;
+    padding: 20px;
+}
+
+/* --====== EMPLEADOS ======-- */
+
+.contenido-usuarios .seccion-2 .lista_empleados {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+}
+
+.contenido-usuarios .seccion-2 .lista_empleados h4 {
+    font-weight: 600;
+    background-color: #ffbe76;
+    border-radius: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados {
+    box-sizing: border-box;
+    background: linear-gradient(to top, #f39c12, 20%, #e67e22);
+    border: solid 2px black;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados img {
+    width: 124px;
+    height: 124px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.contenido-usuarios .seccion-2 .contenido-empleados p {
+    background-color: #ecf0f1;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: start;
+    min-height: 60px;
+    /* Ajusta el tamaño del texto para todos */
+    overflow-wrap: break-word;
+}
+
+/* --====== ADMINISTRADORES ======-- */
+
+.contenido-usuarios .seccion-2 .lista_administradores {
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.contenido-usuarios .seccion-2 .lista_administradores h4 {
+    font-weight: 600;
+    background-color: #ff7979;
+    border-radius: 15px;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores {
+    background: linear-gradient(to top, #e74c3c, 20%, #c0392b);
+    border: solid 2px black;
+    padding: 20px;
+    border-radius: 20px;
+    height: 100%;
+    /* Ocupa todo el alto disponible */
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores .contenido {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Permite que el contenido crezca */
+    justify-content: space-between;
+}
+
+
+
+.contenido-usuarios .seccion-2 .contenido-administradores img {
+    width: 124px;
+    height: 124px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores p {
+    background-color: #ecf0f1;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: start;
+    min-height: 60px;
+    /* Ajusta el tamaño del texto para todos */
+    overflow-wrap: break-word;
+    height: 150px;
+}
+
+/* .contenido-usuarios .seccion-2 .contenido-administradores p.correo {
+    height: 100px;
+} */
+
+.contenido-usuarios .seccion-2 .contenido-administradores h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores form {
+    margin-top: auto;
+}
+
+.contenido-usuarios .seccion-2 .contenido-administradores .bttn.delete {
+    margin-top: 10px;
+    width: 80px;
+    margin: auto;
+}
+
+/* --====== REGISTRO EMPLEADOS - ADMINISTRADORES ======-- */
+
+.contenido-usuarios .registro-usuario {
+    background-color: #e9d8a6;
+    justify-content: center;
+    display: none;
+    padding: 20px 0 80px 0;
+}
+
+.contenido-usuarios .registro-usuario form {
+    margin-bottom: 20px;
+    padding: 20px 40px;
+    border: solid 2px black;
+    width: 500px;
+    border-radius: 15px;
+    font-size: 17px;
+    background-color: #ffbe76;
+}
+
+.contenido-usuarios .registro-usuario form h2 {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.contenido-usuarios .registro-usuario form label {
+    width: 100px;
+}
+
+.contenido-usuarios .registro-usuario form input {
+    width: 300px;
+}
+
+.contenido-usuarios .registro-usuario form button {
+    margin: 10px 0 20px 28px;
+}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contacto/contacto.css' %}">
+{% endblock %}
+
+{% block title %}
+Contactenos
+{% endblock %}
+
+{% block content %}
+
+    {% include "ventana_carrito.html" %}
+
+<div class="header my-2">
+    <h2 class="">Contacto</h2>
+</div>
+<div class="row section-1 mx-4 justify-content-center">
+    <div class="content-contact col-sm-8 col-md-6 my-md-5 my-md-2 mx-sm-0">
+        <div class="detail-item">
+            <h3>Teléfono</h3>
+            <p><a href="tel:+573001234567">+57 300 123 4567</a></p>
+        </div>
+        <div class="detail-item">
+            <h3>Dirección</h3>
+            <p>Calle 123 #45-67, Bogotá, Colombia</p>
+        </div>
+        <div class="detail-item">
+            <h3>Correo Electrónico</h3>
+            <p><a href="mailto:contacto@empresa.com">contacto@empresa.com</a></p>
+        </div>
+        <div class="detail-item">
+            <h3>Horario de Atención</h3>
+            <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+            <p>Sábados: 9:00 AM - 2:00 PM</p>
+        </div>
+    </div>
+    <div class="formulario col-sm-4 col-md-6 my-2 mx-sm-0">
+        <h3>Contactanos</h3>
+        <form method="POST" action="{% url "crear_contacto" %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="bttn" type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

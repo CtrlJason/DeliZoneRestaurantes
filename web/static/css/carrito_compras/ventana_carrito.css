@@ -1,0 +1,164 @@
+/* ------------------ VENTANA CARRITO ------------------ */
+.ventana-carrito {
+    /* Estilos */
+    background-color: white;
+    /* Posicion Fija */
+    position: fixed;
+    /* Cambia a fixed */
+    right: -300px;
+
+    /* Tamaño y proporciones */
+    width: 300px;
+    height: 100%;
+    align-items: center;
+    box-shadow: 0 0 4px black;
+    transition: right 150ms linear;
+    z-index: 3;
+}
+
+.mostrar-ventana-carrito {
+    right: 0;
+}
+
+.ocultar-ventana-carrito {
+    right: -300px;
+}
+
+/* ------ SECCION 1 ------ */
+
+.ventana-carrito .division-1 {
+    position: relative;
+}
+
+.ventana-carrito .division-1 .cerrar button {
+    position: absolute;
+    margin-top: 30px;
+    left: 10px;
+    top: -30px;
+    background: none;
+    border: none;
+    transform: rotate(180deg);
+}
+
+.ventana-carrito .division-1 .cerrar li {
+    list-style: none;
+}
+
+.ventana-carrito .division-1 .cerrar img {
+    width: 36px;
+    background-color: #042434;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+/* ------ SECCION 2 ------ */
+
+/* --- division 2 --- */
+.ventana-carrito .division-2 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* --- division 3 --- */
+
+.ventana-carrito .division-3 {
+    height: 60%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.ventana-carrito .division-3 .secciones {
+    padding: 10px 0;
+}
+
+.ventana-carrito .division-3 .contenido {
+    margin-top: 20px;
+    background-color: #042434;
+    width: 240px;
+    margin: auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    border-bottom: solid 2px black;
+}
+
+.ventana-carrito .division-3 img {
+    height: 64px;
+    width: 100%;
+    border: solid 2px black;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.ventana-carrito .division-3 .contenido-carrito1 {
+    color: #161A1D;
+    background-color: #ffffffda;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.ventana-carrito .division-3 .contenido-carrito2 {
+    color: #161A1D;
+    background-color: #ffffffda;
+    padding: 2px;
+    border-radius: 15px;
+    margin: 10px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.ventana-carrito .division-3 .contenido-carrito2 button {
+    color: white;
+    background: #042434;
+    border-radius: 15px;
+    border-style: none;
+    width: 30px;
+    text-align: center;
+    transition: background 150ms linear;
+}
+
+.ventana-carrito .division-3 .contenido-carrito2 button:hover {
+    background: #094868;
+}
+
+.ventana-carrito .division-3 .contenido-carrito2 button:active {
+    background: #042434;
+}
+
+/* --- division 4 --- */
+
+.ventana-carrito .division-4 {
+    padding-top: 15px;
+    border-top: solid 2px black;
+    height: 10%;
+}
+
+.ventana-carrito .division-4 p {
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    background-color: #042434;
+    border-radius: 15px;
+    width: 200px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.ventana-carrito .division-4 a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.ventana-carrito .division-4 a button {
+    background-color: #f0932b;
+    width: 150px;
+    height: 36px;
+}
+
+.ventana-carrito .division-4 a button:hover {
+    background-color: #fd8b08;
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css\usuarios\login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Iniciar Sesion
+{% endblock %}
+
+{% block content %}
+    <div class="content main">
+        <h2>Iniciar sesion</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <label class="checkbox">
+                Recordar cuenta
+                <input type="checkbox" name="" id="" value="option1">
+            </label>
+            <button class="bttn content-main" type="submit">Entrar</button>
+        </form>
+        <a class="link content-main" href="#">¿Olvido su contraseña?</a>
+        <a class="link content-main" href="{% url "registro_cliente" %}">Registrarse</a>
+    </div>
+    <a class="link content-main" href="{% url "acceder_administrador" %}">Panel Admin</a>
+{% endblock %}

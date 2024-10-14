@@ -1,0 +1,114 @@
+body {
+    background-color: #ecf0f1;
+    overflow-x: hidden;
+}
+
+.header {
+    background-image: url(https://w.wallhaven.cc/full/42/wallhaven-42qxzy.jpg);
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+    /* Tamaño */
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header h2 {
+    color: #ecf0f1;
+    font-weight: bold;
+    font-size: 4.8rem;
+}
+
+.section-1 {
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+
+/* ------------ Información Contacto ------------ */
+
+.content-contact h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.detail-item {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.detail-item h3 {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.detail-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.detail-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.detail-item a:hover {
+    text-decoration: underline;
+}
+
+/* ------------ Formulario Contacto ------------ */
+
+.formulario {
+    color: black;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    border: solid 2px black;
+    width: 360px;
+}
+
+.formulario h3 {
+    font-size: 26px;
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.formulario fieldset {
+    font-size: large;
+    border-style: none;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 20px 20px;
+    display: flex;
+}
+
+.formulario input {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.formulario textarea {
+    padding: 10px;
+    border-style: none;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 100%;
+    height: 90px;
+    resize: none;
+
+}
+
+.bttn {
+    margin-top: 10px;
+}

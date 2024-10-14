@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pasarela_pagos/pasarela_pagos.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Pedido
+{% endblock %}
+
+{% block content %}
+    <div class="pasarela">
+        <div class="encabezado">
+            <h2 class="display-6 fw-bold">Finalizar compra</h2>
+            <p>Articulos ({{ cantidad_total }})</p>
+            <button class="bttn" onclick="window.history.back();">Regresar</button>
+        </div>
+        <div class="seccion-1 row justify-content-center">
+            {% for producto_id, producto in productos_carrito.items %}
+                    <div class="contenido-m col-sm-6 col-md-6 col-lg-4 my-3">
+                        <div class="contenido">
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                            <div class="sub-contenido">
+                                <h3 class="fs-5 fs-md-6 fw-bold" >{{ producto.nombre }}</h3>
+                                <p class="precio"> Precio: {{ producto.precio_unidad }}</p>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+            <form class="enviar-formulario" method="post" action="{% url 'home'%}">
+                {% csrf_token %}
+                <button class="bttn" type="submit">Realizar pago</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

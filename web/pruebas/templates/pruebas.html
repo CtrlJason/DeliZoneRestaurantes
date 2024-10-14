@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Pruebas
+{% endblock %}
+
+{% block content %}
+
+<!-- ========== Start Section Firebase ========== -->
+
+<h2>Pruebas de firebase</h2>
+
+<form action="{% url "lista_documentos" %}">
+    <button>
+        Ver lista de empleados
+    </button>
+</form>
+
+
+<!-- ========== End Section ========== -->
+
+{% endblock  %}

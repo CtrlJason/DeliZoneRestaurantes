@@ -1,0 +1,61 @@
+/* ---------- Pie de pagina ----------*/
+
+.pie-pagina {
+    background-color: #161A1D;
+}
+
+.contenido-pie {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 80px 10%;
+    overflow-wrap: break-word;
+}
+
+.redes-sociales {
+    display: flex;
+    gap: 20px;
+}
+
+.iconos-redes {
+    width: 48px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    transition: transform 100ms ease-in;
+}
+
+.iconos-redes:hover {
+    transform: scale(1.1);
+}
+
+.secciones-pagina {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-pie {
+    margin: auto;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    overflow-wrap: break-word;
+    transition: color 80ms;
+}
+
+.link-pie:hover {
+    color: #660708;
+}
+
+.politicas {
+    display: flex;
+    justify-content: center;
+}
+
+.derechos-reservados {
+    position: absolute;
+    top: 78%;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}

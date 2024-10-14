@@ -1,56 +1,76 @@
-# RestaurApp
+
+# Proyecto de Plataforma Web para Restaurantes
+
+Este proyecto es una plataforma web diseñada para restaurantes que permite la gestión de productos, pedidos y subdominios personalizados para mejorar la experiencia del cliente. El proyecto utiliza **Firebase** para la gestión de datos y **Django** como framework principal.
+
+## Requisitos
+
+- **Python 3.8 o superior**
+- **pip** (para instalar las dependencias)
+- **Firebase** (para la gestión de la base de datos y almacenamiento)
+
+## Instalación
+
+Sigue los pasos a continuación para instalar y configurar el proyecto localmente.
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/CtrlJason/DeliZone/tree/Dev_web
+cd repositorio
+```
+
+### 2. Crear un entorno virtual (opcional pero recomendado)
+
+Si deseas aislar las dependencias del proyecto en un entorno virtual:
+
+```bash
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+```
+
+### 3. Instalar dependencias
+
+Instala las dependencias necesarias utilizando el archivo `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configuración de Firebase
+
+Para que el proyecto funcione correctamente, es necesario configurar las credenciales de Firebase. Esto requiere un archivo JSON que contiene las llaves de acceso.
+
+#### 4.1 Crear una carpeta llamada `config`
+
+En la raíz del proyecto, crea una carpeta llamada `config`:
+
+```bash
+mkdir config
+```
+
+#### 4.2 Obtener el archivo de configuración de Firebase
+
+El archivo `config.json` contiene las llaves de acceso de Firebase necesarias para la autenticación y el uso de la base de datos. Para obtener este archivo, comunícate con el desarrollador a través del correo:
+
+```
+yeisondamosquera@gmail.com
+```
+
+Coloca el archivo `config.json` dentro de la carpeta `config`.
+
+### 5. Ejecutar el proyecto
+
+Una vez que hayas configurado todo, puedes ejecutar el servidor de Django:
+
+```bash
+python manage.py runserver
+```
+
+Accede al proyecto en tu navegador a través de `http://localhost:8000`.
 
 ---
 
-## ¡Bienvenido a RestaurApp!
+## Contacto
 
-RestaurApp es una plataforma integral que combina una aplicación móvil y un sitio web diseñados para revolucionar la experiencia gastronómica en Bogotá. Nuestra aplicación ofrece soluciones innovadoras para restaurantes y comensales, permitiendo una gestión eficiente de pedidos, reservas y entrega a domicilio 🍲.
-
-[![imagen-2024-04-12-005817245.png](https://i.postimg.cc/25YJjwb7/imagen-2024-04-12-005817245.png)](https://postimg.cc/w1WF0Dk1)
-
----
-
-## Características Principales
-
-### Menú Digital Interactivo
-- Explora los platos del restaurante con imágenes atractivas y descripciones detalladas.
-- Filtra por categorías, precios y opciones especiales para encontrar el plato perfecto.
-
-### Gestión de Pedidos
-- Realiza pedidos en línea de forma rápida y sencilla desde la comodidad de tu hogar o en el restaurante.
-- Personaliza tu pedido con opciones adicionales y especificaciones.
-
-### Seguimiento en Tiempo Real
-- Mantente informado sobre el estado de tu pedido en todo momento.
-- Recibe notificaciones instantáneas cuando tu pedido esté en preparación, en camino o listo para ser recogido o entregado.
-
-### Reservas de Mesas
-- Reserva una mesa en el restaurante para garantizar tu lugar y evitar esperas innecesarias.
-- Selecciona la fecha, hora y número de comensales de manera conveniente.
-
-### Pagos Seguros
-- Realiza pagos de forma segura a través de la aplicación con múltiples opciones de pago.
-- Olvídate de llevar efectivo y simplifica tu experiencia de pago.
-
-### Feedback y Valoraciones
-- Comparte tu experiencia y proporciona feedback sobre el servicio recibido.
-- Lee valoraciones de otros usuarios para tomar decisiones informadas sobre dónde comer.
-
----
-
-## ¿Por qué elegir RestaurApp?
-
-- **Facilidad de Uso:** Nuestra interfaz intuitiva y amigable hace que pedir comida sea más fácil que nunca.
-- **Eficiencia:** Optimiza la gestión de pedidos y reservas, reduciendo tiempos de espera y errores.
-- **Seguridad:** Garantizamos transacciones seguras y protección de datos para una experiencia tranquila.
-- **Experiencia Personalizada:** Adaptamos nuestras soluciones a las necesidades individuales de cada restaurante y cliente.
-
----
-
-## ¿Listo para probar RestaurApp?
-
-Descarga nuestra aplicación móvil desde la App Store o Google Play Store, o visita nuestro sitio web para comenzar a disfrutar de una experiencia gastronómica mejorada en Bogotá. ¡Descubre lo que RestaurApp puede hacer por ti hoy mismo!
-
----
-
-¡Con RestaurApp, cada comida es una experiencia extraordinaria! 🍽️📱
+Si tienes alguna pregunta o inquietud, no dudes en contactarme a través del correo electrónico **yeisondamosquera@gmail.com**.

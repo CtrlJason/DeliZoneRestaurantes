@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+
+    <link rel="icon"
+        href="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2FLogo.svg?alt=media&token=c642756d-f218-449a-9cc6-f69dd13a6081"
+        style="width: 64px; height: 64px;" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
+
+    {% block extra_css %}{% endblock %}
+
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+</head>
+
+<body>
+    <header>
+        {% if request.path not in excluir_paths %}
+        <nav>
+            <!-- Menú principal -->
+            <div class="container-fluid navbar navbar-expand-md sticky-top px-sm-3 px-md-5">
+                <!-- Logo del sitio -->
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img class="logo"
+                        src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2FLocoConTexto.svg?alt=media&token=6ae75998-0a3f-46a1-8e33-6ef9eb070d2b"
+                        alt="icono Logo">
+                </a>
+                <!-- Íconos de usuario y carrito en móviles -->
+                <ul class="user-content navbar-nav d-md-none m-auto">
+                    <!-- Ícono de usuario -->
+                    <li class="nav-item">
+                        {% if verificar_login_usuario %}
+                            <button id="botonVentanaUsuarioNav-1">
+                                <img 
+                                style="width: 32px;"
+                                class="usuario"
+                                src="{{ imagen_clientes }}"
+                                alt="icono de usuario">
+                            </button>
+                        {% else %}
+                            <a class="login-link m-2" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                            <br>
+                            <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
+                        {% endif %}
+                            <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
+                                <a class="nav-link icon" href="{% url 'perfil_usuario' %}">Configurar usuario</a>
+                                <br><br>
+                                <a class="nav-link icon" href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
+                            </div>
+                            
+                    </li>
+                    <!-- Carrito con contador -->
+                    <li class="nav-item">
+                        <div class="nav-link icon">
+                            <div class="contador-productos">{{ cantidad_total }}</div>
+                            <button id = "mostrarCarrito-1">
+                                <img 
+                                    style="width: 32px;"
+                                    src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fshopping-cart.svg?alt=media&token=b6407eac-9ad7-456e-8881-0118fabc2c69"
+                                    alt="Carrito de compras">
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Botón de hamburguesa para dispositivos móviles -->
+                <button class="navbar-toggler ms-auto navbar-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Contenido colapsable del menú -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'home' %}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'menu' %}">Menú</a>
+                        </li>
+                        <li>
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'ubicacion' %}">Encuéntranos</a>
+                        </li>
+                        <li>
+                            <a class="nav-link px-3 py-2 my-1" href="{% url 'contacto' %}">Contáctenos</a>
+                        </li>
+                    </ul>
+                    <!-- Íconos de usuario y carrito en dispositivos grandes -->
+                    <ul class="navbar-nav d-none d-sm-flex gap-4">
+                        <!-- Ícono de usuario -->
+                        <li class="user-content nav-item d-flex align-items-center">
+                            {% if verificar_login_usuario %}
+                                <button id="botonVentanaUsuarioNav-2">
+                                    <img 
+                                    style="width: 32px;"
+                                    class="usuario"
+                                    src="{{ imagen_clientes }}"
+                                    alt="icono de usuario">
+                                </button>
+                            {% else %}
+                                <a class="login-link m-2" href="{% url 'acceder_cliente' %}">Iniciar Sesion</a>
+                                <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
+                            {% endif %}
+                            <div id="VentanaUsuarioNav-2" class="ventana-usuario-navbar">
+                                <a href="{% url 'perfil_usuario' %}">Configurar perfil</a>
+                                <br><br><br>
+                                <a href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
+                            </div>
+                        </li>
+                        <!-- Carrito con contador -->
+                        <li class="nav-item d-flex align-items-center">
+                            <button id = "mostrarCarrito-2">
+                                <div class="contador-productos">{{ cantidad_total }}</div>
+                                <img
+                                    style="width: 32px;"
+                                    src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fshopping-cart.svg?alt=media&token=b6407eac-9ad7-456e-8881-0118fabc2c69"
+                                    alt="Carrito de compras">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% endif %}
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    {% if request.path not in excluir_paths %}
+    <footer>
+        <div class="pie-pagina">
+            <div class="contenido-pie row">
+                <div class="redes-sociales col">
+                    <a href="#"><img class="iconos-redes facebook"
+                            src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Ffacebook.svg?alt=media&token=0b166695-d8fd-4908-b082-5f599f16f582"
+                            alt=""></a>
+                    <a href="#"><img class="iconos-redes instagram"
+                            src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Finstagram-svgrepo-com.svg?alt=media&token=fb821acb-f7fb-4aee-b27d-e3975d6d13af"
+                            alt=""></a>
+                    <a href="#"><img class="iconos-redes google"
+                            src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fgoogle-chrome-svgrepo-com.svg?alt=media&token=c81803c4-efd7-4c22-946d-3e73d6f77981"
+                            alt=""></a>
+                </div>
+                <div class="secciones-pagina col">
+                    <a class="link-pie" href="{% url 'ubicacion' %}">encuentranos</a>
+                    <a class="link-pie" href="{% url 'contacto' %}">contactenos</a>
+                </div>
+                <div class="politicas col">
+                    <a class="link-pie" href="#">terminos y condiciones</a>
+                </div>
+                <div class="derechos-reservados col-12">
+                    <p>©️todos los derechos reservados</p>
+                </div>
+            </div>
+    </footer>
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/firebase.js" %}"></script>
+    <script src="{% static "js/carrito_usuario.js" %}"></script>
+</body>
+
+</html>

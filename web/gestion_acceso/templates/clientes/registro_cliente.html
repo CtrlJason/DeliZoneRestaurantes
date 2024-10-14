@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css\usuarios\login.css' %}">
+{% endblock %}
+
+{% block title %}
+    Registrarse
+{% endblock %}
+
+{% block content %}
+<div class="content main">
+    <form method="post" action="{% url "registro_cliente" %}">
+        <h2>Registro</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="bttn content-main" type="submit">Registrar</button>
+    </form>
+</div>
+{% endblock %}

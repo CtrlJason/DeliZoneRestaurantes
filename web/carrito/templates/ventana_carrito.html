@@ -1,0 +1,67 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
+<link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
+<link rel="stylesheet" href="{% static 'css/carrito_compras/ventana_carrito.css' %}">
+
+{% block content %}
+<div id = "mostrarVentanaCarrito" class="ventana-carrito">
+    <div class="division-1">
+        <div class="cerrar">
+            <ul>
+                <li>
+                    <button id = "ocultarVentanaCarrito">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2Fcarrito%2Farrow-left.svg?alt=media&token=e28fb92d-6088-460b-9999-7e80734edeec"
+                            alt="Flecha izquierda">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="division-2">
+        <h3>Carrito</h3>
+    </div>
+    <div class="division-3">
+        <div class="secciones row d-flex">
+        {% if productos_carrito %}
+            {% for producto_id, producto in productos_carrito.items %} {% comment %} Ponemos items para obtener la informacion del diccionario {% endcomment %}
+            <div class="contenido col-12 my-2">
+                <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                <p class="contenido-carrito1"> 
+                    <strong>{{ producto.nombre }}</strong>
+                    <br>
+                    <strong>precio:</strong> {{ producto.precio_unidad }}
+                </p>
+                <div class="contenido-carrito2">
+                    <p class="m-auto">
+                        <strong>cantidad:</strong> {{ producto.cantidad }}
+                    </p>
+                    <form class="m-auto" method="post" action="{% url 'agregar_producto' producto_id request.path %}">
+                        {% csrf_token %}
+                        <button class"botones-cantidad" type="submit">+</button>
+                    </form>
+                    <p class="m-auto">1</p>
+                    <form class="m-auto" method="post" action="{% url 'eliminar_producto' producto_id request.path %}">
+                        {% csrf_token %}
+                        <button class"botones-cantidad" type="submit">-</button>
+                    </form>
+                </div>
+                
+            </div>
+            {% endfor %}
+            {% else %}
+                <p>El carrito está vacío.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="division-4">
+        <p>
+            <strong>Cantidad Total:</strong> {{ cantidad_total }}<br>
+            <strong>Precio total:</strong> $ {{ precio_total }} <br>
+        </p>
+        <a href="{% url "seleccionar_tienda" %}">
+            <button class="bttn">Proceder al pago</button>
+        </a>
+    </div>
+    </div>
+{% endblock %}

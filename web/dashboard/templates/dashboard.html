@@ -1,0 +1,110 @@
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<button id="botonCerrarDashboard" class="a">
+    <img 
+        id="iconoBoton" 
+        src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Farrow-left.svg?alt=media&token=dd42ef0e-ef92-46e1-89bf-a1619d60c45c"
+        alt="flecha izquierda">
+</button>
+<nav id = "menuLateral" class="menu-lateral">
+    <div class="division-1">
+        <ul>
+            <li>
+                <a href="{% url 'home' %}" target="_blank">
+                    <button>
+                        <img 
+                            src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Farrow-up-right.svg?alt=media&token=0a0b7470-40ad-4499-b258-2655930d4279"
+                            alt="icono flecha arriba">
+                            <p>Sitio web</p>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="{% url "productos" %}">
+                    <button id="boton-productos">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fshopping-bag.svg?alt=media&token=94e25a49-3384-4fc7-b691-1fba7a2e8c86"
+                            alt="icono bolsa de compras">
+                        <p>Productos</p>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="{% url "gestion_contacto" %}">
+                    <button id="boton-formularios">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fclipboard.svg?alt=media&token=6b9ca8db-87b9-4546-abe9-a108f3afade2"
+                            alt="icono formulario">
+                        <p>Formularios</p>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="{% url "ver_usuarios" %}">
+                    <button id="boton-empleados">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fusers.svg?alt=media&token=5d8eced6-c22f-4206-be6b-ea2b92ca2557"
+                            alt="icono personas">
+                        <p>Usuarios</p>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a href="{% url "configuracion_sitio" %}">
+                    <button id="boton-admin">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fsliders.svg?alt=media&token=102cd60e-6ef5-4c17-823b-7afe31bdab1c"
+                            alt="icono ajustes">
+                        <p>Configuracion</p>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<nav class="menu-principal">
+    <div class="division-1">
+        <ul>
+            <li class="lista-menu">
+                <!-- Home -->
+                <a href="{% url "admin" %}">
+                <button id="botonMenu">
+                    <img 
+                        class="icono-menu"
+                        src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fhome.svg?alt=media&token=1cfd2f6d-cded-499e-8a8e-67c2a01b02fb"
+                        alt="icono home">
+                </button>
+                </a>
+            </li>
+            <li class="lista-menu">
+                <!-- Notificaciones -->
+                <button id="botonNotificacion">
+                    <img 
+                        class="icono-menu"
+                        src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FDashBoard%2Fbell.svg?alt=media&token=3a8bca6a-322a-44ee-afa5-0a3b63019280"
+                        alt="icono campana">
+                </button>
+                <div id="ventanaNotificacion" class="ventana-notificacion" style="display:none;">
+                    <p>Notificaciones</p>
+                </div>
+            </li>
+            <li class="lista-menu">
+                <!-- Usuario -->
+                <button id="botonUsuario">
+                    <img class="imagen-administrador"
+                        src="{{ imagen_administrador }}"
+                        alt="icono usuario">
+                </button>
+                <div id="ventanaUsuario" class="ventana-usuario" style="display:none;">
+                    <p>Usuario</p>
+                    <p><a href="{% url 'cerrar_session_administrador' %}">Cerrar sesion</a></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</div>
+<script src="{% static "js/dashboard.js" %}"></script>
+{% endblock %}

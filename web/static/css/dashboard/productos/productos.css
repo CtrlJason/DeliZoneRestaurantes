@@ -1,0 +1,223 @@
+/* --------- Seccion 1 --------- */
+
+.encabezado h2 {
+    margin: 0;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* --------- contentido seccion --------- 2 */
+
+.fondo {
+    background-color: #e9d8a6;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.botones-producos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.botones-producos button {
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    size-adjust: 60px;
+    transform: scale(0.9);
+    transition: transform 150ms linear;
+    margin-bottom: 20px;
+}
+
+.botones-producos button:hover {
+    transform: scale(1);
+}
+
+.botones-producos button:active {
+    transform: scale(0.9);
+}
+
+.botones-producos button img {
+    width: 64px;
+    display: block;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+
+.seccion-1 .productos {
+    box-shadow: 0 0 5px;
+    border-radius: 15px 15px 10px 10px;
+    width: 300px;
+    margin: auto;
+}
+
+.seccion-1 .productos img {
+    /* Ajustes */
+    box-sizing: border-box;
+    /* Estilos */
+    border-radius: 15px 15px 0 0;
+    /* Tamaño */
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* -- contenido de los productos -- */
+
+.seccion-1 .productos .contenido {
+    /* Ajustes */
+    box-sizing: border-box;
+    /* Estilos */
+    border-top: solid 5px #3d0d0d;
+    border-radius: 0 0 10px 10px;
+    background-color: #2b2d42;
+    color: white;
+    /* Tamaño */
+    width: 100%;
+    /* margenes y relleno */
+    padding: 20px;
+}
+
+.seccion-1 .productos .contenido h3 {
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.seccion-1 .productos .contenido .descripcion {
+    height: 65px;
+}
+
+.seccion-1 .productos .contenido .precio {
+    font-weight: bold;
+}
+
+/* --------- Botones --------- */
+
+.seccion-1 .productos .contenido .botones {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+/* ---- Boton modificacion de productos ---- */
+
+.bttn.modify {
+    background-color: #8d99ae;
+    font-weight: 600;
+    border-style: none;
+    border: solid #2b2d42;
+}
+
+.bttn.modify:hover {
+    background-color: #ced4da;
+    color: #2b2d42;
+}
+
+.bttn.modify:active {
+    background-color: #edf2f4;
+    color: #2b2d42;
+}
+
+/* ---- Boton eliminacion de productos ---- */
+
+.bttn.delete {
+    background-color: #a4161a;
+    font-weight: 600;
+    border-style: none;
+    border: solid #660708;
+}
+
+.bttn.delete:hover {
+    background-color: #ba181b;
+    color: #2b2d42;
+}
+
+.bttn.delete:active {
+    background-color: #e5383b;
+    color: #2b2d42;
+}
+
+/* --------- AGREGAR PRODUCTOS ----------- */
+
+.formulario-productos {
+    display: none;
+}
+
+.formulario-productos .contenido {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.formulario-productos .formulario {
+    border: solid 2px black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: white;
+    font-size: 22px;
+}
+
+.formulario-productos .formulario label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* ------- Campos ------- */
+
+.formulario-productos .formulario input[type="text"],
+.formulario-productos .formulario input[type="number"],
+.formulario-productos .formulario input[type="file"],
+.formulario-productos .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #576574;
+    background-color: #c8d6e5;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.formulario-productos .formulario input[type="text"],
+.formulario-productos .formulario input[type="number"] {
+    height: 35px;
+}
+
+.formulario-productos .formulario textarea {
+    height: 100px;
+}
+
+.formulario-productos .formulario input[type="text"]:focus,
+.formulario-productos .formulario input[type="number"]:focus,
+.formulario-productos .formulario input[type="file"]:focus,
+.formulario-productos .formulario textarea:focus {
+    border-color: #E5383B;
+    outline: none;
+}
+
+.bttn {
+    background-color: rgb(185, 141, 27);
+    border-color: rgb(155, 118, 26);
+    padding: 6px;
+    margin: 2% 0 0 8%;
+}
+
+.bttn:hover {
+    background-color: rgb(238, 188, 63);
+}
+
+/* --- Formulario de edicion --Pendiente-- --- */
+
+/* .form.modify {
+    display: none;
+    background-color: #ba181b;
+} */
