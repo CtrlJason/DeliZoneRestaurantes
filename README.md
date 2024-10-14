@@ -16,7 +16,7 @@ Sigue los pasos a continuación para instalar y configurar el proyecto localment
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/CtrlJason/DeliZone/tree/Dev_web
+git clone https://github.com/CtrlJason/DeliZoneRestaurantes
 cd repositorio
 ```
 
