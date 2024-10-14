@@ -58,10 +58,9 @@ class Carrito:
                     # Reducimos la cantidad de del producto en caso de que haya mas de 1
                     producto['cantidad'] -= 1
                     # Actualizamos el precio total restando el precio del producto
-                    self.carrito['precio_total'] -= producto['precio']
+                    # self.carrito['precio_total'] -= producto['precio']
                     
                 else:
-                    self.carrito['precio_total'] -= producto['precio_unidad']
                     del self.carrito['productos'][producto_ref.id]
                     
                 self.guardar_carrito() # Guardamos el carrito actualizado en la sesión

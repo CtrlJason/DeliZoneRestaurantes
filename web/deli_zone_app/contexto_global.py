@@ -9,9 +9,11 @@ def excluir_paths_sitio(request):
         "/acceso/",
         "/seleccionar_tienda/",
         "/dashboard/",
+        "/dashboard/admin/",
         "/dashboard/admin/productos/",
         "/dashboard/admin/contacto/",
         "/dashboard/admin/configuracion/sitio/",
         "/dashboard/admin/usuarios/",
+
     ]
     return {"excluir_paths": excluir_paths}

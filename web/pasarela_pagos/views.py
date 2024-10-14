@@ -6,6 +6,7 @@ def pasarela_pagos(request):
     if 'clientes_id' not in request.session:
         return redirect('acceder_cliente')
     else:
+        
         return render(request, "realizar_pago.html", {
             })
     

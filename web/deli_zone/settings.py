@@ -25,7 +25,10 @@ SECRET_KEY = "django-insecure-d5yiym1!u9ufdspha5x^1w(g=abo@0erqd5np*j-0aca1+fi5k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '2d30-181-53-12-20.ngrok-free.app',
+    '*'
+]
 
 
 # Application definition
@@ -132,7 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "es-co"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Bogota"
 
 USE_I18N = True
 
@@ -146,8 +149,6 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -162,3 +163,6 @@ SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# Damos permisos de token
+CSRF_TRUSTED_ORIGINS = ['https://2d30-181-53-12-20.ngrok-free.app']

@@ -75,6 +75,7 @@ nav {
     font-size: 13px;
     font-weight: bold;
     position: absolute;
+    z-index: 200;
     margin-bottom: 20px;
     margin-left: 18px;
 }

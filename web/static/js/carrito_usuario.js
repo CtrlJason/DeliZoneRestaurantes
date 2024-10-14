@@ -9,7 +9,7 @@ const ocultarVentanaCarritoBtn = document.getElementById('ocultarVentanaCarrito'
 // Funcion para mostrar y ocultar el carrito de compras
 // Boton 1
 mostrarCarritoBtn1.addEventListener('click', () => {
-    mostrarVentanaCarrito.style.right = '0';
+    mostrarVentanaCarrito.classList.toggle('mostrar-ventana-carrito');
 })
 // Boton 2
 mostrarCarritoBtn2.addEventListener('click', () => {
