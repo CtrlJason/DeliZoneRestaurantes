@@ -1,5 +1,8 @@
 from django import forms
 
+class CambiarImagenUsuarioForm(forms.Form):
+    imagen = forms.ImageField(required=True)
+
 class CambiarDatosUsuarioForm(forms.Form):
     nombres = forms.CharField(required=True, error_messages={'required': 'Por favor, ingrese su nombre.'})
     apellidos = forms.CharField(required=True, error_messages={'required': 'Por favor, ingrese su apellido.'})

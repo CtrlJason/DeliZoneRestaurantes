@@ -95,9 +95,7 @@ nav {
 }
 
 #mostrarCarrito-1,
-#mostrarCarrito-2,
-#botonVentanaUsuarioNav-1,
-#botonVentanaUsuarioNav-2 {
+#mostrarCarrito-2 {
     background: none;
     border: none;
     padding: 0;
@@ -105,13 +103,37 @@ nav {
     transform: scale(1.05);
 }
 
-#botonVentanaUsuarioNav-2:hover, #mostrarCarrito-2:hover {
+#mostrarCarrito-2:hover {
     transform: scale(1.10);
+}
+
+#botonVentanaUsuarioNav-1,
+#botonVentanaUsuarioNav-2 {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#botonVentanaUsuarioNav-1 img,
+#botonVentanaUsuarioNav-2 img {
+    width: 64px;
+    object-fit: cover;
+    border-radius: 20px;
+    padding: 3px;
+    cursor: pointer;
+    transition:background-color 120ms linear;
+}
+
+#botonVentanaUsuarioNav-1 img:hover,
+#botonVentanaUsuarioNav-2 img:hover {
+    background-color: #a4161bad;
 }
 
 .ventana-usuario-navbar {
     position: fixed;
-    top: 100px;
+    right: 45px;
+    top: 80px;
     width: 150px;
     height: 150px;
     border-radius: 15px;

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css\clientes_restaurante\pedidos_cliente.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Tus pedidos
+{% endblock %}
+
+{% block content %}
+    {% include "ventana_carrito.html" %}
+    <h2 class="text-center pt-5">Tus pedidos</h2>
+    {% if lista_pedidos %}
+    <div class="container my-4">
+        {% for pedido in lista_pedidos %}
+            <div class="pedido m-auto my-3">
+                <div class="contenido">
+                    <div class="encabezado row">
+                        <p class="col"><strong>Fecha del pedido:<br></strong> {{ pedido.fecha }}</p>
+                        <p class="col"><strong>Pago total:<br></strong>${{ pedido.total }}</p>
+                        <p class="col"><strong>Nombre:<br></strong> {{ pedido.nombre_cliente }}</p>
+                        <p class="col"><strong>Estado del pedido:</strong> <span class="badge bg-danger">{{ pedido.estado }}</span></p>
+                        <p class="col"><strong>Código del pedido: <br></strong> <i>{{ pedido.cliente_id }}</i></p>
+                    </div>
+                    <p class="sub-titulo"><strong>Productos:</strong></p>
+                    <div class="productos row">
+                        {% for producto in pedido.productos %}
+                            <div class="sub-contenido col justify-content-center my-2">
+                                <img src="{{ producto.imagen }}" alt="{{ producto.imagen }}">
+                                <div class="mx-4">
+                                    <p><strong>{{ producto.nombre_pedido }}</strong></p>
+                                    <p>Precio: ${{ producto.precio_unidad }}</p>
+                                    <p>Cantidad: {{ producto.cantidad }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="sin-pedidos">
+        <h2 class="text-center py-5">No has realizado ningún pedido</h2>
+    </div>
+    {% endif %}
+{% endblock %}

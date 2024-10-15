@@ -50,7 +50,7 @@
             </div>
             {% endfor %}
             {% else %}
-                <p>El carrito está vacío.</p>
+                <p class="text-center p-5 border">El carrito está vacío.</p>
             {% endif %}
         </div>
     </div>
@@ -59,9 +59,16 @@
             <strong>Cantidad Total:</strong> {{ cantidad_total }}<br>
             <strong>Precio total:</strong> $ {{ precio_total }} <br>
         </p>
+        {% if cantidad_total == 0 %}
+        <div class="d-flex justify-content-center">
+            <button class="bttn">Agrege un producto al carrito</button>
+        </div>
+        {% else %}
         <a href="{% url "seleccionar_tienda" %}">
             <button class="bttn">Proceder al pago</button>
         </a>
+        {% endif %}
+            
     </div>
     </div>
 {% endblock %}

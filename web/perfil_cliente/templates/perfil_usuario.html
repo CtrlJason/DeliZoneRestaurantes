@@ -11,21 +11,27 @@
 {% endblock %}
 
 {% block content %}
+    {% include "ventana_carrito.html" %}
     <section>
         <div class="contenedor_datos">
-            <img class="img_user" src="https://pics.filmaffinity.com/249115701217027-nm_200.jpg" alt="">
-        </div>
-        <div class="panel-configuracion-usuario d-flex justify-content-center">
-            <form method="post" action="{% url 'actualizar_perfil_usuario' %}">
+            <img class="img_user" src="{{ imagen_clientes }}" alt="">
+            <form method="post" enctype="multipart/form-data" action="{% url 'actualizar_imagen_usuario' %}">
+                {{ imagen.as_p }}
                 {% csrf_token %}
-                {{ datos_personales.as_p }}
-                <button class="bttn" type="submit">Guardar</button>
+                <button class="bttn" type="submit">Actualizar imagen</button>
             </form>
-            <form method="post" action="{% url 'actualizar_password_usuario' %}">
-                {% csrf_token %}
-                {{ contrasenia_usuario.as_p }}
-                <button class="bttn" type="submit">Guardar</button>
-            </form>
+            <div class="panel-configuracion-usuario">
+                <form class="datos-personales" method="post" action="{% url 'actualizar_perfil_usuario' %}">
+                    {% csrf_token %}
+                    {{ datos_personales.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+                <form class="contraseña" method="post" action="{% url 'actualizar_password_usuario' %}">
+                    {% csrf_token %}
+                    {{ contrasenia_usuario.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+            </div>
         </div>
     </section>
 {% endblock %}

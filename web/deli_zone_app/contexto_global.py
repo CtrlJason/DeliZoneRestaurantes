@@ -5,7 +5,7 @@ def excluir_paths_sitio(request):
         "/acceso/registro/",
         "/carrito/",
         "/compra/",
-        "/seleccionar_tienda/realizar_pago/",
+        "/seleccionar_tienda/pasarela_pagos/",
         "/acceso/",
         "/seleccionar_tienda/",
         "/dashboard/",

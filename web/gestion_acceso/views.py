@@ -11,7 +11,6 @@ import bcrypt
 
 # --=================== ACCESO USUARIOS ===================-- #
 
-
 def acceder_usuario(request, coleccion, datos_redireccion):
     if request.method == "POST":
         form = AccederUsuarioForm(request.POST)
@@ -52,7 +51,6 @@ def acceder_administrador(request):
 
 # --=================== CERRAR SESIONES USUARIOS ===================-- #
 
-
 def cerrar_session_cliente(request):
     del request.session["clientes_id"]
     return redirect("acceder_cliente")
@@ -74,7 +72,6 @@ def subir_imagen(image):
 
 
 # --=================== REGISTRO CLIENTES ===================-- #
-
 
 def registro_cliente(request):
     if request.method == "POST":
@@ -127,7 +124,6 @@ def registro_cliente(request):
 
 # --=================== REGISTRO EMPLEADOS ===================-- #
 
-
 def registro_empleado(request):
     if request.method == "POST":
         form = RegistroEmpleadoForm(request.POST, request.FILES)
@@ -177,7 +173,6 @@ def registro_empleado(request):
 
 
 # --=================== REGISTRO ADMINISTRADORES ===================-- #
-
 
 def registro_administrador(request):
     if request.method == "POST":
@@ -253,10 +248,12 @@ def eliminar_usuarios(request, id_usuario, coleccion):
 def eliminar_cliente(request, id_cliente):
     return eliminar_usuarios(request, id_cliente, "clientes")
 
-
 def eliminar_empleado(request, id_empleado):
     return eliminar_usuarios(request, id_empleado, "empleados")
 
-
 def eliminar_administrador(request, id_administrador):
-    return eliminar_usuarios(request, id_administrador, "administradores")
+    if id_administrador == request.session["administradores_id"]:
+        print("No se puede eliminar al administrador ya que cuenta con la sesion activa")
+        return redirect('ver_usuarios')
+    else:
+        return eliminar_usuarios(request, id_administrador, "administradores")

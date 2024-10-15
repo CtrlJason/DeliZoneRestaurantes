@@ -27,6 +27,7 @@ urlpatterns = [
     path("ubicacion/", include("ubicacion.urls")),
     path("menu/", include("menu.urls")),
     path("seleccionar_tienda/", include("pasarela_pagos.urls")),
+    path("pedidos_cliente/", include("pedidos_cliente.urls")),
     path("acceso/", include("gestion_acceso.urls")),
     path("dashboard/", include("dashboard.urls")),
     path("dashboard/admin/productos/", include("productos.urls")),

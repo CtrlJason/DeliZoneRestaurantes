@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "perfil_cliente",
     "ubicacion",
     "pasarela_pagos",
+    "pedidos_cliente",
     # Panel de administrador
     "dashboard",
     "productos",
