@@ -42,14 +42,15 @@ INSTALLED_APPS = [
     "menu",
     "carrito",
     "contacto",
-    "perfil_cliente",
+    "configuracion_usuarios",
     "ubicacion",
     "pasarela_pagos",
+    "pedidos_cliente",
     # Panel de administrador
     "dashboard",
     "productos",
     "gestion_contacto",
-    "configuracion",
+    "configuracion_sitio",
     # CSS
     "bootstrap5",
     # Test
@@ -85,9 +86,13 @@ TEMPLATES = [
                 # Imagen del administrador y del cliente
                 "carrito.carrito.datos_carrito",
                 "deli_zone_app.contexto_global.excluir_paths_sitio",
-                "gestion_acceso.usuarios.imagen_cliente",
-                "gestion_acceso.usuarios.imagen_admin",
+                "deli_zone_app.contexto_global.imagen_cliente",
+                "deli_zone_app.contexto_global.imagen_admin",
                 "gestion_acceso.acceso.estado_login_usuario",
+                # Configuraciones del sitio
+                "deli_zone_app.contexto_global.logo_sitio",
+                "deli_zone_app.contexto_global.fav_icon_sitio",
+                "deli_zone_app.contexto_global.colores_sitio",
             ],
         },
     },

@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form label {
+    width: 140px;
+}
+
+form input {
+    border-radius: 5px;
+}
+
+form input[type="file"] {
+    display: block;
+    margin: 10px 0;      /* Ajusta el margen superior e inferior */
+    padding: 10px;       /* Añade padding para agrandar el área de clic */
+    font-size: 16px;     /* Cambia el tamaño de la fuente */
+    background-color: #f1f1f1;  /* Cambia el color de fondo */
+    color: #333;         /* Cambia el color del texto */
+    border: 2px solid #ccc;     /* Añade un borde */
+    border-radius: 5px;  /* Redondea los bordes */
+    cursor: pointer;
+}
+
+form button {
+    width: 180px;
+    margin: auto;
+}

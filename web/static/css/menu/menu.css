@@ -12,24 +12,27 @@ body {
 /* contentido seccion 2 */
 
 .fondo {
-    background-color: #012E40;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .productos-menu .contenido {
-    border: solid 2px #3d0d0d;
-    border-radius: 20px 20px 10px 10px;
+    border: solid 5px #fff;
+    border-radius: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .productos-menu .contenido img {
     /* Ajustes */
     object-fit: cover;
     /* Estilos */
-    border-radius: 15px 15px 0 0;
+    border-radius: 18px 18px 0 0;
     /* Tamaño */
     width: 100%;
     height: 280px;
+
 }
 
 /* Sub contenido de los productos */
@@ -38,23 +41,27 @@ body {
     /* Ajustes */
     box-sizing: border-box;
     /* Estilos */
-    border-top: solid 5px #3d0d0d;
-    border-radius: 0 0 10px 10px;
-    background-color: #e9d8a6;
-    /* Tamaño */
-    width: 100%;
-    /* margenes y relleno */
-    padding: 20px;
+    border-top: solid 5px #ffffff;
+    border-radius: 0 0 13px 13px;
+    background-color: #ffffff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
 }
 
 .productos-menu .sub-contenido h3 {
     width: 100%;
-    overflow-wrap: break-word;
     padding: 10px 0;
+    height: 2em; /* Altura fija para el título, ajusta según necesites */
+    overflow: hidden;
 }
 
-.productos-menu .p {
+.productos-menu .descripcion {
     overflow-wrap: break-word;
+    flex-grow: 1; /* Permite que el párrafo crezca para llenar el espacio restante */
+    overflow: hidden;
+
 }
 
 .productos-menu .bttn {

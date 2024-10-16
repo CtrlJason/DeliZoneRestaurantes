@@ -1,0 +1,56 @@
+.pedido {
+    border-radius: 15px;
+    border: solid 2px black;
+    width: 80%;
+}
+
+.pedido .contenido .encabezado {
+    padding: 10px 15px 0 15px;
+    background-color: #e4eaeb;
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+    font-size: 15px;
+    margin: auto;
+}
+
+.pedido .contenido .sub-titulo {
+    padding: 10px 15px 0 15px;
+    font-size: 20px;
+}
+
+.pedido .contenido .productos {
+    padding: 0 15px 15px 15px;
+    border-radius: 0 0 15px 15px;
+    font-size: 15px;
+}
+
+.pedido .contenido .productos .titulo {
+    font-size: 20px;
+}
+
+.pedido .contenido .productos img {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.pedido .contenido .productos .sub-contenido {
+    display: flex;
+    align-items: center;
+}
+
+.pedido .contenido .productos .sub-contenido p {
+    margin: 2px;
+}
+
+
+.sin-pedidos {
+    padding: 13% 0;
+    display: flex;
+    justify-content: center;
+}
+
+.sin-pedidos h2 {
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}

@@ -18,7 +18,6 @@ class Carrito:
                 'cantidad_total': 0,
                 'precio_total': 0,
             }
-                
         self.carrito = carrito
     
     def agregar(self, producto_ref):

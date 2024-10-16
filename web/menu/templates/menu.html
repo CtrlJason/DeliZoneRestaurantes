@@ -14,19 +14,18 @@
 
 {% include "ventana_carrito.html" %}
 
-<div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5">
+<div class="fondo container-fluid p-sm-2 p-md-3 p-lg-4 p-xl-5" style="background-color: {{ color2 }};">
     <div class="productos-menu row d-flex justify-content-center">
         {% for producto in lista_productos %}
-        <div class="col-sm-6 col-md-6 col-lg-4 fs-6 my-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 fs-6 my-3">
             <div class="contenido">
                 <img src="{{ producto.imagen }}" alt="{{ producto1.nombre }}">
                 <div class="sub-contenido">
                     <h3 class="fs-5 fs-md-6 fw-bold">{{ producto.nombre }}</h3>
-                    <p>
+                    <p class="descripcion">
                         {{ producto.descripcion }}
-                        <br>
-                        <strong>Precio:</strong> {{ producto.precio }}
                     </p>
+                    <p><strong>Precio:</strong> {{ producto.precio }}</p>
                     <form method="post" action="{% url 'agregar_producto' producto.id request.path %}">
                         {% csrf_token %}
                         <button class="bttn" type="submit">Agregar al carrito</button>

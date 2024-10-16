@@ -1,9 +1,5 @@
 /* ---------- Pie de pagina ----------*/
 
-.pie-pagina {
-    background-color: #161A1D;
-}
-
 .contenido-pie {
     flex-grow: 1;
     align-items: center;

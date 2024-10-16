@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css\configuracion\configuracion_usuarios.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Perfil
+{% endblock %}
+
+{% block content %}
+    {% include "ventana_carrito.html" %}
+    <section>
+        <div class="contenedor_datos">
+            <div class = "panel-imagen">
+                <img class="img_user" src="{{ imagen_clientes }}" alt="">
+                <form method="post" enctype="multipart/form-data" action="{% url 'actualizar_imagen_usuario' 'clientes' %}">
+                    {{ imagen.as_p }}
+                    {% csrf_token %}
+                    <button class="bttn" type="submit">Actualizar imagen</button>
+                </form>
+            </div>
+            <div class="panel-configuracion">
+                <form class="datos-personales" method="post" action="{% url 'actualizar_perfil_usuario' 'clientes' %}">
+                    {% csrf_token %}
+                    {{ datos_personales.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+                <form class="contraseña" method="post" action="{% url 'actualizar_password_usuario' 'clientes' %}">
+                    {% csrf_token %}
+                    {{ contrasenia_usuario.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

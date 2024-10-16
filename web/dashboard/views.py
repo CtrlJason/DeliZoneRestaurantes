@@ -36,6 +36,7 @@ def ver_usuarios(request):
         db.collection("restaurante1")
         .document("usuarios")
         .collection("administradores")
+        .order_by("apellidos")
         .stream()
     )
 
