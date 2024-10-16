@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css\configuracion\configuracion_usuarios.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    Perfil
+{% endblock %}
+
+{% block content %}
+    {% include "dashboard.html" %}
+    <section>
+        <div class="contenedor_datos">
+            <img class="img_user" src="{{ imagen_administrador }}" alt="Imagen del administrador">
+            <form method="post" enctype="multipart/form-data" action="{% url 'actualizar_imagen_usuario' 'administradores' %}">
+                {{ imagen.as_p }}
+                {% csrf_token %}
+                <button class="bttn" type="submit">Actualizar imagen</button>
+            </form>
+            <div class="panel-configuracion-usuario">
+                <form class="datos-personales" method="post" action="{% url 'actualizar_perfil_usuario' 'administradores' %}">
+                    {% csrf_token %}
+                    {{ datos_personales.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+                <form class="contraseña" method="post" action="{% url 'actualizar_password_usuario' 'administradores' %}">
+                    {% csrf_token %}
+                    {{ contrasenia_usuario.as_p }}
+                    <button class="bttn" type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

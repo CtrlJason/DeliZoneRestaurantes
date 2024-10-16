@@ -9,12 +9,27 @@
     {% bootstrap_css %}
 
     <link rel="icon"
-        href="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2FLogo.svg?alt=media&token=c642756d-f218-449a-9cc6-f69dd13a6081"
+        href="{{ fav_icon_sitio }}"
         style="width: 64px; height: 64px;" type="image/png">
     <link rel="stylesheet" href="{% static 'css/principal/ajustes.css' %}">
-    <link rel="stylesheet" href="{% static 'css/principal/buttoms.css' %}">
     <link rel="stylesheet" href="{% static 'css/principal/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/principal/navbar.css' %}">
+
+    <!-- Estilo de los botones-->
+    <style>
+        .bttn {
+            color: #F5F3F4;
+            font-size: 16px;
+            padding: 8px;
+            border-radius: 8px;
+            border-color: {{ Colorbordeboton }};
+            background-color: {{ colorboton1 }};
+            border-bottom-style: solid;
+        }
+        .bttn:hover {
+            background-color: {{ colorboton2 }};
+        }
+    </style>
 
     {% block extra_css %}{% endblock %}
 
@@ -27,13 +42,13 @@
 <body>
     <header>
         {% if request.path not in excluir_paths %}
-        <nav>
+        <nav style="background-color: {{ color1 }};">
             <!-- Menú principal -->
             <div class="container-fluid navbar navbar-expand-md sticky-top px-sm-3 px-md-5">
                 <!-- Logo del sitio -->
                 <a class="navbar-brand" href="{% url 'home' %}">
                     <img class="logo"
-                        src="https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2FLocoConTexto.svg?alt=media&token=6ae75998-0a3f-46a1-8e33-6ef9eb070d2b"
+                        src="{{ logo_sitio }}"
                         alt="icono Logo">
                 </a>
                 <!-- Íconos de usuario y carrito en móviles -->
@@ -43,7 +58,6 @@
                         {% if verificar_login_usuario %}
                             <button id="botonVentanaUsuarioNav-1">
                                 <img 
-                                style="width: 32px;"
                                 class="usuario"
                                 src="{{ imagen_clientes }}"
                                 alt="icono de usuario">
@@ -54,7 +68,7 @@
                             <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
                         {% endif %}
                             <div id="ventanaUsuarioNav-1" class="ventana-usuario-navbar">
-                                <a class="nav-link icon" href="{% url 'perfil_usuario' %}">Configurar usuario</a>
+                                <a class="nav-link icon" href="{% url 'perfil_clientes' %}">Configurar usuario</a>
                                 <br><br>
                                 <a class="nav-link icon" href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
                             </div>
@@ -106,8 +120,7 @@
                         <li class="user-content nav-item d-flex align-items-center">
                             {% if verificar_login_usuario %}
                                 <button id="botonVentanaUsuarioNav-2">
-                                    <img 
-                                    style="width: 32px;"
+                                    <img
                                     class="usuario"
                                     src="{{ imagen_clientes }}"
                                     alt="icono de usuario">
@@ -117,7 +130,7 @@
                                 <a class="login-link m-2" href="{% url 'registro_cliente' %}">Registrarse</a>
                             {% endif %}
                             <div id="VentanaUsuarioNav-2" class="ventana-usuario-navbar">
-                                <a href="{% url 'perfil_usuario' %}">Configurar perfil</a>
+                                <a href="{% url 'perfil_clientes' %}">Configurar perfil</a>
                                 <br><br><br>
                                 <a href="{% url 'cerrar_session_cliente' %}">Cerrar sesion</a>
                             </div>
@@ -145,7 +158,7 @@
     </main>
     {% if request.path not in excluir_paths %}
     <footer>
-        <div class="pie-pagina">
+        <div class="pie-pagina" style="background-color: {{ color3 }};">
             <div class="contenido-pie row">
                 <div class="redes-sociales col">
                     <a href="#"><img class="iconos-redes facebook"

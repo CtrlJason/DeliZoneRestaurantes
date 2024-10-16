@@ -12,7 +12,6 @@ body {
 /* contentido seccion 2 */
 
 .fondo {
-    background-color: #042434;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -63,10 +62,4 @@ body {
 .productos-principales .sub-contenido .bttn {
     margin-bottom: 10px;
     width: 100%;
-    background-color: #F23E2E;
-    transition: background-color 150ms linear;
-}
-
-.productos-principales .sub-contenido .bttn:hover {
-    background-color: #eb4b3d;
 }

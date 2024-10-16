@@ -2,7 +2,6 @@ nav {
     top: 0px;
     position: fixed;
     width: 100%;
-    background-color: white;
     z-index: 4;
     border-bottom: solid 2px #161A1D;
 }
@@ -117,9 +116,11 @@ nav {
 
 #botonVentanaUsuarioNav-1 img,
 #botonVentanaUsuarioNav-2 img {
-    width: 64px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
-    border-radius: 20px;
+    object-position: center;
+    border-radius: 100%;
     padding: 3px;
     cursor: pointer;
     transition:background-color 120ms linear;

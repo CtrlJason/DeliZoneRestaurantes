@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css\dashboard\configuracion_sitio.css' %}">
+{% endblock %}
+
+{% block title %}
+    Configuracion del sitio
+{% endblock %}
+
+{% block content %}
+
+{% include "dashboard.html" %}
+    <div class="row">
+        <form class="col m-5" enctype="multipart/form-data" method="post" action="{% url 'actualizar_fav_icon' %}">
+            {% csrf_token %}
+            {{ fav_icon.as_p }}
+            <button type="submit" class="bttn">Actualizar Favicon</button>
+        </form>
+        <form class="col m-5" enctype="multipart/form-data" method="post" action="{% url 'actualizar_logo' %}">
+            {% csrf_token %}
+            {{ logo.as_p }}
+            <button type="submit" class="bttn">Actualizar Logo</button>
+        </form>
+        <form class="col m-5" enctype="multipart/form-data" method="post" action="{% url 'actualizar_colores' %}">
+            {% csrf_token %}
+            {{ colores_sitio.as_p }}
+            <button type="submit" class="bttn">Actualizar Colores</button>
+        </form>
+    </div>
+{% endblock %}

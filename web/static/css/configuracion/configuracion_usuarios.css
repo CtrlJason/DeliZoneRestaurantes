@@ -1,0 +1,76 @@
+.contenedor_datos{
+    padding: 20px 40px;
+    margin: 20px 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.img_user{
+    border-radius: 100%;
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border: solid 5px #3c6382;
+}
+
+.panel-imagen {
+
+}
+
+.panel-configuracion {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-configuracion .datos-personales {
+    background-color: #3c6382;
+    margin-top: 50px;
+    padding: 15px;
+    width: 300px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.panel-configuracion .datos-personales label {
+    width: 180px;
+}
+
+.panel-configuracion .datos-personales input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.panel-configuracion .contraseña {
+    background-color: #3c6382;
+    padding: 15px;
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.panel-configuracion .contraseña label {
+    font-weight: 100;
+    width: 180px;
+}
+
+.panel-configuracion .contraseña input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+form label{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+
+form input[type="file"] {
+    border: solid 5px #ccc;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
