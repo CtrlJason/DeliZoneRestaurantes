@@ -34,6 +34,7 @@ def realizar_pago(request):
             'nombre_cliente': cliente.to_dict().get('nombres') + ' ' + cliente.to_dict().get('apellidos'),
             'correo_cliente': cliente.to_dict().get('correo'),
             'celular_cliente': cliente.to_dict().get('celular'),
+            'direccion': cliente.to_dict().get('direccion'),
             'productos': [],
             'total': carrito.carrito['precio_total'],
             'fecha': datetime.now(huso_horario),
@@ -82,4 +83,26 @@ def realizar_pago(request):
         request.session.modified = True
         return redirect('home')
     else: 
+        return redirect('pasarela_pagos')
+
+def enviar_direccion(request):
+    if request.method == 'POST':
+        
+        cliente_id = request.session['clientes_id']
+        cliente_ref = db.collection('restaurante1').document('usuarios').collection('clientes').document(cliente_id)
+        cliente_ref.update({
+            'direccion': {
+                'Ciudad': request.POST.get('Ciudad'),
+                'localidad': request.POST.get('localidad'),
+                'barrio': request.POST.get('barrio'),
+                'Direccion': request.POST.get('Direccion'),
+                'datos': {
+                    request.POST.get('dato-1'),
+                    request.POST.get('dato-2'),
+                    request.POST.get('dato-3'),
+                        },
+                'codigo_postal': request.POST.get('codigo_postal'),
+                'referencia': request.POST.get('referencia')
+            }
+        })
         return redirect('pasarela_pagos')

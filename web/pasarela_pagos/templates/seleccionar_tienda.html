@@ -25,32 +25,15 @@
                         <p>Recoger en Tienda</p>
                     </button>
                 </div>
-                <form id="formularioDireccion" class="formulario" action="{% url 'pasarela_pagos' %}" method="POST">
+                <form id="formularioDireccion" class="formulario" method="POST" action="{% url 'enviar_direccion' %}">
+                    {% csrf_token %}
                     <h2 class="">Dirección</h2>
                     <!-- Tipo de Dirección -->
-                    <label for="tipo_via">Tipo de Vía:</label>
-                    <select id="tipo_via" name="tipo_via" required>
+                    <label for="Ciudad">Ciudad:</label>
+                    <select id="Ciudad" name="Ciudad" required>
                         <option value="">Seleccione</option>
-                        <option value="Calle">Calle</option>
-                        <option value="Carrera">Carrera</option>
-                        <option value="Avenida Calle">Avenida Calle</option>
-                        <option value="Avenida Carrera">Avenida Carrera</option>
+                        <option value="Bogota">Bogotá</option>
                     </select>
-                    <br><br>
-            
-                    <!-- Número de Vía -->
-                    <label for="numero_via">Número de Vía:</label>
-                    <input type="text" id="numero_via" name="numero_via" required placeholder="Ej. 15">
-                    <br><br>
-            
-                    <!-- Número Secundario (Cruce) -->
-                    <label for="numero_cruce">Número de Cruce:</label>
-                    <input type="text" id="numero_cruce" name="numero_cruce" required placeholder="Ej. 45A">
-                    <br><br>
-            
-                    <!-- Número de Casa/Edificio -->
-                    <label for="numero_casa">Número de Casa o Edificio:</label>
-                    <input type="text" id="numero_casa" name="numero_casa" required placeholder="Ej. 20">
                     <br><br>
             
                     <!-- Localidad -->
@@ -71,15 +54,45 @@
                         <option value="Ciudad Bolívar">Ciudad Bolívar</option>
                     </select>
                     <br><br>
-            
+
                     <!-- Barrio -->
                     <label for="barrio">Barrio:</label>
-                    <input type="text" id="barrio" name="barrio" required placeholder="Ej. El Chicó">
+                    <input class="inputs-datos" type="text" id="barrio" name="barrio" required placeholder="Ej. El Chicó">
                     <br><br>
+
+                    <!-- Direccion -->
+                    <label for="Direccion">Direccion:</label>
+                    <select id="Direccion" name="Direccion" required>
+                        <option value="">-Tipo de via-</option>
+                        <option value="Anilo">Anilo</option>
+                        <option value="Autopista">Autopista</option>
+                        <option value="Avenida">Avenida</option>
+                        <option value="Avenida Calle">Avenida Calle</option>
+                        <option value="Avenida Carrera">Avenida Carrera</option>
+                        <option value="Calle">Calle</option>
+                        <option value="Carrera">Carrera</option>
+                        <option value="Circular">Circular</option>
+                        <option value="Diagonal">Diagonal</option>
+                        <option value="Transversal">Transversal</option>
+                        <option value="Zona">Zona</option>
+                    </select>
+                    <br><br>
+
+                    <div class="direccion-datos">
+                        <!-- input 1-->
+                        <input type="text" id="dato-1" name="dato-1" required placeholder="Ej. 15 Sur">
+                        <p>#</p>
+                        <!-- input 2-->
+                        <input type="text" id="dato-2" name="dato-2" required placeholder="Ej. 43 C">
+                        <p>-</p>
+                        <!-- input 3-->
+                        <input type="text" id="dato-3" name="dato-3" required placeholder="Ej. 48">
+                        <br><br>
+                    </div>
             
                     <!-- Código Postal -->
                     <label for="codigo_postal">Código Postal:</label>
-                    <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Ej. 110111">
+                    <input class="inputs-datos" type="text" id="codigo_postal" name="codigo_postal" placeholder="Ej. 110111">
                     <br><br>
             
                     <!-- Referencias adicionales -->
