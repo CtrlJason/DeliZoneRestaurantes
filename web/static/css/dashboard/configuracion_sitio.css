@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -5,7 +9,7 @@ form {
 }
 
 form label {
-    width: 140px;
+    width: 200px;
 }
 
 form input {

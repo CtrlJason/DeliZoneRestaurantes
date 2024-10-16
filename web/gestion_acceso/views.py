@@ -112,6 +112,7 @@ def registro_cliente(request):
                                 "celular": celular,
                                 "password": password_encriptada,
                                 "imagen": "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883",
+                                "direccion": {}
                             }
                         )
                         return redirect("acceder_cliente")
