@@ -14,7 +14,7 @@ def configuracion_sitio(request):
         
         if not sitio_ref:
             sitio_ref = db.collection('restaurante1').document('configuracion').set({
-                'color1': '#fff',
+                'color1': '#ffffff',
                 'color2': '#042434',
                 'color3': '#161A1D',
                 'colorbordeboton': '#660708',
