@@ -101,18 +101,18 @@ Usuarios
     </div>
 
     <div id="registro-empleado" class="registro-usuario">
-        <form method="post" action="{% url "registro_empleado" %}" enctype="multipart/form-data">
+        <form method="post" action="{% url "registro_usuario" 'empleados' 'empleado' %}" enctype="multipart/form-data">
             <h2>Registro de empleados</h2>
             {% csrf_token %}
-            {{ form_empleados.as_p }}
+            {{ form.as_p }}
             <button class="bttn content-main" type="submit">Registrar Nuevo Empleado</button>
         </form>
     </div>
     <div id="registro-administrador" class="registro-usuario">
-        <form method="post" action="{% url "registro_administrador" %}" enctype="multipart/form-data">
+        <form method="post" action="{% url "registro_usuario" 'administradores' 'administrador' %}" enctype="multipart/form-data">
             <h2>Registro de administradores</h2>
             {% csrf_token %}
-            {{ form_administradores.as_p }}
+            {{ form.as_p }}
             <button class="bttn content-main" type="submit">Registrar Nuevo Empleado</button>
         </form>
     </div>
