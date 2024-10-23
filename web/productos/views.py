@@ -11,10 +11,16 @@ def productos(request):
     form = ProductoForm()
     # Productos
     lista_productos = Productos.tienda_productos()
+    lista_categorias = Productos.categorias()
     if 'administradores_id' not in request.session:
         return redirect('acceder_administrador')
     else:
-        return render(request, 'productos.html', {'form': form, 'lista_productos': lista_productos})
+        context = {
+            'form': form,
+            'lista_productos': lista_productos,
+            'lista_categorias': lista_categorias
+        }
+        return render(request, 'productos.html', context)
 
 def subir_imagen(image):
     blob = bucket.blob(f'restaurante1/productos/{image.name}')
@@ -67,3 +73,7 @@ def eliminar_producto(request, producto_id):
         imagen.delete()
         producto_ref.delete()
     return redirect('productos')
+
+def crear_categoria(request):
+    
+    return
