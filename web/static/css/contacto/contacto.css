@@ -64,10 +64,10 @@ body {
 /* ------------ Formulario Contacto ------------ */
 
 .formulario {
-    color: black;
+    color: white;
     padding: 30px;
     border-radius: 5px;
-    background-color: #e74c3c;
+    background-color: #3A6D8C;
     border: solid 2px black;
     width: 360px;
 }
