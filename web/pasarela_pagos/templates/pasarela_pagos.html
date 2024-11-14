@@ -29,7 +29,7 @@
                         </div>
                     </div>
             {% endfor %}
-            <form class="enviar-formulario" method="post" action="{% url 'realizar_pago'%}">
+            <form class="enviar-formulario" method="post" action="{% url 'crear_pedido'%}">
                 {% csrf_token %}
                 <button class="bttn" type="submit">Realizar pago</button>
             </form>

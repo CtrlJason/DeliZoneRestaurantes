@@ -57,6 +57,10 @@ INSTALLED_APPS = [
     "pruebas",
     # Administracion de usuarios y permisos
     "gestion_acceso",
+    # Rest para crear apis
+    'rest_framework',
+    # Apis
+    'pedidosApi',
 ]
 
 MIDDLEWARE = [
