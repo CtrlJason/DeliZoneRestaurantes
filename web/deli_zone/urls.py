@@ -22,7 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("deli_zone_app.urls")),
     # apis
-    path("pedidos-api/", include("pedidosApi.urls")),
+    path("pedidos-api/", include("pedidos_api.urls")),
     # urls
     path("carrito/", include("carrito.urls")),
     path("contacto/", include("contacto.urls")),

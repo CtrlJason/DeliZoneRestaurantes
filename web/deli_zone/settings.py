@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     # Rest para crear apis
     'rest_framework',
     # Apis
-    'pedidosApi',
+    'pedidos_api',
 ]
 
 MIDDLEWARE = [
