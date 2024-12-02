@@ -1,12 +1,21 @@
 from django import forms
+from .untils import obtener_paises
+# from .untils 
 
 class AccederUsuarioForm(forms.Form):
     correo = forms.EmailField(required=True)
     password = forms.CharField(required=True, widget= forms.PasswordInput())
 
 class RegistroClienteForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['pais'].choices = obtener_paises()
+        
     nombres = forms.CharField(max_length = 28, required=True)
     apellidos = forms.CharField(max_length = 30, required=True)
+    
+    pais = forms.ChoiceField(choices = [], label = 'Paises')
+    
     correo = forms.EmailField(max_length = 30, required=True)
     celular = forms.IntegerField(required=True, widget = forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Tu número de celular'}))
     password1 = forms.CharField(min_length = 8, required=True, label="Contraseña", widget= forms.PasswordInput())

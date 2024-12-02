@@ -79,6 +79,7 @@ def registro_cliente(request):
         if form.is_valid():
             nombres = form.cleaned_data["nombres"]
             apellidos = form.cleaned_data["apellidos"]
+            pais = form.cleaned_data["pais"]
             correo = form.cleaned_data["correo"].lower().strip()
             celular = form.cleaned_data["celular"]
             password1 = form.cleaned_data["password1"]
@@ -107,6 +108,7 @@ def registro_cliente(request):
                             {
                                 "nombres": nombres,
                                 "apellidos": apellidos,
+                                "pais": pais,
                                 "correo": correo,
                                 "celular": celular,
                                 "password": password_encriptada,
