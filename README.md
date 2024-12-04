@@ -23,9 +23,11 @@ Este proyecto es una plataforma web diseñada para restaurantes que permite la g
 
 1. Ve a Firebase Console (https://console.firebase.google.com/)
 2. Crea un nuevo proyecto
-3. Ve a Configuración del Proyecto > Cuentas de Servicio
-4. Genera una nueva clave privada
-5. Copia los detalles al archivo `.env`
+3. Crea tu FireStore Database en compilacion en el menú izquierdo
+4. Crea tu Storage en compilacion en el menú izquierdo y copia el enlace al archivo `.env`
+5. Ve a Configuración del Proyecto > Cuentas de Servicio
+6. Genera una nueva clave privada
+7. Copia los detalles al archivo `.env`
 
 ## Instalación
 
