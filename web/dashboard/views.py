@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from firebase import db
-from gestion_acceso.forms import RegistroAdministradoresForm, RegistroEmpleadoForm
+from gestion_acceso.forms import RegistroUsuarioForm
 
 
 # Create your views here.
@@ -24,8 +24,8 @@ def home(request):
 
 
 def ver_usuarios(request):
-    form_empleados = RegistroEmpleadoForm()
-    form_administradores = RegistroAdministradoresForm()
+    form = RegistroUsuarioForm()
+    
     docs_empleados = (
         db.collection("restaurante1")
         .document("usuarios")
@@ -64,7 +64,6 @@ def ver_usuarios(request):
         context = {
             "lista_empleados": lista_empleados,
             "lista_administradores": lista_administradores,
-            "form_empleados": form_empleados,
-            "form_administradores": form_administradores,
+            "form": form,
         }
         return render(request, "usuarios.html", context)

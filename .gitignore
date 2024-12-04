@@ -1,2 +1,4 @@
-web/config/firebase-config.json
 .vscode
+.env
+*.sqlite3
+web/db.sqlite3

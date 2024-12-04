@@ -6,3 +6,6 @@ class ProductoForm(forms.Form):
     stock = forms.IntegerField()
     imagen = forms.ImageField()
     descripcion = forms.CharField(widget = forms.Textarea, max_length = 160)
+
+class CategoriaForm(forms.Form):
+    nombre = forms.CharField(max_length = 40)

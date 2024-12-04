@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import (
     RegistroClienteForm,
     AccederUsuarioForm,
-    RegistroEmpleadoForm,
-    RegistroAdministradoresForm,
+    RegistroUsuarioForm
 )
 from firebase import db, bucket
 from urllib.parse import urlparse
@@ -123,32 +122,31 @@ def registro_cliente(request):
     return render(request, "clientes/registro_cliente.html", {"form": form})
 
 
-# --=================== REGISTRO EMPLEADOS ===================-- #
+# --=================== REGISTRO USUARIOS ADMINISTRACIÓN ===================-- #
 
-def registro_empleado(request):
+def registro_usuario(request, db_usuario, nombre_usuario):
     if request.method == "POST":
-        form = RegistroEmpleadoForm(request.POST, request.FILES)
-
+        form = RegistroUsuarioForm(request.POST, request.FILES)
         if form.is_valid():
             nombres = form.cleaned_data["nombres"]
             apellidos = form.cleaned_data["apellidos"]
             correo = form.cleaned_data["correo"].lower().strip()
             password = form.cleaned_data["password"]
             cargo = form.cleaned_data["cargo"]
-
             # Encriptamos la contraseña
             password_encriptada = bcrypt.hashpw(
                 password.encode(), bcrypt.gensalt()
             ).decode("utf-8")
-
+            
             usuarios_ref = (
                 db.collection("restaurante1")
                 .document("usuarios")
-                .collection("empleados")
+                .collection(db_usuario)
             )
+            
             query = usuarios_ref.where("correo", "==", correo).get()
             if len(query) > 0:
-                form.add_error(None, "El administrador ya se encuentra registrado.")
+                form.add_error(None, f"El {nombre_usuario} ya se encuentra registrado.")
             try:
                 imagen_url = "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883"
                 if "imagen" in request.FILES:
@@ -161,7 +159,7 @@ def registro_empleado(request):
                         "correo": correo,
                         "password": password_encriptada,
                         "cargo": cargo,
-                        "rol": "empleado",
+                        "rol": nombre_usuario,
                         "estado": True,
                         "imagen": imagen_url,
                     }
@@ -169,55 +167,7 @@ def registro_empleado(request):
             except Exception as e:
                 form.add_error(None, "Error al registrar al empleado")
     else:
-        form = RegistroEmpleadoForm()
-    return redirect("ver_usuarios")
-
-
-# --=================== REGISTRO ADMINISTRADORES ===================-- #
-
-def registro_administrador(request):
-    if request.method == "POST":
-        form = RegistroAdministradoresForm(request.POST, request.FILES)
-        if form.is_valid():
-            nombres = form.cleaned_data["nombres"]
-            apellidos = form.cleaned_data["apellidos"]
-            correo = form.cleaned_data["correo"].lower().strip()
-            password = form.cleaned_data["password"]
-
-            # Encriptamos la contraseña
-            password_encriptada = bcrypt.hashpw(
-                password.encode(), bcrypt.gensalt()
-            ).decode("utf-8")
-
-            usuarios_ref = (
-                db.collection("restaurante1")
-                .document("usuarios")
-                .collection("administradores")
-            )
-            query = usuarios_ref.where("correo", "==", correo).get()
-            if len(query) > 0:
-                form.add_error(None, "El administrador ya se encuentra registrado.")
-            else:
-                try:
-                    imagen_url = "https://firebasestorage.googleapis.com/v0/b/delizone-1a227.appspot.com/o/DeliZone%2FCliente%2Fuser-circle-black.svg?alt=media&token=667e6bbd-7acb-4655-b5cb-697347ef3883"
-                    if "imagen" in request.FILES:
-                        imagen = request.FILES["imagen"]
-                        imagen_url = subir_imagen(imagen)
-                    usuarios_ref.add(
-                        {
-                            "nombres": nombres,
-                            "apellidos": apellidos,
-                            "correo": correo,
-                            "password": password_encriptada,
-                            "rol": "admin",
-                            "estado": True,
-                            "imagen": imagen_url,
-                        }
-                    )
-                except Exception as e:
-                    form.add_error(None, "Error al registrar al empleado")
-    else:
-        form = RegistroEmpleadoForm()
+        form = RegistroUsuarioForm()
     return redirect("ver_usuarios")
 
 # --=================== ELIMINAR CLIENTES-EMPLEADOS-ADMINISTRADORES ===================-- #

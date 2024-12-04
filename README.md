@@ -9,6 +9,26 @@ Este proyecto es una plataforma web diseñada para restaurantes que permite la g
 - **pip** (para instalar las dependencias)
 - **Firebase** (para la gestión de la base de datos y almacenamiento)
 
+## Configuración del Proyecto
+
+### Variables de Entorno
+
+1. Copia el archivo `.env.example` a `.env`
+2. Completa las variables con tus propias credenciales:
+   - Crea un proyecto en Firebase
+   - Genera una nueva clave de servicio en Firebase Console
+   - Copia las credenciales al archivo `.env`
+
+### Pasos para configurar Firebase
+
+1. Ve a Firebase Console (https://console.firebase.google.com/)
+2. Crea un nuevo proyecto
+3. Crea tu FireStore Database en compilacion en el menú izquierdo
+4. Crea tu Storage en compilacion en el menú izquierdo y copia el enlace al archivo `.env`
+5. Ve a Configuración del Proyecto > Cuentas de Servicio
+6. Genera una nueva clave privada
+7. Copia los detalles al archivo `.env`
+
 ## Instalación
 
 Sigue los pasos a continuación para instalar y configurar el proyecto localmente.
@@ -37,27 +57,17 @@ Instala las dependencias necesarias utilizando el archivo `requirements.txt`:
 pip install -r requirements.txt
 ```
 
-### 4. Configuración de Firebase
-
-Para que el proyecto funcione correctamente, es necesario configurar las credenciales de Firebase. Esto requiere un archivo JSON que contiene las llaves de acceso.
-
-#### 4.1 Crear una carpeta llamada `config`
-
-En la raíz del proyecto, crea una carpeta llamada `config`:
-
-```bash
-mkdir config
+### 4. Configurar variables de entorno
+```
+# 
+cp .env.example .env
+# Edita .env con tus credenciales
 ```
 
-#### 4.2 Obtener el archivo de configuración de Firebase
-
-El archivo `config.json` contiene las llaves de acceso de Firebase necesarias para la autenticación y el uso de la base de datos. Para obtener este archivo, comunícate con el desarrollador a través del correo:
-
+#### 4.1 Ejecutar migraciones
 ```
-yeisondamosquera@gmail.com
+python manage.py migrate
 ```
-
-Coloca el archivo `config.json` dentro de la carpeta `config`.
 
 ### 5. Ejecutar el proyecto
 
