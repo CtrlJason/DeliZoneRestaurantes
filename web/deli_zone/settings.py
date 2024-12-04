@@ -19,14 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-d5yiym1!u9ufdspha5x^1w(g=abo@0erqd5np*j-0aca1+fi5k"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -60,7 +57,7 @@ INSTALLED_APPS = [
     # Rest para crear apis
     'rest_framework',
     # Apis
-    'pedidos_api',
+    # 'pedidos_api',
 ]
 
 MIDDLEWARE = [
@@ -108,11 +105,18 @@ WSGI_APPLICATION = "deli_zone.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR
-        / "db.sqlite3",  # Usa la ruta del directorio base de tu proyecto
+import os 
+from dotenv import load_dotenv 
+load_dotenv() 
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY') 
+DEBUG = os.getenv('DEBUG') == 'True'
+
+DATABASES = { 
+    'default': { 
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.sqlite3'), 
+        'NAME': os.getenv('DB_NAME', os.path.join(BASE_DIR, 'db.sqlite3')), 
     }
 }
 
