@@ -6,7 +6,7 @@
 
 .pedido .contenido .encabezado {
     padding: 10px 15px 0 15px;
-    background-color: #e4eaeb;
+    background-color: #cecece;
     border-radius: 15px 15px 0 0;
     width: 100%;
     font-size: 15px;
@@ -14,14 +14,19 @@
 }
 
 .pedido .contenido .sub-titulo {
+    background-color: white;
     padding: 10px 15px 0 15px;
     font-size: 20px;
+    margin: 0;
 }
 
 .pedido .contenido .productos {
     padding: 0 15px 15px 15px;
     border-radius: 0 0 15px 15px;
     font-size: 15px;
+    background-color: white;
+    width: 100%;
+    margin: auto;
 }
 
 .pedido .contenido .productos .titulo {
@@ -31,6 +36,7 @@
 .pedido .contenido .productos img {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     border-radius: 15px;
 }
 
